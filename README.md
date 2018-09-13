@@ -12,7 +12,7 @@ Además se realizarán un mínimo de dos releases por mes, para concretar un tot
 
 Integrantes: 
 
-1.Emanuel Céspedes Guillén
-2.Nicole Garita Constante
-3.Harry Mora Solano
-4.Ignacio Vargas Rojas
+1. Emanuel Céspedes Guillén
+2. Nicole Garita Constante
+3. Harry Mora Solano
+4. Ignacio Vargas Rojas
