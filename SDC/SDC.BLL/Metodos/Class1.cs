@@ -9,5 +9,6 @@ namespace SDC.BLL.Metodos
     class Class1
     {
         public int nano { get; set; }
+        public string MyProperty { get; set; }
     }
 }
