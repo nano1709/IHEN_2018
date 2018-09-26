@@ -74,6 +74,7 @@
     <Compile Include="Estudiante.cs">
       <DependentUpon>DBEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Metodos\MDB.cs" />
     <Compile Include="Modulo.cs">
       <DependentUpon>DBEntity.tt</DependentUpon>
     </Compile>
@@ -107,7 +108,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interfaces\" />
-    <Folder Include="Metodos\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
