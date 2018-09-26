@@ -49,42 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Curso.cs">
-      <DependentUpon>DBEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CursoEstudiante.cs">
-      <DependentUpon>DBEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBEntity.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBEntity.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBEntity.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBEntity.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBEntity.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Estudiante.cs">
-      <DependentUpon>DBEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modulo.cs">
-      <DependentUpon>DBEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModuloEstudiante.cs">
-      <DependentUpon>DBEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModuloProfesor.cs">
-      <DependentUpon>DBEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Profesor.cs">
-      <DependentUpon>DBEntity.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -106,7 +70,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interfaces\" />
-    <Folder Include="Metodos\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
