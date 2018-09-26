@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b7ef5d2773e44e9dbd229be6dd5519b2" Name="Diagram1" ZoomLevel="88">
+        <EntityTypeShape EntityType="DocenciaModel.Curso" Width="1.5" PointX="0.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DocenciaModel.Estudiante" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DocenciaModel.Modulo" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DocenciaModel.ModuloProfesor" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DocenciaModel.Profesor" Width="1.5" PointX="0.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DocenciaModel.sysdiagram" Width="1.5" PointX="5.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DocenciaModel.Tecnico" Width="1.5" PointX="0.75" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DocenciaModel.Usuario" Width="1.5" PointX="5.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DocenciaModel.CursoEstudiante" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DocenciaModel.ModuloEstudiante" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DocenciaModel.TecnicoEstudiante" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <AssociationConnector Association="DocenciaModel.FK_Curso" ManuallyRouted="false" />
+        <AssociationConnector Association="DocenciaModel.FK_EstudianteC" ManuallyRouted="false" />
+        <AssociationConnector Association="DocenciaModel.FK_EstudianteM" ManuallyRouted="false" />
+        <AssociationConnector Association="DocenciaModel.FK_EstudianteT" ManuallyRouted="false" />
+        <AssociationConnector Association="DocenciaModel.FK_Modulo" ManuallyRouted="false" />
+        <AssociationConnector Association="DocenciaModel.FK_ModuloP" ManuallyRouted="false" />
+        <AssociationConnector Association="DocenciaModel.FK_Profesor" ManuallyRouted="false" />
+        <AssociationConnector Association="DocenciaModel.FK_Tecnico" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
