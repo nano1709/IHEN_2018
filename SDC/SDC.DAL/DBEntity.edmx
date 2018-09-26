@@ -597,7 +597,7 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DocenciaEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DocenciaEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cursoes" EntityType="Self.Curso" />
           <EntitySet Name="Estudiantes" EntityType="Self.Estudiante" />
           <EntitySet Name="Moduloes" EntityType="Self.Modulo" />
@@ -647,7 +647,7 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DocenciaModelStoreContainer" CdmEntityContainer="DocenciaEntities">
+        <EntityContainerMapping StorageEntityContainer="DocenciaModelStoreContainer" CdmEntityContainer="DocenciaEntities1">
           <EntitySetMapping Name="Cursoes">
             <EntityTypeMapping TypeName="DocenciaModel.Curso">
               <MappingFragment StoreEntitySet="Curso">

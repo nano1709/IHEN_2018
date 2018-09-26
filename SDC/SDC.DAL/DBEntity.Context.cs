@@ -13,10 +13,10 @@ namespace SDC.DAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DocenciaEntities : DbContext
+    public partial class DocenciaEntities1 : DbContext
     {
-        public DocenciaEntities()
-            : base("name=DocenciaEntities")
+        public DocenciaEntities1()
+            : base("name=DocenciaEntities1")
         {
         }
     
