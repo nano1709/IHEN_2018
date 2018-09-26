@@ -1,0 +1,834 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DocenciaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Curso">
+          <Key>
+            <PropertyRef Name="CodigoCurso" />
+          </Key>
+          <Property Name="NombreCurso" Type="varchar" MaxLength="100" />
+          <Property Name="CodigoCurso" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Duracion" Type="varchar" MaxLength="100" />
+          <Property Name="ObjetivoCurso" Type="varchar" MaxLength="150" />
+          <Property Name="Metodologia" Type="varchar" MaxLength="150" />
+          <Property Name="MaterialDidactico" Type="varchar" MaxLength="150" />
+          <Property Name="Certificacion" Type="varchar" MaxLength="100" />
+          <Property Name="Inversion" Type="varchar" MaxLength="100" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Docencia.dbo.CursoEstudiante' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CursoEstudiante">
+          <Key>
+            <PropertyRef Name="CodigoCurso" />
+            <PropertyRef Name="CodigoEstudiante" />
+          </Key>
+          <Property Name="CodigoCurso" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CodigoEstudiante" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="bit" />
+          <Property Name="Condicion" Type="bit" />
+        </EntityType>
+        <EntityType Name="Estudiante">
+          <Key>
+            <PropertyRef Name="Cedula" />
+          </Key>
+          <Property Name="Nombre" Type="varchar" MaxLength="250" />
+          <Property Name="Cedula" Type="int" Nullable="false" />
+          <Property Name="FechaIngreso" Type="varchar" MaxLength="50" />
+          <Property Name="CarreraTecnica" Type="varchar" MaxLength="100" />
+          <Property Name="FechaNacimiento" Type="varchar" MaxLength="50" />
+          <Property Name="Edad" Type="int" />
+          <Property Name="Genero" Type="char" MaxLength="10" />
+          <Property Name="TelefonoMovil" Type="varchar" MaxLength="50" />
+          <Property Name="TelefonoDomicilio" Type="varchar" MaxLength="50" />
+          <Property Name="CorreoElectronico" Type="varchar" MaxLength="150" />
+          <Property Name="ReferenciaPersonal" Type="varchar" MaxLength="100" />
+          <Property Name="TelefonoReferencia" Type="varchar" MaxLength="50" />
+          <Property Name="Provincia" Type="varchar" MaxLength="50" />
+          <Property Name="Canton" Type="varchar" MaxLength="50" />
+          <Property Name="Distrito" Type="varchar" MaxLength="50" />
+          <Property Name="DomicilioExacto" Type="varchar" MaxLength="200" />
+          <Property Name="LugarTrabajo" Type="varchar" MaxLength="50" />
+          <Property Name="Cargo" Type="varchar" MaxLength="100" />
+          <Property Name="TelefonoTrabajo" Type="varchar" MaxLength="50" />
+          <Property Name="DireccionTrabajo" Type="varchar" MaxLength="100" />
+          <Property Name="GradoAcademico" Type="varchar" MaxLength="50" />
+          <Property Name="Institucion" Type="varchar" MaxLength="100" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="Modulo">
+          <Key>
+            <PropertyRef Name="CodigoModulo" />
+          </Key>
+          <Property Name="CodigoModulo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NombreModulo" Type="varchar" MaxLength="100" />
+          <Property Name="Duracion" Type="varchar" MaxLength="50" />
+          <Property Name="Creditos" Type="int" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Docencia.dbo.ModuloEstudiante' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ModuloEstudiante">
+          <Key>
+            <PropertyRef Name="CodigoModulo" />
+            <PropertyRef Name="CodigoEstudiante" />
+          </Key>
+          <Property Name="CodigoModulo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CodigoEstudiante" Type="int" Nullable="false" />
+          <Property Name="Nota" Type="int" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="ModuloProfesor">
+          <Key>
+            <PropertyRef Name="CodigoModulo" />
+          </Key>
+          <Property Name="CodigoModulo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CodigoProfesor" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="Profesor">
+          <Key>
+            <PropertyRef Name="Cedula" />
+          </Key>
+          <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Cedula" Type="int" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="varchar" MaxLength="50" />
+          <Property Name="Edad" Type="int" />
+          <Property Name="Genero" Type="char" MaxLength="10" />
+          <Property Name="TelefonoMovil" Type="int" />
+          <Property Name="TelefonoDomicilio" Type="int" />
+          <Property Name="CorreoElectronico" Type="varchar" MaxLength="150" />
+          <Property Name="Provincia" Type="varchar" MaxLength="50" />
+          <Property Name="Canton" Type="varchar" MaxLength="50" />
+          <Property Name="Distrito" Type="varchar" MaxLength="50" />
+          <Property Name="DomicilioExacto" Type="varchar" MaxLength="200" />
+          <Property Name="NumeroCuenta" Type="int" Nullable="false" />
+          <Property Name="NombreBanco" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LugarTrabajo" Type="varchar" MaxLength="50" />
+          <Property Name="TelefonoTrabajo" Type="int" />
+          <Property Name="FechaIngreso" Type="varchar" MaxLength="50" />
+          <Property Name="DireccionTrabajo" Type="varchar" MaxLength="200" />
+          <Property Name="FechaFinalizacion" Type="varchar" MaxLength="50" />
+          <Property Name="GradoAcademico" Type="varchar" MaxLength="100" />
+          <Property Name="Institucion" Type="varchar" MaxLength="100" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+          <Property Name="FechaInicio" Type="varchar" MaxLength="50" />
+          <Property Name="CarreraTecnica" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tecnico">
+          <Key>
+            <PropertyRef Name="CodigoTecnico" />
+          </Key>
+          <Property Name="CodigoTecnico" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NombreTecnico" Type="varchar" MaxLength="200" />
+          <Property Name="PerfilOcupacional" Type="varchar" MaxLength="500" />
+          <Property Name="Duracion" Type="varchar" MaxLength="100" />
+          <Property Name="PracticaProf" Type="varchar" MaxLength="50" />
+          <Property Name="Requisitos" Type="varchar" MaxLength="150" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TecnicoEstudiante">
+          <Key>
+            <PropertyRef Name="CodigoTecnico" />
+            <PropertyRef Name="CodigoEstudiante" />
+          </Key>
+          <Property Name="CodigoTecnico" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CodigoEstudiante" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="bit" />
+          <Property Name="PracticaProfesional" Type="bit" />
+          <Property Name="Condicion" Type="bit" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="NombreUsuario" />
+          </Key>
+          <Property Name="NombreUsuario" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="150" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="Rol" Type="varchar" MaxLength="50" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <Association Name="FK_Curso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+          <End Role="CursoEstudiante" Type="Self.CursoEstudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="CodigoCurso" />
+            </Principal>
+            <Dependent Role="CursoEstudiante">
+              <PropertyRef Name="CodigoCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EstudianteC">
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
+          <End Role="CursoEstudiante" Type="Self.CursoEstudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiante">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="CursoEstudiante">
+              <PropertyRef Name="CodigoEstudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EstudianteM">
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
+          <End Role="ModuloEstudiante" Type="Self.ModuloEstudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiante">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="ModuloEstudiante">
+              <PropertyRef Name="CodigoEstudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EstudianteT">
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
+          <End Role="TecnicoEstudiante" Type="Self.TecnicoEstudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiante">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="TecnicoEstudiante">
+              <PropertyRef Name="CodigoEstudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Modulo">
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
+          <End Role="ModuloEstudiante" Type="Self.ModuloEstudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulo">
+              <PropertyRef Name="CodigoModulo" />
+            </Principal>
+            <Dependent Role="ModuloEstudiante">
+              <PropertyRef Name="CodigoModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuloP">
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
+          <End Role="ModuloProfesor" Type="Self.ModuloProfesor" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Modulo">
+              <PropertyRef Name="CodigoModulo" />
+            </Principal>
+            <Dependent Role="ModuloProfesor">
+              <PropertyRef Name="CodigoModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Profesor">
+          <End Role="Profesor" Type="Self.Profesor" Multiplicity="1" />
+          <End Role="ModuloProfesor" Type="Self.ModuloProfesor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profesor">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="ModuloProfesor">
+              <PropertyRef Name="CodigoProfesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tecnico">
+          <End Role="Tecnico" Type="Self.Tecnico" Multiplicity="1" />
+          <End Role="TecnicoEstudiante" Type="Self.TecnicoEstudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tecnico">
+              <PropertyRef Name="CodigoTecnico" />
+            </Principal>
+            <Dependent Role="TecnicoEstudiante">
+              <PropertyRef Name="CodigoTecnico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DocenciaModelStoreContainer">
+          <EntitySet Name="Curso" EntityType="Self.Curso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estudiante" EntityType="Self.Estudiante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modulo" EntityType="Self.Modulo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ModuloProfesor" EntityType="Self.ModuloProfesor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profesor" EntityType="Self.Profesor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tecnico" EntityType="Self.Tecnico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CursoEstudiante" EntityType="Self.CursoEstudiante" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CursoEstudiante].[CodigoCurso] AS [CodigoCurso], 
+    [CursoEstudiante].[CodigoEstudiante] AS [CodigoEstudiante], 
+    [CursoEstudiante].[Estado] AS [Estado], 
+    [CursoEstudiante].[Condicion] AS [Condicion]
+    FROM [dbo].[CursoEstudiante] AS [CursoEstudiante]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ModuloEstudiante" EntityType="Self.ModuloEstudiante" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ModuloEstudiante].[CodigoModulo] AS [CodigoModulo], 
+    [ModuloEstudiante].[CodigoEstudiante] AS [CodigoEstudiante], 
+    [ModuloEstudiante].[Nota] AS [Nota], 
+    [ModuloEstudiante].[Estado] AS [Estado]
+    FROM [dbo].[ModuloEstudiante] AS [ModuloEstudiante]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TecnicoEstudiante" EntityType="Self.TecnicoEstudiante" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TecnicoEstudiante].[CodigoTecnico] AS [CodigoTecnico], 
+    [TecnicoEstudiante].[CodigoEstudiante] AS [CodigoEstudiante], 
+    [TecnicoEstudiante].[Estado] AS [Estado], 
+    [TecnicoEstudiante].[PracticaProfesional] AS [PracticaProfesional], 
+    [TecnicoEstudiante].[Condicion] AS [Condicion]
+    FROM [dbo].[TecnicoEstudiante] AS [TecnicoEstudiante]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Curso" Association="Self.FK_Curso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="CursoEstudiante" EntitySet="CursoEstudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EstudianteC" Association="Self.FK_EstudianteC">
+            <End Role="Estudiante" EntitySet="Estudiante" />
+            <End Role="CursoEstudiante" EntitySet="CursoEstudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EstudianteM" Association="Self.FK_EstudianteM">
+            <End Role="Estudiante" EntitySet="Estudiante" />
+            <End Role="ModuloEstudiante" EntitySet="ModuloEstudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EstudianteT" Association="Self.FK_EstudianteT">
+            <End Role="Estudiante" EntitySet="Estudiante" />
+            <End Role="TecnicoEstudiante" EntitySet="TecnicoEstudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Modulo" Association="Self.FK_Modulo">
+            <End Role="Modulo" EntitySet="Modulo" />
+            <End Role="ModuloEstudiante" EntitySet="ModuloEstudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuloP" Association="Self.FK_ModuloP">
+            <End Role="Modulo" EntitySet="Modulo" />
+            <End Role="ModuloProfesor" EntitySet="ModuloProfesor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Profesor" Association="Self.FK_Profesor">
+            <End Role="Profesor" EntitySet="Profesor" />
+            <End Role="ModuloProfesor" EntitySet="ModuloProfesor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tecnico" Association="Self.FK_Tecnico">
+            <End Role="Tecnico" EntitySet="Tecnico" />
+            <End Role="TecnicoEstudiante" EntitySet="TecnicoEstudiante" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DocenciaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Curso">
+          <Key>
+            <PropertyRef Name="CodigoCurso" />
+          </Key>
+          <Property Name="NombreCurso" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoCurso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Duracion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ObjetivoCurso" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Metodologia" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="MaterialDidactico" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Certificacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Inversion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" />
+          <NavigationProperty Name="CursoEstudiantes" Relationship="Self.FK_Curso" FromRole="Curso" ToRole="CursoEstudiante" />
+        </EntityType>
+        <EntityType Name="Estudiante">
+          <Key>
+            <PropertyRef Name="Cedula" />
+          </Key>
+          <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Cedula" Type="Int32" Nullable="false" />
+          <Property Name="FechaIngreso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CarreraTecnica" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechaNacimiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Edad" Type="Int32" />
+          <Property Name="Genero" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="TelefonoMovil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TelefonoDomicilio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CorreoElectronico" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ReferenciaPersonal" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TelefonoReferencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Canton" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Distrito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DomicilioExacto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LugarTrabajo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cargo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TelefonoTrabajo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DireccionTrabajo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GradoAcademico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Institucion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" />
+          <NavigationProperty Name="CursoEstudiantes" Relationship="Self.FK_EstudianteC" FromRole="Estudiante" ToRole="CursoEstudiante" />
+          <NavigationProperty Name="ModuloEstudiantes" Relationship="Self.FK_EstudianteM" FromRole="Estudiante" ToRole="ModuloEstudiante" />
+          <NavigationProperty Name="TecnicoEstudiantes" Relationship="Self.FK_EstudianteT" FromRole="Estudiante" ToRole="TecnicoEstudiante" />
+        </EntityType>
+        <EntityType Name="Modulo">
+          <Key>
+            <PropertyRef Name="CodigoModulo" />
+          </Key>
+          <Property Name="CodigoModulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreModulo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Duracion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Creditos" Type="Int32" />
+          <Property Name="Estado" Type="Boolean" />
+          <NavigationProperty Name="ModuloEstudiantes" Relationship="Self.FK_Modulo" FromRole="Modulo" ToRole="ModuloEstudiante" />
+          <NavigationProperty Name="ModuloProfesor" Relationship="DocenciaModel.FK_ModuloP" FromRole="Modulo" ToRole="ModuloProfesor" />
+        </EntityType>
+        <EntityType Name="Profesor">
+          <Key>
+            <PropertyRef Name="Cedula" />
+          </Key>
+          <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cedula" Type="Int32" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Edad" Type="Int32" />
+          <Property Name="Genero" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="TelefonoMovil" Type="Int32" />
+          <Property Name="TelefonoDomicilio" Type="Int32" />
+          <Property Name="CorreoElectronico" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Canton" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Distrito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DomicilioExacto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="NumeroCuenta" Type="Int32" Nullable="false" />
+          <Property Name="NombreBanco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LugarTrabajo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TelefonoTrabajo" Type="Int32" />
+          <Property Name="FechaIngreso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DireccionTrabajo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FechaFinalizacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GradoAcademico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Institucion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <Property Name="FechaInicio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CarreraTecnica" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ModuloProfesor" Relationship="DocenciaModel.FK_Profesor" FromRole="Profesor" ToRole="ModuloProfesor" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tecnico">
+          <Key>
+            <PropertyRef Name="CodigoTecnico" />
+          </Key>
+          <Property Name="CodigoTecnico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreTecnico" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PerfilOcupacional" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Duracion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PracticaProf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Requisitos" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" />
+          <NavigationProperty Name="TecnicoEstudiantes" Relationship="Self.FK_Tecnico" FromRole="Tecnico" ToRole="TecnicoEstudiante" />
+        </EntityType>
+        <EntityType Name="CursoEstudiante">
+          <Key>
+            <PropertyRef Name="CodigoCurso" />
+            <PropertyRef Name="CodigoEstudiante" />
+          </Key>
+          <Property Name="CodigoCurso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodigoEstudiante" Type="Int32" Nullable="false" />
+          <Property Name="Estado" Type="Boolean" />
+          <Property Name="Condicion" Type="Boolean" />
+          <NavigationProperty Name="Curso" Relationship="Self.FK_Curso" FromRole="CursoEstudiante" ToRole="Curso" />
+          <NavigationProperty Name="Estudiante" Relationship="Self.FK_EstudianteC" FromRole="CursoEstudiante" ToRole="Estudiante" />
+        </EntityType>
+        <EntityType Name="ModuloEstudiante">
+          <Key>
+            <PropertyRef Name="CodigoModulo" />
+            <PropertyRef Name="CodigoEstudiante" />
+          </Key>
+          <Property Name="CodigoModulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodigoEstudiante" Type="Int32" Nullable="false" />
+          <Property Name="Nota" Type="Int32" />
+          <Property Name="Estado" Type="Boolean" />
+          <NavigationProperty Name="Estudiante" Relationship="Self.FK_EstudianteM" FromRole="ModuloEstudiante" ToRole="Estudiante" />
+          <NavigationProperty Name="Modulo" Relationship="Self.FK_Modulo" FromRole="ModuloEstudiante" ToRole="Modulo" />
+        </EntityType>
+        <EntityType Name="TecnicoEstudiante">
+          <Key>
+            <PropertyRef Name="CodigoTecnico" />
+            <PropertyRef Name="CodigoEstudiante" />
+          </Key>
+          <Property Name="CodigoTecnico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodigoEstudiante" Type="Int32" Nullable="false" />
+          <Property Name="Estado" Type="Boolean" />
+          <Property Name="PracticaProfesional" Type="Boolean" />
+          <Property Name="Condicion" Type="Boolean" />
+          <NavigationProperty Name="Estudiante" Relationship="Self.FK_EstudianteT" FromRole="TecnicoEstudiante" ToRole="Estudiante" />
+          <NavigationProperty Name="Tecnico" Relationship="Self.FK_Tecnico" FromRole="TecnicoEstudiante" ToRole="Tecnico" />
+        </EntityType>
+        <Association Name="FK_Curso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+          <End Role="CursoEstudiante" Type="Self.CursoEstudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="CodigoCurso" />
+            </Principal>
+            <Dependent Role="CursoEstudiante">
+              <PropertyRef Name="CodigoCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EstudianteC">
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
+          <End Role="CursoEstudiante" Type="Self.CursoEstudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiante">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="CursoEstudiante">
+              <PropertyRef Name="CodigoEstudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EstudianteM">
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
+          <End Role="ModuloEstudiante" Type="Self.ModuloEstudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiante">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="ModuloEstudiante">
+              <PropertyRef Name="CodigoEstudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EstudianteT">
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
+          <End Role="TecnicoEstudiante" Type="Self.TecnicoEstudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiante">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="TecnicoEstudiante">
+              <PropertyRef Name="CodigoEstudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Modulo">
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
+          <End Role="ModuloEstudiante" Type="Self.ModuloEstudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulo">
+              <PropertyRef Name="CodigoModulo" />
+            </Principal>
+            <Dependent Role="ModuloEstudiante">
+              <PropertyRef Name="CodigoModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tecnico">
+          <End Role="Tecnico" Type="Self.Tecnico" Multiplicity="1" />
+          <End Role="TecnicoEstudiante" Type="Self.TecnicoEstudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tecnico">
+              <PropertyRef Name="CodigoTecnico" />
+            </Principal>
+            <Dependent Role="TecnicoEstudiante">
+              <PropertyRef Name="CodigoTecnico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DocenciaEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cursoes" EntityType="Self.Curso" />
+          <EntitySet Name="Estudiantes" EntityType="Self.Estudiante" />
+          <EntitySet Name="Moduloes" EntityType="Self.Modulo" />
+          <EntitySet Name="Profesors" EntityType="Self.Profesor" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Tecnicoes" EntityType="Self.Tecnico" />
+          <EntitySet Name="CursoEstudiantes" EntityType="Self.CursoEstudiante" />
+          <EntitySet Name="ModuloEstudiantes" EntityType="Self.ModuloEstudiante" />
+          <EntitySet Name="TecnicoEstudiantes" EntityType="Self.TecnicoEstudiante" />
+          <AssociationSet Name="FK_Curso" Association="Self.FK_Curso">
+            <End Role="Curso" EntitySet="Cursoes" />
+            <End Role="CursoEstudiante" EntitySet="CursoEstudiantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EstudianteC" Association="Self.FK_EstudianteC">
+            <End Role="Estudiante" EntitySet="Estudiantes" />
+            <End Role="CursoEstudiante" EntitySet="CursoEstudiantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EstudianteM" Association="Self.FK_EstudianteM">
+            <End Role="Estudiante" EntitySet="Estudiantes" />
+            <End Role="ModuloEstudiante" EntitySet="ModuloEstudiantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EstudianteT" Association="Self.FK_EstudianteT">
+            <End Role="Estudiante" EntitySet="Estudiantes" />
+            <End Role="TecnicoEstudiante" EntitySet="TecnicoEstudiantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Modulo" Association="Self.FK_Modulo">
+            <End Role="Modulo" EntitySet="Moduloes" />
+            <End Role="ModuloEstudiante" EntitySet="ModuloEstudiantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tecnico" Association="Self.FK_Tecnico">
+            <End Role="Tecnico" EntitySet="Tecnicoes" />
+            <End Role="TecnicoEstudiante" EntitySet="TecnicoEstudiantes" />
+          </AssociationSet>
+          <EntitySet Name="Usuarios" EntityType="DocenciaModel.Usuario" />
+          <EntitySet Name="ModuloProfesor" EntityType="DocenciaModel.ModuloProfesor" />
+          <AssociationSet Name="FK_ModuloP" Association="DocenciaModel.FK_ModuloP">
+            <End Role="Modulo" EntitySet="Moduloes" />
+            <End Role="ModuloProfesor" EntitySet="ModuloProfesor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Profesor" Association="DocenciaModel.FK_Profesor">
+            <End Role="Profesor" EntitySet="Profesors" />
+            <End Role="ModuloProfesor" EntitySet="ModuloProfesor" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="NombreUsuario" />
+          </Key>
+          <Property Name="NombreUsuario" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ModuloProfesor">
+          <Key>
+            <PropertyRef Name="CodigoModulo" />
+          </Key>
+          <Property Name="CodigoModulo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoProfesor" Type="Int32" Nullable="false" />
+          <Property Name="Estado" Type="Boolean" />
+          <NavigationProperty Name="Modulo" Relationship="DocenciaModel.FK_ModuloP" FromRole="ModuloProfesor" ToRole="Modulo" />
+          <NavigationProperty Name="Profesor" Relationship="DocenciaModel.FK_Profesor" FromRole="ModuloProfesor" ToRole="Profesor" />
+        </EntityType>
+        <Association Name="FK_ModuloP">
+          <End Type="DocenciaModel.Modulo" Role="Modulo" Multiplicity="1" />
+          <End Type="DocenciaModel.ModuloProfesor" Role="ModuloProfesor" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Modulo">
+              <PropertyRef Name="CodigoModulo" />
+            </Principal>
+            <Dependent Role="ModuloProfesor">
+              <PropertyRef Name="CodigoModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Profesor">
+          <End Type="DocenciaModel.Profesor" Role="Profesor" Multiplicity="1" />
+          <End Type="DocenciaModel.ModuloProfesor" Role="ModuloProfesor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profesor">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="ModuloProfesor">
+              <PropertyRef Name="CodigoProfesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DocenciaModelStoreContainer" CdmEntityContainer="DocenciaEntities1">
+          <EntitySetMapping Name="Cursoes">
+            <EntityTypeMapping TypeName="DocenciaModel.Curso">
+              <MappingFragment StoreEntitySet="Curso">
+                <ScalarProperty Name="NombreCurso" ColumnName="NombreCurso" />
+                <ScalarProperty Name="CodigoCurso" ColumnName="CodigoCurso" />
+                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+                <ScalarProperty Name="ObjetivoCurso" ColumnName="ObjetivoCurso" />
+                <ScalarProperty Name="Metodologia" ColumnName="Metodologia" />
+                <ScalarProperty Name="MaterialDidactico" ColumnName="MaterialDidactico" />
+                <ScalarProperty Name="Certificacion" ColumnName="Certificacion" />
+                <ScalarProperty Name="Inversion" ColumnName="Inversion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estudiantes">
+            <EntityTypeMapping TypeName="DocenciaModel.Estudiante">
+              <MappingFragment StoreEntitySet="Estudiante">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="CarreraTecnica" ColumnName="CarreraTecnica" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="TelefonoMovil" ColumnName="TelefonoMovil" />
+                <ScalarProperty Name="TelefonoDomicilio" ColumnName="TelefonoDomicilio" />
+                <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+                <ScalarProperty Name="ReferenciaPersonal" ColumnName="ReferenciaPersonal" />
+                <ScalarProperty Name="TelefonoReferencia" ColumnName="TelefonoReferencia" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+                <ScalarProperty Name="Canton" ColumnName="Canton" />
+                <ScalarProperty Name="Distrito" ColumnName="Distrito" />
+                <ScalarProperty Name="DomicilioExacto" ColumnName="DomicilioExacto" />
+                <ScalarProperty Name="LugarTrabajo" ColumnName="LugarTrabajo" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="TelefonoTrabajo" ColumnName="TelefonoTrabajo" />
+                <ScalarProperty Name="DireccionTrabajo" ColumnName="DireccionTrabajo" />
+                <ScalarProperty Name="GradoAcademico" ColumnName="GradoAcademico" />
+                <ScalarProperty Name="Institucion" ColumnName="Institucion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Moduloes">
+            <EntityTypeMapping TypeName="DocenciaModel.Modulo">
+              <MappingFragment StoreEntitySet="Modulo">
+                <ScalarProperty Name="CodigoModulo" ColumnName="CodigoModulo" />
+                <ScalarProperty Name="NombreModulo" ColumnName="NombreModulo" />
+                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+                <ScalarProperty Name="Creditos" ColumnName="Creditos" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profesors">
+            <EntityTypeMapping TypeName="DocenciaModel.Profesor">
+              <MappingFragment StoreEntitySet="Profesor">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="TelefonoMovil" ColumnName="TelefonoMovil" />
+                <ScalarProperty Name="TelefonoDomicilio" ColumnName="TelefonoDomicilio" />
+                <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+                <ScalarProperty Name="Canton" ColumnName="Canton" />
+                <ScalarProperty Name="Distrito" ColumnName="Distrito" />
+                <ScalarProperty Name="DomicilioExacto" ColumnName="DomicilioExacto" />
+                <ScalarProperty Name="NumeroCuenta" ColumnName="NumeroCuenta" />
+                <ScalarProperty Name="NombreBanco" ColumnName="NombreBanco" />
+                <ScalarProperty Name="LugarTrabajo" ColumnName="LugarTrabajo" />
+                <ScalarProperty Name="TelefonoTrabajo" ColumnName="TelefonoTrabajo" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="DireccionTrabajo" ColumnName="DireccionTrabajo" />
+                <ScalarProperty Name="FechaFinalizacion" ColumnName="FechaFinalizacion" />
+                <ScalarProperty Name="GradoAcademico" ColumnName="GradoAcademico" />
+                <ScalarProperty Name="Institucion" ColumnName="Institucion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="CarreraTecnica" ColumnName="CarreraTecnica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DocenciaModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tecnicoes">
+            <EntityTypeMapping TypeName="DocenciaModel.Tecnico">
+              <MappingFragment StoreEntitySet="Tecnico">
+                <ScalarProperty Name="CodigoTecnico" ColumnName="CodigoTecnico" />
+                <ScalarProperty Name="NombreTecnico" ColumnName="NombreTecnico" />
+                <ScalarProperty Name="PerfilOcupacional" ColumnName="PerfilOcupacional" />
+                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+                <ScalarProperty Name="PracticaProf" ColumnName="PracticaProf" />
+                <ScalarProperty Name="Requisitos" ColumnName="Requisitos" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CursoEstudiantes">
+            <EntityTypeMapping TypeName="DocenciaModel.CursoEstudiante">
+              <MappingFragment StoreEntitySet="CursoEstudiante">
+                <ScalarProperty Name="CodigoCurso" ColumnName="CodigoCurso" />
+                <ScalarProperty Name="CodigoEstudiante" ColumnName="CodigoEstudiante" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Condicion" ColumnName="Condicion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ModuloEstudiantes">
+            <EntityTypeMapping TypeName="DocenciaModel.ModuloEstudiante">
+              <MappingFragment StoreEntitySet="ModuloEstudiante">
+                <ScalarProperty Name="CodigoModulo" ColumnName="CodigoModulo" />
+                <ScalarProperty Name="CodigoEstudiante" ColumnName="CodigoEstudiante" />
+                <ScalarProperty Name="Nota" ColumnName="Nota" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TecnicoEstudiantes">
+            <EntityTypeMapping TypeName="DocenciaModel.TecnicoEstudiante">
+              <MappingFragment StoreEntitySet="TecnicoEstudiante">
+                <ScalarProperty Name="CodigoTecnico" ColumnName="CodigoTecnico" />
+                <ScalarProperty Name="CodigoEstudiante" ColumnName="CodigoEstudiante" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="PracticaProfesional" ColumnName="PracticaProfesional" />
+                <ScalarProperty Name="Condicion" ColumnName="Condicion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="DocenciaModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ModuloProfesor">
+            <EntityTypeMapping TypeName="DocenciaModel.ModuloProfesor">
+              <MappingFragment StoreEntitySet="ModuloProfesor">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="CodigoProfesor" ColumnName="CodigoProfesor" />
+                <ScalarProperty Name="CodigoModulo" ColumnName="CodigoModulo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
