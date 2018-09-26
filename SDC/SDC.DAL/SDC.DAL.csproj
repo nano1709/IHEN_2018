@@ -74,7 +74,9 @@
     <Compile Include="Estudiante.cs">
       <DependentUpon>DBEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IEstudiante.cs" />
     <Compile Include="Metodos\MDB.cs" />
+    <Compile Include="Metodos\MEstudiante.cs" />
     <Compile Include="Modulo.cs">
       <DependentUpon>DBEntity.tt</DependentUpon>
     </Compile>
@@ -106,9 +108,7 @@
       <DependentUpon>DBEntity.tt</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
     <EntityDeploy Include="DBEntity.edmx">
@@ -138,6 +138,12 @@
       <DependentUpon>DBEntity.edmx</DependentUpon>
       <LastGenOutput>DBEntity1.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SDC.DATA\SDC.DATA.csproj">
+      <Project>{20e44b58-bbe5-4794-a45a-c5977ac529d1}</Project>
+      <Name>SDC.DATA</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

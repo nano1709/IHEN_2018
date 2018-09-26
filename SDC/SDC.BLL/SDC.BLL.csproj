@@ -40,11 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IEstudiante.cs" />
+    <Compile Include="Metodos\MDB.cs" />
+    <Compile Include="Metodos\MEstudiante.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Metodos\" />
+    <ProjectReference Include="..\SDC.DAL\SDC.DAL.csproj">
+      <Project>{8b99ffd1-f859-45b7-be91-66634885e810}</Project>
+      <Name>SDC.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SDC.DATA\SDC.DATA.csproj">
+      <Project>{20e44b58-bbe5-4794-a45a-c5977ac529d1}</Project>
+      <Name>SDC.DATA</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
