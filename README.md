@@ -18,4 +18,5 @@ Integrantes:
 4. Ignacio Vargas Rojas
 
 Nota v1:
--Verificar que se esten usando los using correctos a la hora de hacer/utilizar la logica de negocios. En especial si se va a tulizar la clase MDB.
+
+Verificar que se esten usando los using correctos a la hora de hacer/utilizar la logica de negocios. En especial si se va a tulizar la clase MDB.
