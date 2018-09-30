@@ -21,5 +21,20 @@ namespace SDC.BLL.Metodos
         {
             estu.RegistroEstudiante(estudiante);
         }
+
+        public void ActualizarEstudiante(Estudiante estudiante)
+        {
+            estu.ActualizarEstudiante(estudiante);
+        }
+
+        public void EliminarEstudiante(Estudiante estudiante)
+        {
+            estu.EliminarEstudiante(estudiante);
+        }
+
+        public DATA.Estudiante SeleccionarEstudianteCedula(int cedula)
+        {
+            return estu.SeleccionarEstudianteCedula(cedula);
+        }
     }
 }

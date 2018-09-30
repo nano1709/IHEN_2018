@@ -11,5 +11,8 @@ namespace SDC.DAL.Interfaces
     {
         List<DAL.Estudiante> ListaEstudiante();
         void RegistroEstudiante(DATA.Estudiante estudiante);
+        void ActualizarEstudiante(DATA.Estudiante estudiante);
+        void EliminarEstudiante(DATA.Estudiante estudiante);
+        DATA.Estudiante SeleccionarEstudianteCedula(int cedula);
     }
 }
