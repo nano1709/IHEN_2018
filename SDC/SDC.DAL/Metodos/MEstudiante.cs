@@ -1,11 +1,8 @@
-﻿using System;
+﻿using SDC.DAL.Interface;
+using SDC.DAL.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SDC.DAL.Interface;
-using SDC.DAL.Interfaces;
-using SDC.DATA;
 
 namespace SDC.DAL.Metodos
 {
@@ -14,6 +11,7 @@ namespace SDC.DAL.Metodos
 
         DocenciaEntities1 sc = new DocenciaEntities1();
         DAL.Estudiante registroEstu = new DAL.Estudiante();
+        DATA.Estudiante listaCedulaEstu = new DATA.Estudiante();
 
 
         private static MEstudiante instancia;
@@ -49,9 +47,10 @@ namespace SDC.DAL.Metodos
                 _db.Close();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+
+                Console.Write(ex);
             }
             return lista;
         }
@@ -92,14 +91,117 @@ namespace SDC.DAL.Metodos
                 sc.SaveChanges();
                 sc.Database.Connection.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Console.Write(ex);
             }
 
         }
 
+        public void ActualizarEstudiante(DATA.Estudiante estudiante)
+        {
+            try
+            {
+                sc.Database.Connection.Open();
+
+                var actuEstu = sc.Estudiantes.Where(x => x.Cedula == estudiante.Cedula).First();
+                actuEstu.Nombre = estudiante.Nombre;
+                actuEstu.FechaIngreso = estudiante.FechaIngreso;
+                actuEstu.CarreraTecnica = estudiante.CarreraTecnica;
+                actuEstu.FechaNacimiento = estudiante.FechaNacimiento;
+                actuEstu.Edad = estudiante.Edad;
+                actuEstu.Genero = Convert.ToString(estudiante.Genero);
+                actuEstu.TelefonoMovil = estudiante.TelefonoMovil;
+                actuEstu.TelefonoDomicilio = estudiante.TelefonoDomicilio;
+                actuEstu.CorreoElectronico = estudiante.CorreoElectronico;
+                actuEstu.ReferenciaPersonal = estudiante.ReferenciaPersonal;
+                actuEstu.TelefonoReferencia = estudiante.TelefonoReferencia;
+                actuEstu.Provincia = estudiante.Provincia;
+                actuEstu.Canton = estudiante.Canton;
+                actuEstu.Distrito = estudiante.Distrito;
+                actuEstu.DomicilioExacto = estudiante.DomicilioExacto;
+                actuEstu.LugarTrabajo = estudiante.LugarTrabajo;
+                actuEstu.Cargo = estudiante.Cargo;
+                actuEstu.TelefonoTrabajo = actuEstu.TelefonoTrabajo;
+                actuEstu.DireccionTrabajo = estudiante.DireccionTrabajo;
+                actuEstu.GradoAcademico = estudiante.GradoAcademico;
+                actuEstu.Institucion = estudiante.Institucion;
+                actuEstu.Estado = actuEstu.Estado;
+
+                sc.SaveChanges();
+
+                sc.Database.Connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+            }
+
+
+        }
+
+        public void EliminarEstudiante(DATA.Estudiante estudiante)
+        {
+            try
+            {
+                //No se elimina, se inhabilita
+                sc.Database.Connection.Open();
+
+                var EliminarEstudiante = sc.Estudiantes.Where(x => x.Cedula == estudiante.Cedula).First();
+                EliminarEstudiante.Estado = false;
+
+                sc.SaveChanges();
+
+                sc.Database.Connection.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+            }
+
+
+        }
+
+
+        public DATA.Estudiante SeleccionarEstudianteCedula(int cedula)
+        {
+
+
+            try
+            {
+                var estudiante = sc.Estudiantes.Where(x => x.Cedula == cedula).First();
+                listaCedulaEstu.Nombre = estudiante.Nombre;
+                listaCedulaEstu.FechaIngreso = estudiante.FechaIngreso;
+                listaCedulaEstu.CarreraTecnica = estudiante.CarreraTecnica;
+                listaCedulaEstu.FechaNacimiento = estudiante.FechaNacimiento;
+                listaCedulaEstu.Edad = Convert.ToInt32(estudiante.Edad);
+                listaCedulaEstu.Genero = Convert.ToChar(estudiante.Genero);
+                listaCedulaEstu.TelefonoMovil = estudiante.TelefonoMovil;
+                listaCedulaEstu.TelefonoDomicilio = estudiante.TelefonoDomicilio;
+                listaCedulaEstu.CorreoElectronico = estudiante.CorreoElectronico;
+                listaCedulaEstu.ReferenciaPersonal = estudiante.ReferenciaPersonal;
+                listaCedulaEstu.TelefonoReferencia = estudiante.TelefonoReferencia;
+                listaCedulaEstu.Provincia = estudiante.Provincia;
+                listaCedulaEstu.Canton = estudiante.Canton;
+                listaCedulaEstu.Distrito = estudiante.Distrito;
+                listaCedulaEstu.DomicilioExacto = estudiante.DomicilioExacto;
+                listaCedulaEstu.LugarTrabajo = estudiante.LugarTrabajo;
+                listaCedulaEstu.Cargo = estudiante.Cargo;
+                listaCedulaEstu.TelefonoTrabajo = estudiante.TelefonoTrabajo;
+                listaCedulaEstu.DireccionTrabajo = estudiante.DireccionTrabajo;
+                listaCedulaEstu.GradoAcademico = estudiante.GradoAcademico;
+                listaCedulaEstu.Institucion = estudiante.Institucion;
+                listaCedulaEstu.Estado = Convert.ToByte(estudiante.Estado);
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+            }
+            return listaCedulaEstu;
+
+        }
 
 
     }
