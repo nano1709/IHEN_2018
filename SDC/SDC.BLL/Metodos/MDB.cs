@@ -11,11 +11,13 @@ namespace SDC.BLL.Metodos
     {
         public DAL.Interfaces.IEstudiante estu;
         public DAL.Interfaces.IProfesor profe;
+        public DAL.Interfaces.ITecnico tec;
 
         public MDB()
         {
             estu = new DAL.Metodos.MEstudiante();
             profe = new DAL.Metodos.MProfesor();
+            tec = new DAL.Metodos.MTecnico();
         }
 
     }

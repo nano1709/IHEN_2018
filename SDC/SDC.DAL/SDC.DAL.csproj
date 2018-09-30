@@ -76,9 +76,11 @@
     </Compile>
     <Compile Include="Interfaces\IEstudiante.cs" />
     <Compile Include="Interfaces\IProfesor.cs" />
+    <Compile Include="Interfaces\ITecnico.cs" />
     <Compile Include="Metodos\MDB.cs" />
     <Compile Include="Metodos\MEstudiante.cs" />
     <Compile Include="Metodos\MProfesor.cs" />
+    <Compile Include="Metodos\MTecnico.cs" />
     <Compile Include="Modulo.cs">
       <DependentUpon>DBEntity.tt</DependentUpon>
     </Compile>
