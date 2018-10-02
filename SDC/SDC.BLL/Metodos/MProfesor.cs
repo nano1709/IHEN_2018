@@ -12,6 +12,16 @@ namespace SDC.BLL.Metodos
 {
     public class MProfesor : MDB, IProfesor
     {
+        public void ActualizarProfesor(DATA.Profesor profesor)
+        {
+            profe.ActualizarProfesor(profesor);
+        }
+
+        public void EliminarProfesor(DATA.Profesor profesor)
+        {
+            profe.EliminarProfesor(profesor);
+        }
+
         public List<DAL.Profesor> ListaProfesor()
         {
             return profe.ListaProfesor();
@@ -20,6 +30,11 @@ namespace SDC.BLL.Metodos
         public void RegistroProfesor(DATA.Profesor profesor)
         {
             profe.RegistroProfesor(profesor);
+        }
+
+        public DATA.Profesor SeleccionarProfesorCedula(int cedula)
+        {
+            return profe.SeleccionarProfesorCedula(cedula);
         }
     }
 }
