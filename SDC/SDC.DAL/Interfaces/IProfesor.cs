@@ -11,5 +11,8 @@ namespace SDC.DAL.Interfaces
     {
         List<DAL.Profesor> ListaProfesor();
         void RegistroProfesor(DATA.Profesor profesor);
+        void ActualizarProfesor(DATA.Profesor profesor);
+        void EliminarProfesor(DATA.Profesor profesor);
+        DATA.Profesor SeleccionarProfesorCedula(int cedula);
     }
 }
