@@ -13,10 +13,10 @@ namespace SDC.DAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DocenciaEntities1 : DbContext
+    public partial class DocenciaEntities2 : DbContext
     {
-        public DocenciaEntities1()
-            : base("name=DocenciaEntities1")
+        public DocenciaEntities2()
+            : base("name=DocenciaEntities2")
         {
         }
     
@@ -28,11 +28,8 @@ namespace SDC.DAL
         public virtual DbSet<Curso> Cursoes { get; set; }
         public virtual DbSet<Estudiante> Estudiantes { get; set; }
         public virtual DbSet<Modulo> Moduloes { get; set; }
-        public virtual DbSet<ModuloProfesor> ModuloProfesors { get; set; }
         public virtual DbSet<Profesor> Profesors { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Tecnico> Tecnicoes { get; set; }
-        public virtual DbSet<Usuario> Usuarios { get; set; }
         public virtual DbSet<CursoEstudiante> CursoEstudiantes { get; set; }
         public virtual DbSet<ModuloEstudiante> ModuloEstudiantes { get; set; }
         public virtual DbSet<TecnicoEstudiante> TecnicoEstudiantes { get; set; }

@@ -81,14 +81,13 @@ warning 6002: The table/view 'Docencia.dbo.ModuloEstudiante' does not have a pri
           <Property Name="Nota" Type="int" />
           <Property Name="Estado" Type="bit" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Docencia.dbo.ModuloProfesor' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="ModuloProfesor">
-          <Key>
-            <PropertyRef Name="CodigoModulo" />
-          </Key>
-          <Property Name="CodigoModulo" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CodigoProfesor" Type="int" Nullable="false" />
+          <Property Name="CodigoModulo" Type="varchar" MaxLength="50" />
+          <Property Name="CodigoProfesor" Type="int" />
           <Property Name="Estado" Type="bit" />
-        </EntityType>
+        </EntityType>-->
         <EntityType Name="Profesor">
           <Key>
             <PropertyRef Name="Cedula" />
@@ -118,16 +117,6 @@ warning 6002: The table/view 'Docencia.dbo.ModuloEstudiante' does not have a pri
           <Property Name="FechaInicio" Type="varchar" MaxLength="50" />
           <Property Name="CarreraTecnica" Type="varchar" MaxLength="100" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="Tecnico">
           <Key>
             <PropertyRef Name="CodigoTecnico" />
@@ -153,17 +142,16 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <Property Name="PracticaProfesional" Type="bit" />
           <Property Name="Condicion" Type="bit" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Docencia.dbo.Usuario' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="Usuario">
-          <Key>
-            <PropertyRef Name="NombreUsuario" />
-          </Key>
-          <Property Name="NombreUsuario" Type="varchar" MaxLength="150" Nullable="false" />
-          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="NombreUsuario" Type="varchar" MaxLength="150" />
+          <Property Name="Password" Type="varchar" MaxLength="200" />
           <Property Name="Email" Type="varchar" MaxLength="150" />
           <Property Name="Code" Type="varchar" MaxLength="50" />
           <Property Name="Rol" Type="varchar" MaxLength="50" />
           <Property Name="Estado" Type="bit" />
-        </EntityType>
+        </EntityType>-->
         <Association Name="FK_Curso">
           <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
           <End Role="CursoEstudiante" Type="Self.CursoEstudiante" Multiplicity="*" />
@@ -224,30 +212,12 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ModuloP">
-          <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
-          <End Role="ModuloProfesor" Type="Self.ModuloProfesor" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Modulo">
-              <PropertyRef Name="CodigoModulo" />
-            </Principal>
-            <Dependent Role="ModuloProfesor">
-              <PropertyRef Name="CodigoModulo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Profesor">
-          <End Role="Profesor" Type="Self.Profesor" Multiplicity="1" />
-          <End Role="ModuloProfesor" Type="Self.ModuloProfesor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Profesor">
-              <PropertyRef Name="Cedula" />
-            </Principal>
-            <Dependent Role="ModuloProfesor">
-              <PropertyRef Name="CodigoProfesor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <!--Errors Found During Generation:
+error 6004: The table 'Docencia.dbo.ModuloProfesor' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_ModuloP" />-->
+        <!--Errors Found During Generation:
+error 6004: The table 'Docencia.dbo.ModuloProfesor' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_Profesor" />-->
         <Association Name="FK_Tecnico">
           <End Role="Tecnico" Type="Self.Tecnico" Multiplicity="1" />
           <End Role="TecnicoEstudiante" Type="Self.TecnicoEstudiante" Multiplicity="*" />
@@ -264,11 +234,8 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <EntitySet Name="Curso" EntityType="Self.Curso" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Estudiante" EntityType="Self.Estudiante" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Modulo" EntityType="Self.Modulo" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ModuloProfesor" EntityType="Self.ModuloProfesor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Profesor" EntityType="Self.Profesor" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tecnico" EntityType="Self.Tecnico" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CursoEstudiante" EntityType="Self.CursoEstudiante" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [CursoEstudiante].[CodigoCurso] AS [CodigoCurso], 
@@ -313,14 +280,6 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <AssociationSet Name="FK_Modulo" Association="Self.FK_Modulo">
             <End Role="Modulo" EntitySet="Modulo" />
             <End Role="ModuloEstudiante" EntitySet="ModuloEstudiante" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ModuloP" Association="Self.FK_ModuloP">
-            <End Role="Modulo" EntitySet="Modulo" />
-            <End Role="ModuloProfesor" EntitySet="ModuloProfesor" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Profesor" Association="Self.FK_Profesor">
-            <End Role="Profesor" EntitySet="Profesor" />
-            <End Role="ModuloProfesor" EntitySet="ModuloProfesor" />
           </AssociationSet>
           <AssociationSet Name="FK_Tecnico" Association="Self.FK_Tecnico">
             <End Role="Tecnico" EntitySet="Tecnico" />
@@ -388,17 +347,6 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <Property Name="Creditos" Type="Int32" />
           <Property Name="Estado" Type="Boolean" />
           <NavigationProperty Name="ModuloEstudiantes" Relationship="Self.FK_Modulo" FromRole="Modulo" ToRole="ModuloEstudiante" />
-          <NavigationProperty Name="ModuloProfesor" Relationship="Self.FK_ModuloP" FromRole="Modulo" ToRole="ModuloProfesor" />
-        </EntityType>
-        <EntityType Name="ModuloProfesor">
-          <Key>
-            <PropertyRef Name="CodigoModulo" />
-          </Key>
-          <Property Name="CodigoModulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CodigoProfesor" Type="Int32" Nullable="false" />
-          <Property Name="Estado" Type="Boolean" />
-          <NavigationProperty Name="Modulo" Relationship="Self.FK_ModuloP" FromRole="ModuloProfesor" ToRole="Modulo" />
-          <NavigationProperty Name="Profesor" Relationship="Self.FK_Profesor" FromRole="ModuloProfesor" ToRole="Profesor" />
         </EntityType>
         <EntityType Name="Profesor">
           <Key>
@@ -428,17 +376,6 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <Property Name="Estado" Type="Boolean" Nullable="false" />
           <Property Name="FechaInicio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CarreraTecnica" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ModuloProfesors" Relationship="Self.FK_Profesor" FromRole="Profesor" ToRole="ModuloProfesor" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Tecnico">
           <Key>
@@ -452,17 +389,6 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <Property Name="Requisitos" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Boolean" />
           <NavigationProperty Name="TecnicoEstudiantes" Relationship="Self.FK_Tecnico" FromRole="Tecnico" ToRole="TecnicoEstudiante" />
-        </EntityType>
-        <EntityType Name="Usuario">
-          <Key>
-            <PropertyRef Name="NombreUsuario" />
-          </Key>
-          <Property Name="NombreUsuario" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Estado" Type="Boolean" />
         </EntityType>
         <EntityType Name="CursoEstudiante">
           <Key>
@@ -561,30 +487,6 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ModuloP">
-          <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
-          <End Role="ModuloProfesor" Type="Self.ModuloProfesor" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Modulo">
-              <PropertyRef Name="CodigoModulo" />
-            </Principal>
-            <Dependent Role="ModuloProfesor">
-              <PropertyRef Name="CodigoModulo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Profesor">
-          <End Role="Profesor" Type="Self.Profesor" Multiplicity="1" />
-          <End Role="ModuloProfesor" Type="Self.ModuloProfesor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Profesor">
-              <PropertyRef Name="Cedula" />
-            </Principal>
-            <Dependent Role="ModuloProfesor">
-              <PropertyRef Name="CodigoProfesor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Tecnico">
           <End Role="Tecnico" Type="Self.Tecnico" Multiplicity="1" />
           <End Role="TecnicoEstudiante" Type="Self.TecnicoEstudiante" Multiplicity="*" />
@@ -597,15 +499,12 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DocenciaEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DocenciaEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cursoes" EntityType="Self.Curso" />
           <EntitySet Name="Estudiantes" EntityType="Self.Estudiante" />
           <EntitySet Name="Moduloes" EntityType="Self.Modulo" />
-          <EntitySet Name="ModuloProfesors" EntityType="Self.ModuloProfesor" />
           <EntitySet Name="Profesors" EntityType="Self.Profesor" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Tecnicoes" EntityType="Self.Tecnico" />
-          <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
           <EntitySet Name="CursoEstudiantes" EntityType="Self.CursoEstudiante" />
           <EntitySet Name="ModuloEstudiantes" EntityType="Self.ModuloEstudiante" />
           <EntitySet Name="TecnicoEstudiantes" EntityType="Self.TecnicoEstudiante" />
@@ -629,14 +528,6 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
             <End Role="Modulo" EntitySet="Moduloes" />
             <End Role="ModuloEstudiante" EntitySet="ModuloEstudiantes" />
           </AssociationSet>
-          <AssociationSet Name="FK_ModuloP" Association="Self.FK_ModuloP">
-            <End Role="Modulo" EntitySet="Moduloes" />
-            <End Role="ModuloProfesor" EntitySet="ModuloProfesors" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Profesor" Association="Self.FK_Profesor">
-            <End Role="Profesor" EntitySet="Profesors" />
-            <End Role="ModuloProfesor" EntitySet="ModuloProfesors" />
-          </AssociationSet>
           <AssociationSet Name="FK_Tecnico" Association="Self.FK_Tecnico">
             <End Role="Tecnico" EntitySet="Tecnicoes" />
             <End Role="TecnicoEstudiante" EntitySet="TecnicoEstudiantes" />
@@ -647,7 +538,7 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DocenciaModelStoreContainer" CdmEntityContainer="DocenciaEntities1">
+        <EntityContainerMapping StorageEntityContainer="DocenciaModelStoreContainer" CdmEntityContainer="DocenciaEntities2">
           <EntitySetMapping Name="Cursoes">
             <EntityTypeMapping TypeName="DocenciaModel.Curso">
               <MappingFragment StoreEntitySet="Curso">
@@ -703,15 +594,6 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ModuloProfesors">
-            <EntityTypeMapping TypeName="DocenciaModel.ModuloProfesor">
-              <MappingFragment StoreEntitySet="ModuloProfesor">
-                <ScalarProperty Name="CodigoModulo" ColumnName="CodigoModulo" />
-                <ScalarProperty Name="CodigoProfesor" ColumnName="CodigoProfesor" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Profesors">
             <EntityTypeMapping TypeName="DocenciaModel.Profesor">
               <MappingFragment StoreEntitySet="Profesor">
@@ -742,17 +624,6 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="DocenciaModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Tecnicoes">
             <EntityTypeMapping TypeName="DocenciaModel.Tecnico">
               <MappingFragment StoreEntitySet="Tecnico">
@@ -762,18 +633,6 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
                 <ScalarProperty Name="Duracion" ColumnName="Duracion" />
                 <ScalarProperty Name="PracticaProf" ColumnName="PracticaProf" />
                 <ScalarProperty Name="Requisitos" ColumnName="Requisitos" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Usuarios">
-            <EntityTypeMapping TypeName="DocenciaModel.Usuario">
-              <MappingFragment StoreEntitySet="Usuario">
-                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Rol" ColumnName="Rol" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -14,12 +14,6 @@ namespace SDC.DAL
     
     public partial class Profesor
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Profesor()
-        {
-            this.ModuloProfesors = new HashSet<ModuloProfesor>();
-        }
-    
         public string Nombre { get; set; }
         public int Cedula { get; set; }
         public string FechaNacimiento { get; set; }
@@ -44,8 +38,5 @@ namespace SDC.DAL
         public bool Estado { get; set; }
         public string FechaInicio { get; set; }
         public string CarreraTecnica { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ModuloProfesor> ModuloProfesors { get; set; }
     }
 }
