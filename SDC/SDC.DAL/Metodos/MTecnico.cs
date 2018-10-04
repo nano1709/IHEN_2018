@@ -11,7 +11,7 @@ namespace SDC.DAL.Metodos
 {
     public class MTecnico : MDB, ITecnico
     {
-        DocenciaEntities1 sc = new DocenciaEntities1();
+        DocenciaEntities2 sc = new DocenciaEntities2();
         DAL.Tecnico registroTec = new DAL.Tecnico();
 
         private static MTecnico instancia;
@@ -60,7 +60,7 @@ namespace SDC.DAL.Metodos
             try
             {
                 sc.Database.Connection.Open();
-
+                
                 registroTec.NombreTecnico = tecnico.NombreTecnico;
                 registroTec.CodigoTecnico = tecnico.CodigoTecnico;
                 registroTec.Duracion = tecnico.Duracion;

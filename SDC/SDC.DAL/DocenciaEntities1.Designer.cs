@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\ignac\Desktop\SDC\SDC\SDC.DAL\DBEntity.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\harry\Desktop\Prueba\SDC\SDC.DAL\DocenciaEntities1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

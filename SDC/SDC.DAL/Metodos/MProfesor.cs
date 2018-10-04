@@ -8,7 +8,7 @@ namespace SDC.DAL.Metodos
 {
     public class MProfesor : MDB, IProfesor
     {
-        DocenciaEntities1 sc = new DocenciaEntities1();
+        DocenciaEntities2 sc = new DocenciaEntities2();
         DAL.Profesor registroProfe = new DAL.Profesor();
         DATA.Profesor listaCedulaProfe = new DATA.Profesor();
 
@@ -176,12 +176,12 @@ namespace SDC.DAL.Metodos
                 listaCedulaProfe.Distrito = profesor.Distrito;
                 listaCedulaProfe.DomicilioExacto = profesor.DomicilioExacto;
                 listaCedulaProfe.Edad = Convert.ToInt32(profesor.Edad);
-                listaCedulaProfe.Estado = Convert.ToBoolean(profesor.Estado);
+                listaCedulaProfe.Estado = Convert.ToByte(profesor.Estado);
                 listaCedulaProfe.FechaFinalizacion = profesor.FechaFinalizacion;
                 listaCedulaProfe.FechaIngreso = profesor.FechaIngreso;
                 listaCedulaProfe.FechaInicio = profesor.FechaInicio;
                 listaCedulaProfe.FechaNacimiento = profesor.FechaNacimiento;
-                listaCedulaProfe.Genero = Convert.ToString(profesor.Genero);
+                listaCedulaProfe.Genero = Convert.ToChar(profesor.Genero);
                 listaCedulaProfe.GradoAcademico = profesor.GradoAcademico;
                 listaCedulaProfe.Institucion = profesor.Institucion;
                 listaCedulaProfe.LugarTrabajo = profesor.LugarTrabajo;

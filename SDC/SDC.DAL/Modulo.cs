@@ -28,6 +28,5 @@ namespace SDC.DAL
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ModuloEstudiante> ModuloEstudiantes { get; set; }
-        public virtual ModuloProfesor ModuloProfesor { get; set; }
     }
 }

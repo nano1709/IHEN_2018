@@ -9,7 +9,7 @@ namespace SDC.DAL.Metodos
     public class MEstudiante : MDB, IEstudiante
     {
 
-        DocenciaEntities1 sc = new DocenciaEntities1();
+        DocenciaEntities2 sc = new DocenciaEntities2();
         DAL.Estudiante registroEstu = new DAL.Estudiante();
         DATA.Estudiante listaCedulaEstu = new DATA.Estudiante();
 

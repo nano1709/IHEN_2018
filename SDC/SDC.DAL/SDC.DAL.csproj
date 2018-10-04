@@ -50,29 +50,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Curso.cs">
-      <DependentUpon>DBEntity.tt</DependentUpon>
+      <DependentUpon>DocenciaEntities1.tt</DependentUpon>
     </Compile>
     <Compile Include="CursoEstudiante.cs">
-      <DependentUpon>DBEntity.tt</DependentUpon>
+      <DependentUpon>DocenciaEntities1.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBEntity.Context.cs">
+    <Compile Include="DocenciaEntities1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBEntity.Context.tt</DependentUpon>
+      <DependentUpon>DocenciaEntities1.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBEntity.cs" />
-    <Compile Include="DBEntity.Designer.cs">
-      <DependentUpon>DBEntity.edmx</DependentUpon>
+    <Compile Include="DocenciaEntities1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>DocenciaEntities1.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBEntity1.cs">
+    <Compile Include="DocenciaEntities1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBEntity.tt</DependentUpon>
+      <DependentUpon>DocenciaEntities1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Estudiante.cs">
-      <DependentUpon>DBEntity.tt</DependentUpon>
+      <DependentUpon>DocenciaEntities1.tt</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IEstudiante.cs" />
     <Compile Include="Interfaces\IProfesor.cs" />
@@ -82,16 +81,13 @@
     <Compile Include="Metodos\MProfesor.cs" />
     <Compile Include="Metodos\MTecnico.cs" />
     <Compile Include="Modulo.cs">
-      <DependentUpon>DBEntity.tt</DependentUpon>
+      <DependentUpon>DocenciaEntities1.tt</DependentUpon>
     </Compile>
     <Compile Include="ModuloEstudiante.cs">
-      <DependentUpon>DBEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModuloProfesor.cs">
-      <DependentUpon>DBEntity.tt</DependentUpon>
+      <DependentUpon>DocenciaEntities1.tt</DependentUpon>
     </Compile>
     <Compile Include="Profesor.cs">
-      <DependentUpon>DBEntity.tt</DependentUpon>
+      <DependentUpon>DocenciaEntities1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings1.Designer.cs">
@@ -99,28 +95,33 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings1.settings</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>DBEntity.tt</DependentUpon>
-    </Compile>
     <Compile Include="Tecnico.cs">
-      <DependentUpon>DBEntity.tt</DependentUpon>
+      <DependentUpon>DocenciaEntities1.tt</DependentUpon>
     </Compile>
     <Compile Include="TecnicoEstudiante.cs">
-      <DependentUpon>DBEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Usuario.cs">
-      <DependentUpon>DBEntity.tt</DependentUpon>
+      <DependentUpon>DocenciaEntities1.tt</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="DocenciaEntities1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DocenciaEntities1.edmx</DependentUpon>
+      <LastGenOutput>DocenciaEntities1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DocenciaEntities1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DocenciaEntities1.edmx</DependentUpon>
+      <LastGenOutput>DocenciaEntities1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <EntityDeploy Include="DBEntity.edmx">
+    <EntityDeploy Include="DocenciaEntities1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DBEntity.Designer.cs</LastGenOutput>
+      <LastGenOutput>DocenciaEntities1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DBEntity.edmx.diagram">
-      <DependentUpon>DBEntity.edmx</DependentUpon>
+    <None Include="DocenciaEntities1.edmx.diagram">
+      <DependentUpon>DocenciaEntities1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Settings1.settings">
@@ -130,18 +131,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DBEntity.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBEntity.edmx</DependentUpon>
-      <LastGenOutput>DBEntity.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DBEntity.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBEntity.edmx</DependentUpon>
-      <LastGenOutput>DBEntity1.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SDC.DATA\SDC.DATA.csproj">
