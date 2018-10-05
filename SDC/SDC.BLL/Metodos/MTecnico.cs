@@ -16,9 +16,23 @@ namespace SDC.BLL.Metodos
             return tec.ListaTecnico();
         }
 
-        public void RegistroTecnico(Tecnico tecnico)
+        public void RegistroTecnico(DATA.Tecnico tecnico)
         {
             tec.RegistroTecnico(tecnico);
+        }
+        public void EliminarTecnico(DATA.Tecnico tecnico)
+        {
+            tec.EliminarTecnico(tecnico);
+        }
+
+        public void ActualizarTecnico(Tecnico tecnico)
+        {
+            tec.ActualizarTecnico(tecnico);
+        }
+
+        public Tecnico SeleccionarTecnicoPorCodigo(int codigo)
+        {
+            return tec.SeleccionarTecnicoPorCodigo(codigo);
         }
     }
 }

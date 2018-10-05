@@ -13,6 +13,8 @@ namespace SDC.DAL.Metodos
     {
         DocenciaEntities2 sc = new DocenciaEntities2();
         DAL.Tecnico registroTec = new DAL.Tecnico();
+        DATA.Tecnico listaTecnicoCod = new DATA.Tecnico();
+
 
         private static MTecnico instancia;
 
@@ -83,5 +85,81 @@ namespace SDC.DAL.Metodos
             }
 
         }
+
+        public void ActualizarTecnico(DATA.Tecnico tecnico)
+        {
+
+            try
+            {
+                sc.Database.Connection.Open();
+
+                var actuTec = sc.Tecnicoes.Where(x => x.CodigoTecnico == tecnico.CodigoTecnico).First();
+                actuTec.Nombre = tecnico.NombreTecnico;
+                actuTec.CodigoTecnico = Convert.ToInt32(tecnico.CodigoTecnico);
+                actuTec.PerfilOcupacional = tecnico.PerfilOcupacional;
+                actuTec.Duracion = tecnico.Duracion;
+                actuTec.Requisitos = tecnico.Requisitos;
+                actuTec.Estado = tecnico.Estado;
+                actuTec.PracticaProf = tecnico.PracticaProf;
+
+
+
+                sc.SaveChanges();
+
+                sc.Database.Connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+            }
+        }
+
+        public void EliminarTecnico(DATA.Tecnico tecnico)
+        {
+            try
+            {
+                
+                sc.Database.Connection.Open();
+
+                var EliminarTecnico = sc.Tecnicoes.Where(x => x.CodigoTecnico == tecnico.CodigoTecnico).First();
+                EliminarTecnico.Estado = false;
+
+                sc.SaveChanges();
+
+                sc.Database.Connection.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+            }
+
+        }
+
+        
+
+        public DATA.Tecnico SeleccionarTecnicoPorCodigo(int codigo)
+        {
+
+
+            try
+            {
+                var tecnico = sc.Tecnicoes.Where(x => x.CodigoTecnico == codigo).First();
+                listaTecnicoCod.NombreTecnico = tecnico.NombreTecnico;
+                listaTecnicoCod.PerfilOcupacional = tecnico.PerfilOcupacional;
+                listaTecnicoCod.Duracion = tecnico.Duracion;
+                listaTecnicoCod.PracticaProf = tecnico.PracticaProf;
+                listaTecnicoCod.Requisitos = tecnico.Requisitos;
+                listaTecnicoCod.Estado = Convert.ToByte(tecnico.Estado);
+
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+            }
+            return listaTecnicoCod;
+
+        }
+
     }
 }
