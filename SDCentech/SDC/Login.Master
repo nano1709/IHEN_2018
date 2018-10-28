@@ -6,7 +6,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <link href="img/SDC.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="img/centech.png" rel="shortcut icon" type="image/x-icon" />
 
 
     <link rel="stylesheet" href="fonts/Login.css" />
@@ -19,7 +19,7 @@
         <div>
 
             <div class="login-box">
-                <img src="img/SDC.png" class="avatar" alt="Avatar Image" />
+                <img src="img/centech.png" class="avatar" alt="Avatar Image" />
                 <h1>Login </h1>
 
 

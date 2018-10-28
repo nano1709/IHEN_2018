@@ -13,7 +13,6 @@ namespace SDC.DAL.Metodos
         DAL.Estudiante registroEstu = new DAL.Estudiante();
         DATA.Estudiante listaCedulaEstu = new DATA.Estudiante();
 
-
         private static MEstudiante instancia;
 
         public static MEstudiante Instancia
@@ -35,6 +34,27 @@ namespace SDC.DAL.Metodos
             }
         }
 
+        public List<DAL.Sede> ListaSede()
+        {
+            List<DAL.Sede> lista = new List<DAL.Sede>();
+
+            try
+            {
+
+                _db.Open();
+                lista = conexion.Sedes.ToList();
+                _db.Close();
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.Write(ex);
+            }
+            return lista;
+        }
+
+
         public List<DAL.Estudiante> ListaEstudiante()
         {
             List<DAL.Estudiante> lista = new List<DAL.Estudiante>();
@@ -50,7 +70,7 @@ namespace SDC.DAL.Metodos
             catch (Exception ex)
             {
 
-                Console.Write(ex);
+                throw ex;
             }
             return lista;
         }
@@ -78,12 +98,7 @@ namespace SDC.DAL.Metodos
                 registroEstu.Canton = estudiante.Canton;
                 registroEstu.Distrito = estudiante.Distrito;
                 registroEstu.DomicilioExacto = estudiante.DomicilioExacto;
-                registroEstu.LugarTrabajo = estudiante.LugarTrabajo;
-                registroEstu.Cargo = estudiante.Cargo;
-                registroEstu.TelefonoTrabajo = estudiante.TelefonoTrabajo;
-                registroEstu.DireccionTrabajo = estudiante.DireccionTrabajo;
-                registroEstu.GradoAcademico = estudiante.GradoAcademico;
-                registroEstu.Institucion = estudiante.Institucion;
+
                 registroEstu.Estado = Convert.ToBoolean(estudiante.Estado);
 
 
@@ -94,8 +109,7 @@ namespace SDC.DAL.Metodos
             }
             catch (Exception ex)
             {
-
-                Console.Write(ex);
+                throw;
             }
 
         }
@@ -123,12 +137,7 @@ namespace SDC.DAL.Metodos
                 actuEstu.Canton = estudiante.Canton;
                 actuEstu.Distrito = estudiante.Distrito;
                 actuEstu.DomicilioExacto = estudiante.DomicilioExacto;
-                actuEstu.LugarTrabajo = estudiante.LugarTrabajo;
-                actuEstu.Cargo = estudiante.Cargo;
-                actuEstu.TelefonoTrabajo = actuEstu.TelefonoTrabajo;
-                actuEstu.DireccionTrabajo = estudiante.DireccionTrabajo;
-                actuEstu.GradoAcademico = estudiante.GradoAcademico;
-                actuEstu.Institucion = estudiante.Institucion;
+
                 actuEstu.Estado = actuEstu.Estado;
 
                 sc.SaveChanges();
@@ -180,7 +189,7 @@ namespace SDC.DAL.Metodos
                 listaCedulaEstu.CarreraTecnica = estudiante.CarreraTecnica;
                 listaCedulaEstu.FechaNacimiento = estudiante.FechaNacimiento;
                 listaCedulaEstu.Edad = Convert.ToInt32(estudiante.Edad);
-                listaCedulaEstu.Genero = Convert.ToChar(estudiante.Genero);
+                listaCedulaEstu.Genero = estudiante.Genero;
                 listaCedulaEstu.TelefonoMovil = estudiante.TelefonoMovil;
                 listaCedulaEstu.TelefonoDomicilio = estudiante.TelefonoDomicilio;
                 listaCedulaEstu.CorreoElectronico = estudiante.CorreoElectronico;
@@ -190,17 +199,12 @@ namespace SDC.DAL.Metodos
                 listaCedulaEstu.Canton = estudiante.Canton;
                 listaCedulaEstu.Distrito = estudiante.Distrito;
                 listaCedulaEstu.DomicilioExacto = estudiante.DomicilioExacto;
-                listaCedulaEstu.LugarTrabajo = estudiante.LugarTrabajo;
-                listaCedulaEstu.Cargo = estudiante.Cargo;
-                listaCedulaEstu.TelefonoTrabajo = estudiante.TelefonoTrabajo;
-                listaCedulaEstu.DireccionTrabajo = estudiante.DireccionTrabajo;
-                listaCedulaEstu.GradoAcademico = estudiante.GradoAcademico;
-                listaCedulaEstu.Institucion = estudiante.Institucion;
+                listaCedulaEstu.IdSede = Convert.ToInt32(estudiante.IdSede);
                 listaCedulaEstu.Estado = Convert.ToByte(estudiante.Estado);
             }
             catch (Exception ex)
             {
-                Console.Write(ex);
+                throw ex;
             }
             return listaCedulaEstu;
 

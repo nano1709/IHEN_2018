@@ -4,10 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
-
-
-
     <style>
         .modal-body {
             max-height: calc(100vh - 210px);
@@ -31,62 +27,65 @@
         .container input:checked ~ .checkmark {
             background-color: #2196F3;
         }
+
+        .dataTables-example {
+        }
     </style>
 
     <h1>
         <asp:Label ID="LbTipo" runat="server" Text=""></asp:Label></h1>
 
-
+    <div class="alert alert-success" visible="false" id="mensaje" runat="server">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+        <strong id="textoMensaje" runat="server"></strong>
+    </div>
+    <div class="alert alert-danger" visible="false" id="mensajeError" runat="server">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+        <strong id="textoMensajeError" runat="server"></strong>
+    </div>
     <div class="text-center article-title">
         <h1 style="color: #308ED5">Estudiantes
         </h1>
     </div>
 
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                </div>
-                <div class="ibox-content">
+    <section style="padding-right: 20px; padding-left: 20px">
+        <asp:Button CssClass="btn btn-success" ID="AgregarEstudiante" OnClick="AgregarEstudiante_Click" Text="Agregar Nuevo" runat="server"
+            Style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;" class="btn btn-success"
+            Width="130px" BorderStyle="None" Font-Bold="False" Font-Italic="False" ForeColor="White" Height="38px" />
+        <br />
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                    </div>
+                    <div class="ibox-content">
 
-                    <table class="table table-striped table-bordered table-hover dataTables-example">
+                        <table class="table table-striped table-bordered table-hover dataTables-example">
 
-                        <thead>
-                            <tr>
-                                <th>Cedula</th>
-                                <th>Nombre</th>
-                                <th>Carrera</th>
-                                <th>Fecha Ingreso</th>
-                                <th>Telefono</th>
-                                <th>Correo Electronico</th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>117200742</td>
-                                <td>Ignacio Vargas</td>
-                                <td>Informatica</td>
-                                <td>20/3/2018</td>
-                                <td>83085434</td>
-                                <td>ignacio@hotmail.com</td>
-                                <td>
-                                    <asp:Button runat="server" Text="Ver" CssClass="btn btn-warning" /></td>
-                                <td>
-                                    <asp:Button runat="server" Text="Eliminar" CssClass="btn btn-danger" /></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                            <thead>
+                                <tr>
+                                    <th>Cedula</th>
+                                    <th>Nombre</th>
+                                    <th>Carrera</th>
+                                    <th>Fecha Ingreso</th>
+                                    <th>Telefono</th>
+                                    <th>Correo Electronico</th>
+                                    <th>Sede</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%= Fila %>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-
-    <asp:Button CssClass="btn btn-primary" ID="AgregarEstudiante" OnClick="AgregarEstudiante_Click" Text="Agregar Estudiante" runat="server" />
-
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css" />
     <script src="Scripts/jquery-3.3.1.slim.min.js"></script>
 
     <script>
@@ -94,6 +93,7 @@
 
 
             $('.dataTables-example').dataTable({
+
                 dom: '<"html5buttons"B>lTfgitp',
                 buttons: [
                     { extend: 'copy' },
@@ -109,12 +109,116 @@
 
                             $(win.document.body).find('table')
                                 .addClass('compact')
-                                .css('font-size', 'inherit');
+                                .css('font-size', 'arial');
                         }
                     }
                 ]
 
             });
+
+
+            $('.editar').click(function () {
+
+                var datos = $(this).attr('value');
+                var dato = datos.split("§");
+                console.log(dato);
+
+                var cedula = dato[0];
+                var nombre = dato[1];
+                var apellido = dato[2];
+                var fechaIngreso = dato[3];
+                var carrera = dato[4];
+                var fechaNacimiento = dato[5];
+                var genero = dato[6];
+                var telMovil = dato[7];
+                var telDomicilio = dato[8];
+                var correo = dato[9];
+                var refPersonal = dato[10];
+                var telReferencia = dato[11];
+                var provincia = dato[12];
+                var canton = dato[13];
+                var distrito = dato[14];
+                var domExacto = dato[15];
+                var edad = dato[16];
+                var sede = dato[17];
+
+                var valores = "ModificarEstudiante.aspx?editid=" + cedula
+                    + "§" + nombre
+                    + "§" + apellido + "§" + carrera + "§" + fechaIngreso
+                    + "§" + fechaNacimiento + "§" + genero + "§" + edad
+                    + "§" + telMovil + "§" + telDomicilio + "§" + correo
+                    + "§" + refPersonal + "§" + telReferencia + "§" + provincia
+                    + "§" + distrito + "§" + canton + "§" + domExacto + "§" + sede;
+
+                window.location.href = valores;
+                console.log(valores);
+            });
+
+
+            $('.borrar').click(function () {
+
+
+                var datos = $(this).attr('value');
+
+                console.log(datos);
+
+                var dato = datos.split("§");
+
+                console.log(dato);
+
+                var cedula = dato[0];
+                var nombre = dato[1];
+                var apellido = dato[2];
+                var carrera = dato[3];
+                var correo = dato[4];
+
+
+                console.log("This: " + this);
+
+                var valores = "" + cedula + "&Nombre=" + nombre +
+                    "&Apellido=" + apellido + "&carrera=" + carrera + "&Correo=" + correo;
+
+                console.log("Valores: " + valores);
+                swal({
+                    title: "Quieres eliminar al estudiante " + dato[1] + " " + dato[2] + " ?",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Eliminar",
+                    closeOnConfirm: false,
+
+
+                }, function () {
+
+                    console.log(valores);
+
+                    $.ajax({
+                        type: "POST",
+                        url: "Estudiante.aspx?deleteid=" + valores,
+                        data: "",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (msg) {
+                            swal("Error", "Un error a ocurrido mientras se trataba de eliminar el estudiante", "error");
+
+                        },
+                        error: function (e) {
+                            swal("Eliminados!",
+                                "El estudiante se ha eliminado",
+                                "success",
+                                setTimeout(function () {
+                                    window.location = "?exito=" + 3 + "&nombreEstuEli=" + dato[1] + " " + dato[2];
+                                }, 2000));
+                        },
+                    });
+                });
+
+            });
+
+
+
+
+
         });
     </script>
 

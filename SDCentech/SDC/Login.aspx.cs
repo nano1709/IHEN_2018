@@ -56,6 +56,8 @@ namespace SDC
                     Session["UserId"] = usuario.IDUser;
                     Session["UserName"] = usuario.NombreUsuario;
                     Session["Roll"] = usuario.Rol;
+                    Response.Redirect("Menu.aspx", false);
+
                 }
                 else
                 {
@@ -67,6 +69,8 @@ namespace SDC
                 }
 
             }
+
+            Response.Redirect("Menu.aspx");
 
         }
     }

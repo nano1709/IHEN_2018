@@ -29,11 +29,21 @@
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                         <asp:Label ID="lblFechaIngreso" runat="server" Text="Fecha de ingreso: " ForeColor="#308ED5"></asp:Label>
                         <asp:TextBox ID="txtFechaIngreso" runat="server" TextMode="date" class="form-control" Width="320px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvFechaIngreso" runat="server"
+                            ControlToValidate="txtFechaIngreso"
+                            ErrorMessage="Verificar"
+                            ForeColor="Red">
+                        </asp:RequiredFieldValidator>
 
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                         <asp:Label ID="lblCarrera" runat="server" Text="Carrera técnica: " ForeColor="#308ED5"></asp:Label>
                         <%--<asp:TextBox ID="txtCarreraTecnica" runat="server" placeholder="Carrera técnica" class="form-control" Width="320px"></asp:TextBox>--%>
                         <asp:DropDownList ID="ddlCarreraTecnica" runat="server" placeholder="Carrera técnica" class="form-control" Width="320px"></asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
+                            ControlToValidate="ddlCarreraTecnica"
+                            ErrorMessage="Verificar"
+                            ForeColor="Red">
+                        </asp:RequiredFieldValidator>
                 </tr>
             </table>
             <br />
@@ -44,18 +54,38 @@
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                         <asp:Label ID="lblNombre" runat="server" Text="Nombre: " ForeColor="#308ED5"></asp:Label>
                         <asp:TextBox ID="txtNombre" runat="server" placeholder="Nombre" class="form-control" Width="320px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvNombre" runat="server"
+                            ControlToValidate="txtNombre"
+                            ErrorMessage="Verificar"
+                            ForeColor="Red">
+                        </asp:RequiredFieldValidator>
 
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                         <asp:Label ID="lblApellido" runat="server" Text="Apellido: " ForeColor="#308ED5"></asp:Label>
                         <asp:TextBox ID="txtApellido" runat="server" placeholder="Apellido" class="form-control" Width="320px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvApellido" runat="server"
+                            ControlToValidate="txtApellido"
+                            ErrorMessage="Verificar"
+                            ForeColor="Red">
+                        </asp:RequiredFieldValidator>
 
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                         <asp:Label ID="lblCedula" runat="server" Text="Cédula: " ForeColor="#308ED5"></asp:Label>
                         <asp:TextBox ID="txtCedula" runat="server" TextMode="Number" placeholder="Cédula" class="form-control" Width="320px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvCedula" runat="server"
+                            ControlToValidate="txtCedula"
+                            ErrorMessage="Verificar"
+                            ForeColor="Red">
+                        </asp:RequiredFieldValidator>
 
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                         <asp:Label ID="Label1" runat="server" Text="Fecha de nacimiento: " ForeColor="#308ED5"></asp:Label>
                         <asp:TextBox ID="txtFechaNacimiento" runat="server" TextMode="date" class="form-control" Width="320px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvFechaNacimiento" runat="server"
+                            ControlToValidate="txtFechaNacimiento"
+                            ErrorMessage="Verificar"
+                            ForeColor="Red">
+                        </asp:RequiredFieldValidator>
                 </tr>
 
                 <tr>
@@ -66,7 +96,10 @@
 
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                         <asp:Label ID="Label9" runat="server" Text="Genero: " ForeColor="#308ED5"></asp:Label>
-                        <asp:DropDownList ID="ddlGenero" runat="server" placeholder="Género" class="form-control" Width="320px"></asp:DropDownList>
+                        <asp:DropDownList ID="ddlGenero" runat="server" placeholder="Género" class="form-control" Width="320px">
+                            <asp:ListItem>Mujer</asp:ListItem>
+                            <asp:ListItem>Hombre</asp:ListItem>
+                        </asp:DropDownList>
 
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                         <asp:Label ID="Label3" runat="server" Text="Teléfono móvil: " ForeColor="#308ED5"></asp:Label>
@@ -83,7 +116,15 @@
 
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                         <asp:Label ID="Label6" runat="server" Text="Provincia: " ForeColor="#308ED5"></asp:Label>
-                        <asp:Dropdownlist ID="ddlProvincia" runat="server" placeholder="Provincia" class="form-control" Width="320px"></asp:Dropdownlist>
+                        <asp:DropDownList ID="ddlProvincia" runat="server" placeholder="Provincia" class="form-control" Width="320px">
+                            <asp:ListItem>Cartago</asp:ListItem>
+                            <asp:ListItem>San José</asp:ListItem>
+                            <asp:ListItem>Heredia</asp:ListItem>
+                            <asp:ListItem>Alajuela</asp:ListItem>
+                            <asp:ListItem>Puntarenas</asp:ListItem>
+                            <asp:ListItem>Guancaste</asp:ListItem>
+                            <asp:ListItem>Limon</asp:ListItem>
+                        </asp:DropDownList>
 
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                         <asp:Label ID="Label7" runat="server" Text="Cantón: " ForeColor="#308ED5"></asp:Label>
@@ -100,7 +141,7 @@
 
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                         <asp:Label ID="Label10" runat="server" Text="Referencia Personal: " ForeColor="#308ED5"></asp:Label>
-                        <asp:TextBox ID="txtReferencia" runat="server" placeholder="Distrito" class="form-control" Width="320px"></asp:TextBox>
+                        <asp:TextBox ID="txtReferencia" runat="server" placeholder="Referencia" class="form-control" Width="320px"></asp:TextBox>
 
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                         <asp:Label ID="Label11" runat="server" Text="Teléfono referencia: " ForeColor="#308ED5"></asp:Label>
@@ -110,50 +151,30 @@
                 </tr>
             </table>
             <br />
-            <h5 style="color: #308ED5">Lugar de trabajo</h5>
+            <h5 style="color: #308ED5">Datos Sede</h5>
             <table class="table-condensed" style="border: thin solid #308ED5; margin-right: 0px; margin-left: 10px;">
-                <tr>
 
-                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
-                        <asp:Label ID="Label14" runat="server" Text="Nombre de la empresa: " ForeColor="#308ED5"></asp:Label>
-                        <asp:TextBox ID="txtLugarTrabajo" runat="server" TextMode="number" placeholder="Nombre de la empresa" class="form-control" Width="320px"></asp:TextBox>
-
-                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
-                        <asp:Label ID="Label12" runat="server" Text="Teléfono: " ForeColor="#308ED5"></asp:Label>
-                        <asp:TextBox ID="txtTelefonoTrabajo" runat="server" TextMode="number" placeholder="Teléfono trabajo" class="form-control" Width="320px"></asp:TextBox>
-
-                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
-                        <asp:Label ID="Label19" runat="server" Text="Cargo: " ForeColor="#308ED5"></asp:Label>
-                        <asp:TextBox ID="txtCargo" runat="server" placeholder="Cargo" class="form-control" Width="320px"></asp:TextBox>
-
-                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
-                        <asp:Label ID="Label20" runat="server" Text="Dirección del Trabajo: " ForeColor="#308ED5"></asp:Label>
-                        <asp:TextBox ID="txtDireTrabajo" runat="server" placeholder="Dirección de Trabajo" TextMode="MultiLine" class="form-control" Width="305"></asp:TextBox>
-                </tr>
-
-            </table>
-            <br />
-            <h5 style="color: #308ED5">Datos académicos</h5>
-            <table class="table-condensed" style="border: thin solid #308ED5; margin-right: 0px; margin-left: 10px;">
                 <tr>
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
-                        <asp:Label ID="Label17" runat="server" Text="Grado académico: " ForeColor="#308ED5"></asp:Label>
-                        <asp:TextBox ID="txtGradoAcademico" runat="server" placeholder="Grado académico" class="form-control" Width="320px"></asp:TextBox>
+                        <asp:Label ID="Label12" runat="server" Text="Id Sede: " ForeColor="#308ED5"></asp:Label>
+                        <asp:DropDownList ID="ddlSede" runat="server" placeholder="Sede" class="form-control" Width="320px"></asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
+                            ControlToValidate="ddlSede"
+                            ErrorMessage="Verificar"
+                            ForeColor="Red">
+                        </asp:RequiredFieldValidator>
 
-                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
-                        <asp:Label ID="Label18" runat="server" Text="Institución: " ForeColor="#308ED5"></asp:Label>
-                        <asp:TextBox ID="txtInstitución" runat="server" placeholder="Institución" class="form-control" Width="320px"></asp:TextBox>
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;"></td>
 
-                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
-                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;"></td>
+
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;"></td>
                 </tr>
-
-
             </table>
             <br />
             <div class="col-lg-12 text-center">
                 <asp:Button ID="btnGuardar" runat="server" Text="Guardar" class="btn btn-form"
-                    Width="130px" BorderStyle="None" Font-Bold="False" Font-Italic="False" CssClass="btn-success" ForeColor="White" Height="38px" />
+                    Width="130px" BorderStyle="None" Font-Bold="False" Font-Italic="False" CssClass="btn-success" ForeColor="White" Height="38px" OnClick="btnGuardar_Click" />
             </div>
             <br />
         </div>

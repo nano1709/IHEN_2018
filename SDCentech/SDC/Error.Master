@@ -1,0 +1,52 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Error.master.cs" Inherits="SDC.Formulario" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title></title>
+    <meta charset="utf-8">
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body style="background-color: #FFFFFF;" >
+    <form id="form1" runat="server">
+
+
+        <header id="header" style="background: linear-gradient(45deg,#56AF42, #37712B)">
+            <div class="container">
+                <div id="logo" class="pull-left">
+                    <h1><a href="Login.aspx" class="scrollto"></a></h1>
+                </div>
+                <a class="navbar-brand" href="Menu.aspx">
+                    <img src="img/cc.png" class="img-responsive" style="width: 140px; margin-top: -16px;"></a>
+                <nav id="nav-menu-container">
+                    <ul class="nav-menu">
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <section>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+        </section>
+    </form>
+</body>
+</html>

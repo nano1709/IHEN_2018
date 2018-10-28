@@ -30,11 +30,11 @@ namespace SDC.DAL
         public virtual DbSet<Modulo> Moduloes { get; set; }
         public virtual DbSet<ModuloProfesor> ModuloProfesors { get; set; }
         public virtual DbSet<Profesor> Profesors { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Tecnico> Tecnicoes { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
         public virtual DbSet<CursoEstudiante> CursoEstudiantes { get; set; }
         public virtual DbSet<ModuloEstudiante> ModuloEstudiantes { get; set; }
         public virtual DbSet<TecnicoEstudiante> TecnicoEstudiantes { get; set; }
+        public virtual DbSet<Sede> Sedes { get; set; }
     }
 }

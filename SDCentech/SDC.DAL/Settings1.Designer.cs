@@ -35,7 +35,8 @@ namespace SDC.DAL {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NANO\\SQLEXPRESS;Initial Catalog=Docencia;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-GNDGB5E\\SQLEXPRESS;Initial Catalog=Docencia;Integrated Securi" +
+            "ty=True")]
         public string connection {
             get {
                 return ((string)(this["connection"]));

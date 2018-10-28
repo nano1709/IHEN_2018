@@ -24,11 +24,11 @@
                 <tr>
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                         <asp:Label ID="lblNombreTecnico" runat="server" Text="Nombre: " ForeColor="#308ED5"></asp:Label>
-                        <asp:TextBox ID="txtNombreTecnico"  runat="server" placeholder="Nombre" class="form-control" Width="450px"></asp:TextBox>
+                        <asp:TextBox ID="txtNombreTecnico"  runat="server" placeholder="Nombre" class="form-control" Width="450px" ></asp:TextBox>
 
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                         <asp:Label ID="lblPerfil" runat="server" Text="Perfil ocupacional: " ForeColor="#308ED5"></asp:Label>
-                        <asp:TextBox ID="txtPerfilOcupacional" runat="server" placeholder="Perfil ocupacional" class="form-control" Width="608px" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox ID="txtPerfilOcupacional" runat="server" placeholder="Perfil ocupacional" class="form-control" Width="608px" TextMode="MultiLine" ></asp:TextBox>
                 </tr>
             </table>
             <br />
@@ -38,15 +38,15 @@
                 <tr>
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                         <asp:Label ID="lblDuracion" runat="server" Text="Duración: " ForeColor="#308ED5"></asp:Label>
-                        <asp:TextBox ID="txtDuracion" runat="server" placeholder="Duración" class="form-control" Width="320px"></asp:TextBox>
+                        <asp:TextBox ID="txtDuracion" runat="server" placeholder="Duración" class="form-control" Width="320px" ></asp:TextBox>
 
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                         <asp:Label ID="lblPracticas" runat="server" Text="Prácticas profesionales: " ForeColor="#308ED5"></asp:Label>
-                        <asp:TextBox ID="txtPracticas" runat="server"  placeholder="Prácticas profesionales" class="form-control" Width="320px"></asp:TextBox>
+                        <asp:TextBox ID="txtPracticas" runat="server"  placeholder="Prácticas profesionales" class="form-control" Width="320px" ></asp:TextBox>
 
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                         <asp:Label ID="lblRequisitos" runat="server" Text="Requisitos: " ForeColor="#308ED5"></asp:Label>
-                        <asp:TextBox ID="txtRequisitos" placeholder="Requisitos" runat="server" TextMode="MultiLine" class="form-control" Width="400px"></asp:TextBox>
+                        <asp:TextBox ID="txtRequisitos" placeholder="Requisitos" runat="server" TextMode="MultiLine" class="form-control" Width="400px" ></asp:TextBox>
 
                     
                 </tr>

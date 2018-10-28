@@ -11,6 +11,10 @@ namespace SDC.BLL.Metodos
 {
     public class MEstudiante : MDB, IEstudiante
     {
+        public List<DAL.Sede> ListaSede()
+        {
+            return estu.ListaSede();
+        }
 
         public List<DAL.Estudiante> ListaEstudiante()
         {

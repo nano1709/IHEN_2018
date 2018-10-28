@@ -6,6 +6,7 @@
         public DAL.Interfaces.IProfesor profe;
         public DAL.Interfaces.ITecnico tec;
         public DAL.Interfaces.IUsuarios usu;
+        public DAL.Interfaces.ICurso cur;
 
 
         public MDB()
@@ -14,7 +15,7 @@
             profe = new DAL.Metodos.MProfesor();
             tec = new DAL.Metodos.MTecnico();
             usu = new DAL.Metodos.MUsuarios();
-
+            cur = new DAL.Metodos.MCurso();
         }
 
     }

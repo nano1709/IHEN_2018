@@ -74,10 +74,12 @@
     <Compile Include="Estudiante.cs">
       <DependentUpon>DocenciaEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\ICurso.cs" />
     <Compile Include="Interfaces\IEstudiante.cs" />
     <Compile Include="Interfaces\IProfesor.cs" />
     <Compile Include="Interfaces\ITecnico.cs" />
     <Compile Include="Interfaces\IUsuario.cs" />
+    <Compile Include="Metodos\MCurso.cs" />
     <Compile Include="Metodos\MDB.cs" />
     <Compile Include="Metodos\MEstudiante.cs" />
     <Compile Include="Metodos\MProfesor.cs" />
@@ -96,13 +98,13 @@
       <DependentUpon>DocenciaEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sede.cs">
+      <DependentUpon>DocenciaEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Settings1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings1.settings</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>DocenciaEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Tecnico.cs">
       <DependentUpon>DocenciaEntities.tt</DependentUpon>

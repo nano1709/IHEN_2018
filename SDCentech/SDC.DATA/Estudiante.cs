@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SDC.DATA
+﻿namespace SDC.DATA
 {
     public class Estudiante
     {
@@ -15,7 +9,7 @@ namespace SDC.DATA
         public string CarreraTecnica { get; set; }
         public string FechaNacimiento { get; set; }
         public int Edad { get; set; }
-        public char Genero { get; set; }
+        public string Genero { get; set; }
         public string TelefonoMovil { get; set; }
         public string TelefonoDomicilio { get; set; }
         public string CorreoElectronico { get; set; }
@@ -25,12 +19,7 @@ namespace SDC.DATA
         public string Canton { get; set; }
         public string Distrito { get; set; }
         public string DomicilioExacto { get; set; }
-        public string LugarTrabajo { get; set; }
-        public string Cargo { get; set; }
-        public string TelefonoTrabajo { get; set; }
-        public string DireccionTrabajo { get; set; }
-        public string GradoAcademico { get; set; }
-        public string Institucion { get; set; }
+        public int IdSede { get; set; }
         public byte Estado { get; set; }
     }
 }

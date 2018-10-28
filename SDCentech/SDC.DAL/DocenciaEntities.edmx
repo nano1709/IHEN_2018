@@ -42,7 +42,7 @@ warning 6002: The table/view 'Docencia.dbo.CursoEstudiante' does not have a prim
           <Property Name="CarreraTecnica" Type="varchar" MaxLength="100" />
           <Property Name="FechaNacimiento" Type="varchar" MaxLength="50" />
           <Property Name="Edad" Type="int" />
-          <Property Name="Genero" Type="char" MaxLength="10" />
+          <Property Name="Genero" Type="varchar" MaxLength="20" />
           <Property Name="TelefonoMovil" Type="varchar" MaxLength="50" />
           <Property Name="TelefonoDomicilio" Type="varchar" MaxLength="50" />
           <Property Name="CorreoElectronico" Type="varchar" MaxLength="150" />
@@ -52,12 +52,7 @@ warning 6002: The table/view 'Docencia.dbo.CursoEstudiante' does not have a prim
           <Property Name="Canton" Type="varchar" MaxLength="50" />
           <Property Name="Distrito" Type="varchar" MaxLength="50" />
           <Property Name="DomicilioExacto" Type="varchar" MaxLength="200" />
-          <Property Name="LugarTrabajo" Type="varchar" MaxLength="50" />
-          <Property Name="Cargo" Type="varchar" MaxLength="100" />
-          <Property Name="TelefonoTrabajo" Type="varchar" MaxLength="50" />
-          <Property Name="DireccionTrabajo" Type="varchar" MaxLength="100" />
-          <Property Name="GradoAcademico" Type="varchar" MaxLength="50" />
-          <Property Name="Institucion" Type="varchar" MaxLength="100" />
+          <Property Name="IdSede" Type="int" />
           <Property Name="Estado" Type="bit" />
         </EntityType>
         <EntityType Name="Modulo">
@@ -119,15 +114,12 @@ warning 6002: The table/view 'Docencia.dbo.ModuloEstudiante' does not have a pri
           <Property Name="FechaInicio" Type="varchar" MaxLength="50" />
           <Property Name="CarreraTecnica" Type="varchar" MaxLength="100" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
+        <EntityType Name="Sede">
           <Key>
-            <PropertyRef Name="diagram_id" />
+            <PropertyRef Name="IdSede" />
           </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
+          <Property Name="IdSede" Type="int" Nullable="false" />
+          <Property Name="NombreSede" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Tecnico">
           <Key>
@@ -158,13 +150,13 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <Key>
             <PropertyRef Name="IDUser" />
           </Key>
+          <Property Name="IDUser" Type="int" Nullable="false" />
           <Property Name="NombreUsuario" Type="varchar" MaxLength="150" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="50" />
           <Property Name="Email" Type="varchar" MaxLength="150" />
           <Property Name="Code" Type="varchar" MaxLength="50" />
           <Property Name="Rol" Type="varchar" MaxLength="50" />
           <Property Name="Estado" Type="bit" />
-          <Property Name="IDUser" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Curso">
           <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
@@ -175,6 +167,18 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
             </Principal>
             <Dependent Role="CursoEstudiante">
               <PropertyRef Name="CodigoCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estudiante_Sede">
+          <End Role="Sede" Type="Self.Sede" Multiplicity="0..1" />
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sede">
+              <PropertyRef Name="IdSede" />
+            </Principal>
+            <Dependent Role="Estudiante">
+              <PropertyRef Name="IdSede" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -268,7 +272,7 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <EntitySet Name="Modulo" EntityType="Self.Modulo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ModuloProfesor" EntityType="Self.ModuloProfesor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Profesor" EntityType="Self.Profesor" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sede" EntityType="Self.Sede" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tecnico" EntityType="Self.Tecnico" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CursoEstudiante" EntityType="Self.CursoEstudiante" store:Type="Tables" store:Schema="dbo">
@@ -299,6 +303,10 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <AssociationSet Name="FK_Curso" Association="Self.FK_Curso">
             <End Role="Curso" EntitySet="Curso" />
             <End Role="CursoEstudiante" EntitySet="CursoEstudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estudiante_Sede" Association="Self.FK_Estudiante_Sede">
+            <End Role="Sede" EntitySet="Sede" />
+            <End Role="Estudiante" EntitySet="Estudiante" />
           </AssociationSet>
           <AssociationSet Name="FK_EstudianteC" Association="Self.FK_EstudianteC">
             <End Role="Estudiante" EntitySet="Estudiante" />
@@ -358,7 +366,7 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <Property Name="CarreraTecnica" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="FechaNacimiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Edad" Type="Int32" />
-          <Property Name="Genero" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Genero" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="TelefonoMovil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TelefonoDomicilio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CorreoElectronico" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
@@ -368,17 +376,13 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <Property Name="Canton" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Distrito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DomicilioExacto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="LugarTrabajo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Cargo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="TelefonoTrabajo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DireccionTrabajo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="GradoAcademico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Institucion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Boolean" />
           <NavigationProperty Name="CursoEstudiantes" Relationship="Self.FK_EstudianteC" FromRole="Estudiante" ToRole="CursoEstudiante" />
           <NavigationProperty Name="ModuloEstudiantes" Relationship="Self.FK_EstudianteM" FromRole="Estudiante" ToRole="ModuloEstudiante" />
           <NavigationProperty Name="TecnicoEstudiantes" Relationship="Self.FK_EstudianteT" FromRole="Estudiante" ToRole="TecnicoEstudiante" />
           <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdSede" Type="Int32" />
+          <NavigationProperty Name="Sede1" Relationship="DocenciaModel.FK_Estudiante_Sede" FromRole="Estudiante" ToRole="Sede" />
         </EntityType>
         <EntityType Name="Modulo">
           <Key>
@@ -432,16 +436,6 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <Property Name="CarreraTecnica" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ModuloProfesors" Relationship="Self.FK_Profesor" FromRole="Profesor" ToRole="ModuloProfesor" />
         </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="Tecnico">
           <Key>
             <PropertyRef Name="CodigoTecnico" />
@@ -457,7 +451,6 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
-            <PropertyRef Name="NombreUsuario" />
             <PropertyRef Name="IDUser" />
           </Key>
           <Property Name="NombreUsuario" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
@@ -607,7 +600,6 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <EntitySet Name="Moduloes" EntityType="Self.Modulo" />
           <EntitySet Name="ModuloProfesors" EntityType="Self.ModuloProfesor" />
           <EntitySet Name="Profesors" EntityType="Self.Profesor" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Tecnicoes" EntityType="Self.Tecnico" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
           <EntitySet Name="CursoEstudiantes" EntityType="Self.CursoEstudiante" />
@@ -645,7 +637,32 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
             <End Role="Tecnico" EntitySet="Tecnicoes" />
             <End Role="TecnicoEstudiante" EntitySet="TecnicoEstudiantes" />
           </AssociationSet>
+          <EntitySet Name="Sedes" EntityType="DocenciaModel.Sede" />
+          <AssociationSet Name="FK_Estudiante_Sede" Association="DocenciaModel.FK_Estudiante_Sede">
+            <End Role="Sede" EntitySet="Sedes" />
+            <End Role="Estudiante" EntitySet="Estudiantes" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Sede">
+          <Key>
+            <PropertyRef Name="IdSede" />
+          </Key>
+          <Property Name="IdSede" Type="Int32" Nullable="false" />
+          <Property Name="NombreSede" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Estudiantes" Relationship="DocenciaModel.FK_Estudiante_Sede" FromRole="Sede" ToRole="Estudiante" />
+        </EntityType>
+        <Association Name="FK_Estudiante_Sede">
+          <End Type="DocenciaModel.Sede" Role="Sede" Multiplicity="0..1" />
+          <End Type="DocenciaModel.Estudiante" Role="Estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sede">
+              <PropertyRef Name="IdSede" />
+            </Principal>
+            <Dependent Role="Estudiante">
+              <PropertyRef Name="IdSede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -670,6 +687,7 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <EntitySetMapping Name="Estudiantes">
             <EntityTypeMapping TypeName="DocenciaModel.Estudiante">
               <MappingFragment StoreEntitySet="Estudiante">
+                <ScalarProperty Name="IdSede" ColumnName="IdSede" />
                 <ScalarProperty Name="Apellido" ColumnName="Apellido" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Cedula" ColumnName="Cedula" />
@@ -687,12 +705,6 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
                 <ScalarProperty Name="Canton" ColumnName="Canton" />
                 <ScalarProperty Name="Distrito" ColumnName="Distrito" />
                 <ScalarProperty Name="DomicilioExacto" ColumnName="DomicilioExacto" />
-                <ScalarProperty Name="LugarTrabajo" ColumnName="LugarTrabajo" />
-                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
-                <ScalarProperty Name="TelefonoTrabajo" ColumnName="TelefonoTrabajo" />
-                <ScalarProperty Name="DireccionTrabajo" ColumnName="DireccionTrabajo" />
-                <ScalarProperty Name="GradoAcademico" ColumnName="GradoAcademico" />
-                <ScalarProperty Name="Institucion" ColumnName="Institucion" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -744,17 +756,6 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
                 <ScalarProperty Name="CarreraTecnica" ColumnName="CarreraTecnica" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="DocenciaModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -812,6 +813,14 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="PracticaProfesional" ColumnName="PracticaProfesional" />
                 <ScalarProperty Name="Condicion" ColumnName="Condicion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sedes">
+            <EntityTypeMapping TypeName="DocenciaModel.Sede">
+              <MappingFragment StoreEntitySet="Sede">
+                <ScalarProperty Name="NombreSede" ColumnName="NombreSede" />
+                <ScalarProperty Name="IdSede" ColumnName="IdSede" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

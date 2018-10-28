@@ -23,7 +23,9 @@ namespace SDC.BLL.Metodos
 
         public DAL.Usuario LoginUser(string email, string pass)
         {
-            return usu.LoginUser(email, pass);
+            BLL.Seguridad seg = new BLL.Seguridad();
+            string  pass2 = seg.Decriptar(pass);
+            return usu.LoginUser(email, pass2);
         }
 
         public void UpdateUser(DATA.Usuarios user)

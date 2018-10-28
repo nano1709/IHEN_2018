@@ -89,7 +89,7 @@ namespace SDC.DAL.Metodos
                 using (DocenciaEntities contexto = new DocenciaEntities())
                 {
                     contexto.Database.Connection.Open();
-
+                    
                     sUsuario = contexto.Usuarios.Where(c => c.NombreUsuario == email && c.Password == pass).First();
 
                     select.IDUser = sUsuario.IDUser;
@@ -105,7 +105,7 @@ namespace SDC.DAL.Metodos
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
 
 

@@ -38,14 +38,9 @@ namespace SDC.DAL
         public string Canton { get; set; }
         public string Distrito { get; set; }
         public string DomicilioExacto { get; set; }
-        public string LugarTrabajo { get; set; }
-        public string Cargo { get; set; }
-        public string TelefonoTrabajo { get; set; }
-        public string DireccionTrabajo { get; set; }
-        public string GradoAcademico { get; set; }
-        public string Institucion { get; set; }
         public Nullable<bool> Estado { get; set; }
         public string Apellido { get; set; }
+        public Nullable<int> IdSede { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CursoEstudiante> CursoEstudiantes { get; set; }
@@ -53,5 +48,6 @@ namespace SDC.DAL
         public virtual ICollection<ModuloEstudiante> ModuloEstudiantes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TecnicoEstudiante> TecnicoEstudiantes { get; set; }
+        public virtual Sede Sede1 { get; set; }
     }
 }
