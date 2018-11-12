@@ -40,10 +40,6 @@
     </div>
 
     <section style="padding-right: 20px; padding-left: 20px">
-        <asp:Button CssClass="btn btn-success" ID="AgregarEstudiante" OnClick="AddCurso_Click" Text="Agregar Nuevo" runat="server"
-            Style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;" class="btn btn-success"
-            Width="130px" BorderStyle="None" Font-Bold="False" Font-Italic="False" ForeColor="White" Height="38px" />
-        <br />
         <div class="row">
             <div class="col-lg-12">
                 <div class="ibox float-e-margins">
@@ -64,31 +60,21 @@
                                     <th>Inversion</th>
                                     <th>Metodologia</th>
                                     <th></th>
-                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>DCD-1972</td>
-                                    <td>Medicina Forense</td>
-                                    <td>48 Horas</td>
-                                    <td>.....</td>
-                                    <td>N/A</td>
-                                    <td>Medico Forense</td>
-                                    <td>$2000</td>
-                                    <td>.....</td>
-                                    <td>
-                                        <asp:Button ID="btnVer" runat="server" Text="Ver" class="btn btn-form"
-                                            Font-Bold="False" Font-Italic="False" CssClass="btn btn-success" ForeColor="White" /></td>
-                                    <td>
-                                        <asp:Button runat="server" Text="Eliminar" CssClass="btn btn-danger" /></td>
-                                </tr>
+                                <%= Fila %>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
+
+
+
+        <asp:Button CssClass="btn btn-primary" ID="AddCurso" OnClick="AddCurso_Click" Text="Agregar Curso" runat="server" />
+
     </section>
 
 
@@ -123,6 +109,47 @@
                 ]
 
             });
+
+
+
+
+
+
+
+
+
+            $('.dataTables-example').on('click', 'editar', function () {
+
+
+
+                var datos = $(this).attr('value');
+
+                var URL = "";
+                URL = "CursosForm.aspx?editarid=" + datos;
+
+
+                $.ajax({
+
+
+                    type: "POST",
+                    url: URL,
+                    data: "",
+                    datatype: "html"
+
+
+
+
+
+                });
+
+
+
+
+
+            });
+
+
+
         });
     </script>
 

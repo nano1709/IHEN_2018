@@ -1,17 +1,15 @@
-﻿using System;
+﻿using SDC.BLL.Interfaces;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SDC.BLL.Interfaces;
-using SDC.BLL.Metodos;
-using SDC.DAL;
-using SDC.DATA;
 
 namespace SDC.BLL.Metodos
 {
     public class MProfesor : MDB, IProfesor
     {
+        public List<DAL.Sede> ListaSede()
+        {
+            return estu.ListaSede();
+        }
+
         public void ActualizarProfesor(DATA.Profesor profesor)
         {
             profe.ActualizarProfesor(profesor);

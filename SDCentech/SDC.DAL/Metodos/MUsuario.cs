@@ -1,9 +1,7 @@
-﻿using System;
+﻿using SDC.DAL.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SDC.DAL.Interfaces;
 
 namespace SDC.DAL.Metodos
 {
@@ -81,15 +79,17 @@ namespace SDC.DAL.Metodos
 
         public DAL.Usuario LoginUser(string email, string pass)
         {
+            DAL.Usuario select = new DAL.Usuario();
+            DAL.Usuario sUsuario = new DAL.Usuario();
+
+
             try
             {
-                DAL.Usuario select = new DAL.Usuario();
-                DAL.Usuario sUsuario = new DAL.Usuario();
 
                 using (DocenciaEntities contexto = new DocenciaEntities())
                 {
                     contexto.Database.Connection.Open();
-                    
+
                     sUsuario = contexto.Usuarios.Where(c => c.NombreUsuario == email && c.Password == pass).First();
 
                     select.IDUser = sUsuario.IDUser;
@@ -105,7 +105,7 @@ namespace SDC.DAL.Metodos
             }
             catch (Exception ex)
             {
-                throw ex;
+                return select;
             }
 
 

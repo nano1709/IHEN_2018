@@ -1,4 +1,5 @@
-﻿using SDC.BLL.Interfaces;
+﻿using SDC.BLL;
+using SDC.BLL.Interfaces;
 using SDC.BLL.Metodos;
 using System;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace SDC
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Seguridad seg = new Seguridad();
 
             string cedula = Request.QueryString["Cedula"];
             string nombre = Request.QueryString["Nombre"];
@@ -73,7 +75,7 @@ namespace SDC
 
             if (deleteid != null)
             {
-                EliminarEstudiante(Convert.ToInt32(deleteid), nombre, apellido, carreraTecnica, correoElectronico);
+                EliminarEstudiante(Convert.ToInt32(deleteid), nombre, apellido);
             }
             else if (editid != null)
             {
@@ -150,18 +152,20 @@ namespace SDC
                 }
                 sb.Append("</TD>");
                 sb.Append("<TD>");
-                sb.Append("<button class='btn btn-info editar' type='button' value='" + item.Cedula + "§"
+
+                var datos = item.Cedula + "§"
                     + item.Nombre + "§" + item.Apellido + "§" + item.FechaIngreso + "§" + item.CarreraTecnica + "§"
                     + item.FechaNacimiento + "§" + item.Genero + "§" + item.TelefonoMovil + "§"
                     + item.TelefonoDomicilio + "§" + item.CorreoElectronico + "§" + item.ReferenciaPersonal + "§"
                     + item.TelefonoReferencia + "§" + item.Provincia + "§" + item.Canton + "§" + item.Distrito + "§"
-                    + item.DomicilioExacto + "§" + item.Edad + "§" + item.IdSede + "'>Ver</button>");
+                    + item.DomicilioExacto + "§" + item.Edad + "§" + item.IdSede;
+
+                string newDatos = seg.Encriptar(datos);
+                sb.Append("<button class='btn btn-info editar' type='button' value='" + newDatos + "'>Ver</button>");
                 sb.Append("</TD>");
 
                 sb.Append("<TD>");
-                sb.Append("<button class='btn btn-danger borrar' type='button' value='" + item.Cedula + "§"
-                    + item.Nombre + "§" + item.Apellido + "§" + item.CarreraTecnica + "§"
-                    + item.CorreoElectronico + "'>Eliminar</button>");
+                sb.Append("<button class='btn btn-danger borrar' type='button' value='" + item.Cedula + "§" + item.Nombre + "§" + item.Apellido + "§" + "'>Eliminar</button>");
                 sb.Append("</TD>");
 
                 sb.Append("</TR>");
@@ -172,7 +176,7 @@ namespace SDC
         }
 
 
-        protected void EliminarEstudiante(int cedula, string nombre, string apellido, string carrera, string correo)
+        protected void EliminarEstudiante(int cedula, string nombre, string apellido)
         {
             try
             {
@@ -180,9 +184,7 @@ namespace SDC
                 {
                     Cedula = cedula,
                     Nombre = nombre,
-                    Apellido = apellido,
-                    CarreraTecnica = carrera,
-                    CorreoElectronico = correo
+                    Apellido = apellido
                 };
                 estu.EliminarEstudiante(estudiante);
             }

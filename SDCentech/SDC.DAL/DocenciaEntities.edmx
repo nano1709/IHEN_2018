@@ -93,7 +93,7 @@ warning 6002: The table/view 'Docencia.dbo.ModuloEstudiante' does not have a pri
           <Property Name="Cedula" Type="int" Nullable="false" />
           <Property Name="FechaNacimiento" Type="varchar" MaxLength="50" />
           <Property Name="Edad" Type="int" />
-          <Property Name="Genero" Type="char" MaxLength="10" />
+          <Property Name="Genero" Type="varchar" MaxLength="50" />
           <Property Name="TelefonoMovil" Type="int" />
           <Property Name="TelefonoDomicilio" Type="int" />
           <Property Name="CorreoElectronico" Type="varchar" MaxLength="150" />
@@ -113,6 +113,7 @@ warning 6002: The table/view 'Docencia.dbo.ModuloEstudiante' does not have a pri
           <Property Name="Estado" Type="bit" Nullable="false" />
           <Property Name="FechaInicio" Type="varchar" MaxLength="50" />
           <Property Name="CarreraTecnica" Type="varchar" MaxLength="100" />
+          <Property Name="IdSede" Type="int" />
         </EntityType>
         <EntityType Name="Sede">
           <Key>
@@ -167,18 +168,6 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
             </Principal>
             <Dependent Role="CursoEstudiante">
               <PropertyRef Name="CodigoCurso" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Estudiante_Sede">
-          <End Role="Sede" Type="Self.Sede" Multiplicity="0..1" />
-          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sede">
-              <PropertyRef Name="IdSede" />
-            </Principal>
-            <Dependent Role="Estudiante">
-              <PropertyRef Name="IdSede" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -304,10 +293,6 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
             <End Role="Curso" EntitySet="Curso" />
             <End Role="CursoEstudiante" EntitySet="CursoEstudiante" />
           </AssociationSet>
-          <AssociationSet Name="FK_Estudiante_Sede" Association="Self.FK_Estudiante_Sede">
-            <End Role="Sede" EntitySet="Sede" />
-            <End Role="Estudiante" EntitySet="Estudiante" />
-          </AssociationSet>
           <AssociationSet Name="FK_EstudianteC" Association="Self.FK_EstudianteC">
             <End Role="Estudiante" EntitySet="Estudiante" />
             <End Role="CursoEstudiante" EntitySet="CursoEstudiante" />
@@ -414,7 +399,7 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <Property Name="Cedula" Type="Int32" Nullable="false" />
           <Property Name="FechaNacimiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Edad" Type="Int32" />
-          <Property Name="Genero" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Genero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TelefonoMovil" Type="Int32" />
           <Property Name="TelefonoDomicilio" Type="Int32" />
           <Property Name="CorreoElectronico" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
@@ -435,6 +420,7 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <Property Name="FechaInicio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CarreraTecnica" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ModuloProfesors" Relationship="Self.FK_Profesor" FromRole="Profesor" ToRole="ModuloProfesor" />
+          <Property Name="IdSede" Type="Int32" />
         </EntityType>
         <EntityType Name="Tecnico">
           <Key>
@@ -732,6 +718,7 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <EntitySetMapping Name="Profesors">
             <EntityTypeMapping TypeName="DocenciaModel.Profesor">
               <MappingFragment StoreEntitySet="Profesor">
+                <ScalarProperty Name="IdSede" ColumnName="IdSede" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Cedula" ColumnName="Cedula" />
                 <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />

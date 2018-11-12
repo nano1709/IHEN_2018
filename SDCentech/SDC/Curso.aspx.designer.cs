@@ -22,21 +22,12 @@ namespace SDC {
         protected global::System.Web.UI.WebControls.Label LbTipo;
         
         /// <summary>
-        /// AgregarEstudiante control.
+        /// AddCurso control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AgregarEstudiante;
-        
-        /// <summary>
-        /// btnVer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVer;
+        protected global::System.Web.UI.WebControls.Button AddCurso;
     }
 }

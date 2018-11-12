@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SDC.BLL.Interfaces;
-using SDC.DAL;
-using SDC.DATA;
+﻿using SDC.BLL.Interfaces;
 
 namespace SDC.BLL.Metodos
 {
@@ -23,9 +16,7 @@ namespace SDC.BLL.Metodos
 
         public DAL.Usuario LoginUser(string email, string pass)
         {
-            BLL.Seguridad seg = new BLL.Seguridad();
-            string  pass2 = seg.Decriptar(pass);
-            return usu.LoginUser(email, pass2);
+            return usu.LoginUser(email, pass);
         }
 
         public void UpdateUser(DATA.Usuarios user)

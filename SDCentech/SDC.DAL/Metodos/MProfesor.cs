@@ -33,6 +33,27 @@ namespace SDC.DAL.Metodos
                 }
             }
         }
+
+        public List<DAL.Sede> ListaSede()
+        {
+            List<DAL.Sede> lista = new List<DAL.Sede>();
+
+            try
+            {
+
+                _db.Open();
+                lista = conexion.Sedes.ToList();
+                _db.Close();
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.Write(ex);
+            }
+            return lista;
+        }
+
         public List<Profesor> ListaProfesor()
         {
             List<DAL.Profesor> lista = new List<DAL.Profesor>();
@@ -82,7 +103,7 @@ namespace SDC.DAL.Metodos
                 registroProfe.TelefonoDomicilio = Convert.ToInt32(profesor.TelefonoDomicilio);
                 registroProfe.TelefonoMovil = Convert.ToInt32(profesor.TelefonoMovil);
                 registroProfe.TelefonoTrabajo = Convert.ToInt32(profesor.TelefonoTrabajo);
-
+                registroProfe.IdSede = Convert.ToInt32(profesor.IdSede);
 
                 sc.Profesors.Add(registroProfe);
 
@@ -127,7 +148,7 @@ namespace SDC.DAL.Metodos
                 actuProfe.TelefonoDomicilio = Convert.ToInt32(profesor.TelefonoDomicilio);
                 actuProfe.TelefonoMovil = Convert.ToInt32(profesor.TelefonoMovil);
                 actuProfe.TelefonoTrabajo = Convert.ToInt32(profesor.TelefonoTrabajo);
-
+                actuProfe.IdSede = Convert.ToInt32(profesor.IdSede);
 
                 sc.SaveChanges();
 
@@ -181,7 +202,7 @@ namespace SDC.DAL.Metodos
                 listaCedulaProfe.FechaIngreso = profesor.FechaIngreso;
                 listaCedulaProfe.FechaInicio = profesor.FechaInicio;
                 listaCedulaProfe.FechaNacimiento = profesor.FechaNacimiento;
-                listaCedulaProfe.Genero = Convert.ToChar(profesor.Genero);
+                listaCedulaProfe.Genero = profesor.Genero;
                 listaCedulaProfe.GradoAcademico = profesor.GradoAcademico;
                 listaCedulaProfe.Institucion = profesor.Institucion;
                 listaCedulaProfe.LugarTrabajo = profesor.LugarTrabajo;
@@ -191,7 +212,7 @@ namespace SDC.DAL.Metodos
                 listaCedulaProfe.TelefonoDomicilio = Convert.ToInt32(profesor.TelefonoDomicilio);
                 listaCedulaProfe.TelefonoMovil = Convert.ToInt32(profesor.TelefonoMovil);
                 listaCedulaProfe.TelefonoTrabajo = Convert.ToInt32(profesor.TelefonoTrabajo);
-
+                listaCedulaProfe.IdSede = Convert.ToInt32(profesor.IdSede);
             }
             catch (Exception ex)
             {

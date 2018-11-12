@@ -3,204 +3,214 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-year-calendar.min.css" />
-
-
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-8">
+            <h2>Calendar</h2>
+            <ol class="breadcrumb">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>Extra pages
+                </li>
+                <li class="active">
+                    <strong>Calendar</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="wrapper wrapper-content">
+        <div class="row animated fadeInDown">
+            <div class="col-lg-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Draggable Events</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="#">Config option 1</a>
+                                </li>
+                                <li><a href="#">Config option 2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div id='external-events'>
+                            <p>Drag a event and drop into callendar.</p>
+                            <div class='external-event navy-bg'>Go to shop and buy some products.</div>
+                            <div class='external-event navy-bg'>Check the new CI from Corporation.</div>
+                            <div class='external-event navy-bg'>Send documents to John.</div>
+                            <div class='external-event navy-bg'>Phone to Sandra.</div>
+                            <div class='external-event navy-bg'>Chat with Michael.</div>
+                            <p class="m-t">
+                                <input type='checkbox' id='drop-remove' class="i-checks" checked />
+                                <label for='drop-remove'>remove after drop</label>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <h2>FullCalendar</h2>
+                        is a jQuery plugin that provides a full-sized, drag & drop calendar like the one below. It uses AJAX to fetch events on-the-fly for each month and is
+                    easily configured to use your own feed format (an extension is provided for Google Calendar).
+                    <p>
+                        <a href="http://arshaw.com/fullcalendar/" target="_blank">FullCalendar documentation</a>
+                    </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Striped Table </h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="#">Config option 1</a>
+                                </li>
+                                <li><a href="#">Config option 2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div id="calendar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="pull-right">
+            10GB of <strong>250GB</strong> Free.
+        </div>
+        <div>
+            <strong>Copyright</strong> Example Company &copy; 2014-2015
+        </div>
+    </div>
 
     <script src="Scripts/jquery-3.3.1.slim.min.js"></script>
-    <script src="js/bootstrap-year-calendar.min.js"></script>
-
+    <script src="js/iCheck/icheck.min.js"></script>
+    <script src="js/fullcalendar/moment.min.js"></script>
+    <script src="js/fullcalendar/fullcalendar.min.js"></script>
+    <script src="js/jquery-ui.custom.min.js"></script>
 
     <script>
 
+        $(document).ready(function () {
 
-        function editEvent(event) {
-            $('#event-modal input[name="event-index"]').val(event ? event.id : '');
-            $('#event-modal input[name="event-name"]').val(event ? event.name : '');
-            $('#event-modal input[name="event-location"]').val(event ? event.location : '');
-            $('#event-modal input[name="event-start-date"]').datepicker('update', event ? event.startDate : '');
-            $('#event-modal input[name="event-end-date"]').datepicker('update', event ? event.endDate : '');
-            $('#event-modal').modal();
-        }
+            /* initialize the external events
+             -----------------------------------------------------------------*/
 
-        function deleteEvent(event) {
-            var dataSource = $('#calendar').data('calendar').getDataSource();
 
-            for (var i in dataSource) {
-                if (dataSource[i].id == event.id) {
-                    dataSource.splice(i, 1);
-                    break;
-                }
-            }
+            $('#external-events div.external-event').each(function () {
 
-            $('#calendar').data('calendar').setDataSource(dataSource);
-        }
+                // store data so the calendar knows to render an event upon drop
+                $(this).data('event', {
+                    title: $.trim($(this).text()), // use the element's text as the event title
+                    stick: true // maintain when user navigates (see docs on the renderEvent method)
+                });
 
-        function saveEvent() {
-            var event = {
-                id: $('#event-modal input[name="event-index"]').val(),
-                name: $('#event-modal input[name="event-name"]').val(),
-                location: $('#event-modal input[name="event-location"]').val(),
-                startDate: $('#event-modal input[name="event-start-date"]').datepicker('getDate'),
-                endDate: $('#event-modal input[name="event-end-date"]').datepicker('getDate')
-            }
+                // make the event draggable using jQuery UI
+                $(this).draggable({
+                    zIndex: 1111999,
+                    revert: true,      // will cause the event to go back to its
+                    revertDuration: 0  //  original position after the drag
+                });
 
-            var dataSource = $('#calendar').data('calendar').getDataSource();
+            });
 
-            if (event.id) {
-                for (var i in dataSource) {
-                    if (dataSource[i].id == event.id) {
-                        dataSource[i].name = event.name;
-                        dataSource[i].location = event.location;
-                        dataSource[i].startDate = event.startDate;
-                        dataSource[i].endDate = event.endDate;
-                    }
-                }
-            }
-            else {
-                var newId = 0;
-                for (var i in dataSource) {
-                    if (dataSource[i].id > newId) {
-                        newId = dataSource[i].id;
-                    }
-                }
 
-                newId++;
-                event.id = newId;
+            /* initialize the calendar
+             -----------------------------------------------------------------*/
+            var date = new Date();
+            var d = date.getDate();
+            var m = date.getMonth();
+            var y = date.getFullYear();
 
-                dataSource.push(event);
-            }
-
-            $('#calendar').data('calendar').setDataSource(dataSource);
-            $('#event-modal').modal('hide');
-        }
-
-        $(function () {
-            var currentYear = new Date().getFullYear();
-
-            $('#calendar').calendar({
-                enableContextMenu: true,
-                enableRangeSelection: true,
-                contextMenuItems: [
-                    {
-                        text: 'Update',
-                        click: editEvent
-                    },
-                    {
-                        text: 'Delete',
-                        click: deleteEvent
-                    }
-                ],
-                selectRange: function (e) {
-                    editEvent({ startDate: e.startDate, endDate: e.endDate });
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
                 },
-                mouseOnDay: function (e) {
-                    if (e.events.length > 0) {
-                        var content = '';
-
-                        for (var i in e.events) {
-                            content += '<div class="event-tooltip-content">'
-                                + '<div class="event-name" style="color:' + e.events[i].color + '">' + e.events[i].name + '</div>'
-                                + '<div class="event-location">' + e.events[i].location + '</div>'
-                                + '</div>';
-                        }
-
-                        $(e.element).popover({
-                            trigger: 'manual',
-                            container: 'body',
-                            html: true,
-                            content: content
-                        });
-
-                        $(e.element).popover('show');
+                editable: true,
+                droppable: true, // this allows things to be dropped onto the calendar
+                drop: function () {
+                    // is the "remove after drop" checkbox checked?
+                    if ($('#drop-remove').is(':checked')) {
+                        // if so, remove the element from the "Draggable Events" list
+                        $(this).remove();
                     }
                 },
-                mouseOutDay: function (e) {
-                    if (e.events.length > 0) {
-                        $(e.element).popover('hide');
-                    }
-                },
-                dayContextMenu: function (e) {
-                    $(e.element).popover('hide');
-                },
-                dataSource: [
+                events: [
                     {
-                        id: 0,
-                        name: 'Google I/O',
-                        location: 'San Francisco, CA',
-                        startDate: new Date(currentYear, 4, 28),
-                        endDate: new Date(currentYear, 4, 29)
+                        title: 'All Day Event',
+                        start: new Date(y, m, 1)
                     },
                     {
-                        id: 1,
-                        name: 'Microsoft Convergence',
-                        location: 'New Orleans, LA',
-                        startDate: new Date(currentYear, 2, 16),
-                        endDate: new Date(currentYear, 2, 19)
+                        title: 'Long Event',
+                        start: new Date(y, m, d - 5),
+                        end: new Date(y, m, d - 2)
                     },
                     {
-                        id: 2,
-                        name: 'Microsoft Build Developer Conference',
-                        location: 'San Francisco, CA',
-                        startDate: new Date(currentYear, 3, 29),
-                        endDate: new Date(currentYear, 4, 1)
+                        id: 999,
+                        title: 'Repeating Event',
+                        start: new Date(y, m, d - 3, 16, 0),
+                        allDay: false
                     },
                     {
-                        id: 3,
-                        name: 'Apple Special Event',
-                        location: 'San Francisco, CA',
-                        startDate: new Date(currentYear, 8, 1),
-                        endDate: new Date(currentYear, 8, 1)
+                        id: 999,
+                        title: 'Repeating Event',
+                        start: new Date(y, m, d + 4, 16, 0),
+                        allDay: false
                     },
                     {
-                        id: 4,
-                        name: 'Apple Keynote',
-                        location: 'San Francisco, CA',
-                        startDate: new Date(currentYear, 8, 9),
-                        endDate: new Date(currentYear, 8, 9)
+                        title: 'Meeting',
+                        start: new Date(y, m, d, 10, 30),
+                        allDay: false
                     },
                     {
-                        id: 5,
-                        name: 'Chrome Developer Summit',
-                        location: 'Mountain View, CA',
-                        startDate: new Date(currentYear, 10, 17),
-                        endDate: new Date(currentYear, 10, 18)
+                        title: 'Lunch',
+                        start: new Date(y, m, d, 12, 0),
+                        end: new Date(y, m, d, 14, 0),
+                        allDay: false
                     },
                     {
-                        id: 6,
-                        name: 'F8 2015',
-                        location: 'San Francisco, CA',
-                        startDate: new Date(currentYear, 2, 25),
-                        endDate: new Date(currentYear, 2, 26)
+                        title: 'Birthday Party',
+                        start: new Date(y, m, d + 1, 19, 0),
+                        end: new Date(y, m, d + 1, 22, 30),
+                        allDay: false
                     },
                     {
-                        id: 7,
-                        name: 'Yahoo Mobile Developer Conference',
-                        location: 'New York',
-                        startDate: new Date(currentYear, 7, 25),
-                        endDate: new Date(currentYear, 7, 26)
-                    },
-                    {
-                        id: 8,
-                        name: 'Android Developer Conference',
-                        location: 'Santa Clara, CA',
-                        startDate: new Date(currentYear, 11, 1),
-                        endDate: new Date(currentYear, 11, 4)
-                    },
-                    {
-                        id: 9,
-                        name: 'LA Tech Summit',
-                        location: 'Los Angeles, CA',
-                        startDate: new Date(currentYear, 10, 17),
-                        endDate: new Date(currentYear, 10, 17)
+                        title: 'Click for Google',
+                        start: new Date(y, m, 28),
+                        end: new Date(y, m, 29),
+                        url: 'http://google.com/'
                     }
                 ]
             });
 
-            $('#save-event').click(function () {
-                saveEvent();
-            });
+
         });
+
     </script>
 
 </asp:Content>

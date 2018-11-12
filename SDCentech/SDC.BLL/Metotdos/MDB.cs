@@ -7,7 +7,7 @@
         public DAL.Interfaces.ITecnico tec;
         public DAL.Interfaces.IUsuarios usu;
         public DAL.Interfaces.ICurso cur;
-
+        public DAL.Interfaces.IModulo mod;
 
         public MDB()
         {
@@ -16,6 +16,7 @@
             tec = new DAL.Metodos.MTecnico();
             usu = new DAL.Metodos.MUsuarios();
             cur = new DAL.Metodos.MCurso();
+            mod = new DAL.Metodos.MModulo();
         }
 
     }

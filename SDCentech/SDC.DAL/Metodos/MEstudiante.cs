@@ -98,6 +98,7 @@ namespace SDC.DAL.Metodos
                 registroEstu.Canton = estudiante.Canton;
                 registroEstu.Distrito = estudiante.Distrito;
                 registroEstu.DomicilioExacto = estudiante.DomicilioExacto;
+                registroEstu.IdSede = estudiante.IdSede;
 
                 registroEstu.Estado = Convert.ToBoolean(estudiante.Estado);
 
@@ -137,6 +138,7 @@ namespace SDC.DAL.Metodos
                 actuEstu.Canton = estudiante.Canton;
                 actuEstu.Distrito = estudiante.Distrito;
                 actuEstu.DomicilioExacto = estudiante.DomicilioExacto;
+                actuEstu.IdSede = estudiante.IdSede;
 
                 actuEstu.Estado = actuEstu.Estado;
 

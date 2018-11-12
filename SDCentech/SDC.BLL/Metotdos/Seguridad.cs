@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace SDC.BLL
 {
@@ -13,8 +10,6 @@ namespace SDC.BLL
     {
 
         public static string Llave = "jskruwiqhendmsud";
-
-
 
         public string Decriptar(string contra)
         {
@@ -33,13 +28,16 @@ namespace SDC.BLL
                 byte[] resultado = cTransform.TransformFinalBlock(encriptar, 0, encriptar.Length);
                 return Encoding.UTF8.GetString(resultado);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
                 return "";
             }
 
         }
+
+
+
+
 
         public string Encriptar(string contra)
         {
@@ -55,8 +53,6 @@ namespace SDC.BLL
             byte[] resultado = cTransform.TransformFinalBlock(encriptar, 0, encriptar.Length);
             return Convert.ToBase64String(resultado, 0, resultado.Length);
         }
-
-
 
 
     }

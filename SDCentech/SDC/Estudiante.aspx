@@ -120,35 +120,9 @@
             $('.editar').click(function () {
 
                 var datos = $(this).attr('value');
-                var dato = datos.split("§");
-                console.log(dato);
+                //console.log(datos);
 
-                var cedula = dato[0];
-                var nombre = dato[1];
-                var apellido = dato[2];
-                var fechaIngreso = dato[3];
-                var carrera = dato[4];
-                var fechaNacimiento = dato[5];
-                var genero = dato[6];
-                var telMovil = dato[7];
-                var telDomicilio = dato[8];
-                var correo = dato[9];
-                var refPersonal = dato[10];
-                var telReferencia = dato[11];
-                var provincia = dato[12];
-                var canton = dato[13];
-                var distrito = dato[14];
-                var domExacto = dato[15];
-                var edad = dato[16];
-                var sede = dato[17];
-
-                var valores = "ModificarEstudiante.aspx?editid=" + cedula
-                    + "§" + nombre
-                    + "§" + apellido + "§" + carrera + "§" + fechaIngreso
-                    + "§" + fechaNacimiento + "§" + genero + "§" + edad
-                    + "§" + telMovil + "§" + telDomicilio + "§" + correo
-                    + "§" + refPersonal + "§" + telReferencia + "§" + provincia
-                    + "§" + distrito + "§" + canton + "§" + domExacto + "§" + sede;
+                var valores = "ModificarEstudiante.aspx?editid=" + datos;
 
                 window.location.href = valores;
                 console.log(valores);
@@ -169,14 +143,12 @@
                 var cedula = dato[0];
                 var nombre = dato[1];
                 var apellido = dato[2];
-                var carrera = dato[3];
-                var correo = dato[4];
 
 
                 console.log("This: " + this);
 
                 var valores = "" + cedula + "&Nombre=" + nombre +
-                    "&Apellido=" + apellido + "&carrera=" + carrera + "&Correo=" + correo;
+                    "&Apellido=" + apellido;
 
                 console.log("Valores: " + valores);
                 swal({

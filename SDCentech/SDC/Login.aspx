@@ -2,8 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-    <link rel="stylesheet" type="text/css" href="fonts/sweetalert.css" />
-    <link rel="stylesheet" href="/css/Login.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css" />
+    <link rel="stylesheet" type="text/css" href="css/Login.css" />
 
 
 </asp:Content>
@@ -18,7 +18,7 @@
 
 
     <!-- PASSWORD INPUT -->
-    <label for="password">Contraseña</label>
+    <label for="password">Contrseña</label>
     <asp:TextBox runat="server" ID="txtPass" CssClass="form-control" TextMode="Password" placeholder="Ingrese su contraseña"></asp:TextBox>
 
 

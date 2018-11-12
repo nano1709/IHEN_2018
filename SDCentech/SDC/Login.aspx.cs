@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using SDC.DAL.Interface;
 using SDC.BLL.Interfaces;
+using SDC.BLL;
 
 namespace SDC
 {
@@ -43,7 +44,7 @@ namespace SDC
             if (txtUser.Text != "" && txtPass.Text != "")
             {
 
-                BLL.Seguridad seg = new BLL.Seguridad();
+                Seguridad seg = new Seguridad();
 
                 string pass = seg.Encriptar(txtPass.Text);
 
@@ -51,26 +52,24 @@ namespace SDC
 
 
 
-                if (usuario != null)
+                if (usuario.NombreUsuario != null && usuario.IDUser != 0)
                 {
                     Session["UserId"] = usuario.IDUser;
                     Session["UserName"] = usuario.NombreUsuario;
                     Session["Roll"] = usuario.Rol;
-                    Response.Redirect("Menu.aspx", false);
 
+                    Response.Redirect("Menu.aspx");
                 }
                 else
                 {
                     Session["Error"] = "Hola";
 
-                    h1id.InnerText = seg.Encriptar(txtPass.Text);
-                    //Response.Redirect("Login.aspx", false);
+
+                    Response.Redirect("Login.aspx", false);
 
                 }
 
             }
-
-            Response.Redirect("Menu.aspx");
 
         }
     }

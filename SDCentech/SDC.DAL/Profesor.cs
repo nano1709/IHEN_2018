@@ -44,6 +44,7 @@ namespace SDC.DAL
         public bool Estado { get; set; }
         public string FechaInicio { get; set; }
         public string CarreraTecnica { get; set; }
+        public Nullable<int> IdSede { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ModuloProfesor> ModuloProfesors { get; set; }

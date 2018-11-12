@@ -20,10 +20,11 @@ namespace SDC
         {
             var Tecnicos = tec.ListaTecnico();
             var sedes = estu.ListaSede();
-
+            var i = 0;
             foreach (var item in Tecnicos)
             {
-                ddlCarreraTecnica.Items.Insert(0, item.NombreTecnico);
+                ddlCarreraTecnica.Items.Insert(i, item.NombreTecnico);
+                i++;
             }
 
             foreach (var item in sedes)

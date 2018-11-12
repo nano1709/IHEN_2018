@@ -32,6 +32,14 @@
     <h1>
         <asp:Label ID="LbTipo" runat="server" Text=""></asp:Label></h1>
 
+    <div class="alert alert-success" visible="false" id="mensaje" runat="server">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+        <strong id="textoMensaje" runat="server"></strong>
+    </div>
+    <div class="alert alert-danger" visible="false" id="mensajeError" runat="server">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
+        <strong id="textoMensajeError" runat="server"></strong>
+    </div>
 
     <div class="text-center article-title">
         <h1 style="color: #308ED5">Técnicos
@@ -55,6 +63,7 @@
                                 <tr>
                                     <th>Código</th>
                                     <th>Nombre</th>
+                                    <th>Perfil Ocupacional</th>
                                     <th>Duración</th>
                                     <th>Practica Profesional</th>
                                     <th>Requisitos</th>
@@ -63,30 +72,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>0101</td>
-                                    <td>Inglés</td>
-                                    <td>1 mes</td>
-                                    <td>2 semanas 106 horas</td>
-                                    <td>Noveno año</td>
-                                    <td>
-                                        <asp:Button ID="btnVer" OnClick="btnVer_Click" runat="server" Text="Ver" class="btn btn-form"
-                                            Font-Bold="False" Font-Italic="False" CssClass="btn btn-info" ForeColor="White" /></td>
-                                    <td>
-                                        <asp:Button runat="server" Text="Eliminar" CssClass="btn btn-danger" /></td>
-                                </tr>
-                                <tr>
-                                    <td>0102</td>
-                                    <td>Seguridad</td>
-                                    <td>1 mes</td>
-                                    <td>4 semanas 150 horas </td>
-                                    <td>Noveno año</td>
-                                    <td>
-                                        <asp:Button ID="Button1" OnClick="btnVer_Click" runat="server" Text="Ver" class="btn btn-form"
-                                            Font-Bold="False" Font-Italic="False" CssClass="btn btn-info" ForeColor="White" /></td>
-                                    <td>
-                                        <asp:Button runat="server" Text="Eliminar" CssClass="btn btn-danger" /></td>
-                                </tr>
+                                <%= Fila %>
                             </tbody>
                         </table>
                     </div>

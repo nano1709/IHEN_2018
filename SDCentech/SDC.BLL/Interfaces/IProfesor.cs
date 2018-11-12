@@ -14,5 +14,7 @@ namespace SDC.BLL.Interfaces
         void ActualizarProfesor(DATA.Profesor profesor);
         void EliminarProfesor(DATA.Profesor profesor);
         DATA.Profesor SeleccionarProfesorCedula(int cedula);
+        List<DAL.Sede> ListaSede();
+
     }
 }

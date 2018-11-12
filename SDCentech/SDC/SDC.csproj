@@ -138,7 +138,12 @@
     <Content Include="Content\Site.css" />
     <Content Include="css\bootstrap-year-calendar.min.css" />
     <Content Include="css\datatables.min.css" />
+    <Content Include="css\fullcalendar\fullcalendar.css" />
+    <Content Include="css\fullcalendar\fullcalendar.print.css" />
     <Content Include="css\glyphicons-halflings-regular.svg" />
+    <Content Include="css\iCheck\custom.css" />
+    <Content Include="css\iCheck\green%402x.png" />
+    <Content Include="css\iCheck\green.png" />
     <Content Include="css\Login.css" />
     <Content Include="css\scss-files.txt" />
     <Content Include="css\style.css" />
@@ -162,18 +167,51 @@
     <Content Include="img\calen.png" />
     <Content Include="img\centech.png" />
     <Content Include="img\docum.png" />
+    <Content Include="img\robot.png" />
     <Content Include="img\modulos.png" />
     <Content Include="img\profe.png" />
     <Content Include="img\tecnic.png" />
     <Content Include="img\urs.png" />
     <Content Include="js\bootstrap-year-calendar.min.js" />
+    <Content Include="js\fullcalendar\fullcalendar.min.js" />
+    <Content Include="js\fullcalendar\moment.min.js" />
+    <Content Include="js\iCheck\icheck.min.js" />
+    <Content Include="js\jquery-ui.custom.min.js" />
+    <Content Include="lib\animate\animate.css" />
+    <Content Include="lib\animate\animate.min.css" />
+    <Content Include="lib\bootstrap\css\bootstrap.css" />
+    <Content Include="lib\bootstrap\css\bootstrap.min.css" />
+    <Content Include="lib\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="lib\bootstrap\js\bootstrap.min.js" />
+    <Content Include="lib\easing\easing.js" />
+    <Content Include="lib\easing\easing.min.js" />
+    <Content Include="lib\font-awesome\css\font-awesome.css" />
+    <Content Include="lib\font-awesome\css\font-awesome.min.css" />
+    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="lib\ionicons\css\ionicons.css" />
+    <Content Include="lib\ionicons\css\ionicons.min.css" />
+    <Content Include="lib\ionicons\fonts\ionicons.svg" />
+    <Content Include="lib\jquery\jquery-migrate.min.js" />
+    <Content Include="lib\jquery\jquery.min.js" />
+    <Content Include="lib\magnific-popup\magnific-popup.css" />
+    <Content Include="lib\magnific-popup\magnific-popup.js" />
+    <Content Include="lib\magnific-popup\magnific-popup.min.js" />
+    <Content Include="lib\superfish\hoverIntent.js" />
+    <Content Include="lib\superfish\superfish.js" />
+    <Content Include="lib\superfish\superfish.min.js" />
+    <Content Include="lib\wow\wow.js" />
+    <Content Include="lib\wow\wow.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="Menu.aspx" />
+    <Content Include="ModificacionCursos.aspx" />
     <Content Include="ModificarEstudiante.aspx" />
     <Content Include="ModificarProfesor.aspx" />
     <Content Include="ModificarTecnico.aspx" />
+    <Content Include="Error.aspx" />
     <Content Include="Profesor.aspx" />
+    <Content Include="RegistroCursos.aspx" />
     <Content Include="RegistroEstudiante.aspx" />
+    <Content Include="RegistroModulo.aspx" />
     <Content Include="RegistroTecnicos.aspx" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="css\glyphicons-halflings-regular.eot" />
@@ -182,6 +220,15 @@
     <Content Include="Login.Master" />
     <Content Include="Menu.Master" />
     <Content Include="Error.Master" />
+    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="lib\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="lib\ionicons\fonts\ionicons.eot" />
+    <Content Include="lib\ionicons\fonts\ionicons.ttf" />
+    <Content Include="lib\ionicons\fonts\ionicons.woff" />
+    <Content Include="ErrorMasterPage.Master" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="img\about-img.jpg" />
     <Content Include="img\call-to-action-bg.jpg" />
@@ -329,6 +376,13 @@
     <Compile Include="Menu.Master.designer.cs">
       <DependentUpon>Menu.Master</DependentUpon>
     </Compile>
+    <Compile Include="ModificacionCursos.aspx.cs">
+      <DependentUpon>ModificacionCursos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificacionCursos.aspx.designer.cs">
+      <DependentUpon>ModificacionCursos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ModificarEstudiante.aspx.cs">
       <DependentUpon>ModificarEstudiante.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -357,6 +411,20 @@
     <Compile Include="Error.Master.designer.cs">
       <DependentUpon>Error.Master</DependentUpon>
     </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorMasterPage.Master.cs">
+      <DependentUpon>ErrorMasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorMasterPage.Master.designer.cs">
+      <DependentUpon>ErrorMasterPage.Master</DependentUpon>
+    </Compile>
     <Compile Include="Profesor.aspx.cs">
       <DependentUpon>Profesor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -365,12 +433,26 @@
       <DependentUpon>Profesor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistroCursos.aspx.cs">
+      <DependentUpon>RegistroCursos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroCursos.aspx.designer.cs">
+      <DependentUpon>RegistroCursos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RegistroEstudiante.aspx.cs">
       <DependentUpon>RegistroEstudiante.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="RegistroEstudiante.aspx.designer.cs">
       <DependentUpon>RegistroEstudiante.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroModulo.aspx.cs">
+      <DependentUpon>RegistroModulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroModulo.aspx.designer.cs">
+      <DependentUpon>RegistroModulo.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistroProfesor.aspx.cs">
       <DependentUpon>RegistroProfesor.aspx</DependentUpon>

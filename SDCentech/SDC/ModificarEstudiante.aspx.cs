@@ -24,27 +24,28 @@ namespace SDC
                 BLL.Seguridad seg = new BLL.Seguridad();
 
 
-                var editid = Request.QueryString["editid"];
-                seg.Encriptar(editid);
+                var query = Request.QueryString["editid"];
+                var queryReplace = query.Replace(' ','+');
+                var editid = seg.Decriptar(queryReplace); 
 
                 var lista = editid.Split('§');
                 string cedula = lista[0];
                 string nombre = lista[1];
                 string apellido = lista[2];
-                string carreraTecnica = lista[3];
-                string fechaIngreo = lista[4];
+                string fechaIngreo = lista[3];
+                string carreraTecnica = lista[4];
                 string fechaNacimiento = lista[5];
                 string genero = lista[6];
-                string edad = lista[7];
-                string telefonoMovil = lista[8];
-                string telefonoDomicilio = lista[9];
-                string correoElectronico = lista[10];
-                string referenciaPersonal = lista[11];
-                string telefonoReferencia = lista[12];
-                string provincia = lista[13];
-                string distrito = lista[14];
-                string canton = lista[15];
-                string domicilioExacto = lista[16];
+                string edad = lista[16];
+                string telefonoMovil = lista[7];
+                string telefonoDomicilio = lista[8];
+                string correoElectronico = lista[9];
+                string referenciaPersonal = lista[10];
+                string telefonoReferencia = lista[11];
+                string provincia = lista[12];
+                string distrito = lista[13];
+                string canton = lista[14];
+                string domicilioExacto = lista[15];
                 string idSede = lista[17];
 
                 var tecnicos = tec.ListaTecnico();
