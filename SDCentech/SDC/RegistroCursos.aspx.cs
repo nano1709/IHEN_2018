@@ -67,7 +67,11 @@ namespace SDC
                         NombreCurso = NombreCurso,
                         ObjetivoCurso = ObjetivoCurso
 
+
+
+
                     };
+
 
                     cur.RegistroCurso(curso);
 
@@ -82,12 +86,14 @@ namespace SDC
 
                 }
 
+
             }
             catch (Exception)
             {
 
                 throw;
             }
+
 
         }
 

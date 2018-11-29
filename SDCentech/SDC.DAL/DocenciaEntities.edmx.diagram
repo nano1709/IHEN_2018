@@ -25,6 +25,7 @@
         <AssociationConnector Association="DocenciaModel.FK_Tecnico" ManuallyRouted="false" />
         <EntityTypeShape EntityType="DocenciaModel.Sede" Width="1.5" PointX="0.75" PointY="11.125" />
         <AssociationConnector Association="DocenciaModel.FK_Estudiante_Sede" />
+        <EntityTypeShape EntityType="DocenciaModel.evento" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -75,6 +75,7 @@ namespace SDC.DAL.Metodos
             return lista;
         }
 
+
         public void RegistroEstudiante(DATA.Estudiante estudiante)
         {
             try

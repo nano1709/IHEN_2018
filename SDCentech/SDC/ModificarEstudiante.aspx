@@ -24,7 +24,7 @@
     <div class="product-screen-1 wow fadeInLeft" runat="server" data-wow-delay="0.1s" data-wow-duration="0.1s">
         <div id="divClientes" class="form-group" runat="server" visible="true">
 
-            <h3 style="color: #308ED5">Registro de estudiantes</h3>
+            <h3 style="color: #308ED5">Modificar Curso</h3>
             <table class="table-condensed" style="border: thin solid #308ED5; margin-right: 0px; margin-left: 10px;">
 
                 <tr>

@@ -26,7 +26,15 @@ namespace SDC
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            String deleteid = Request.QueryString["deleteid"];
             var listCur = cur.ListaCurso().Where(x => x.Estado == true).ToList();
+
+            if (deleteid != null)
+            {
+                EliminarCurso(deleteid);
+            }
+
 
 
             StringBuilder sb = new StringBuilder();
@@ -39,7 +47,7 @@ namespace SDC
                 sb.Append(item.CodigoCurso);
                 sb.Append("</TD>");
                 sb.Append("<TD>");
-                sb.Append(item.Certificacion);
+                sb.Append(item.NombreCurso);
 
                 sb.Append("</TD>");
                 sb.Append("<TD>");
@@ -47,7 +55,7 @@ namespace SDC
 
                 sb.Append("</TD>");
                 sb.Append("<TD>");
-                sb.Append(item.Inversion);
+                sb.Append(item.ObjetivoCurso);
                 sb.Append("</TD>");
 
                 sb.Append("<TD>");
@@ -55,27 +63,49 @@ namespace SDC
                 sb.Append("</TD>");
 
                 sb.Append("<TD>");
+                sb.Append(item.Certificacion);
+                sb.Append("</TD>");
+
+                sb.Append("<TD>");
+                sb.Append(item.Inversion);
+                sb.Append("</TD>");
+
+                sb.Append("<TD>");
                 sb.Append(item.Metodologia);
                 sb.Append("</TD>");
 
+
                 sb.Append("<TD>");
-                sb.Append(item.NombreCurso);
+
+                var Cer = (item.Certificacion).Replace(" ", "Ơ").Replace("-", "ƶ");
+                var Cod = (item.CodigoCurso).Replace(" ", "Ơ").Replace("-", "ƶ");
+                var Dur = (item.Duracion).Replace(" ", "Ơ").Replace("-", "ƶ");
+                var Inv = (item.Inversion).Replace(" ", "Ơ").Replace("-", "ƶ");
+                var Mat = (item.MaterialDidactico).Replace(" ", "Ơ").Replace("-", "ƶ");
+                var Met = (item.Metodologia).Replace(" ", "Ơ").Replace("-", "ƶ");
+                var Nom = (item.NombreCurso).Replace(" ", "Ơ").Replace("-", "ƶ");
+                var Obj = (item.ObjetivoCurso).Replace(" ", "Ơ").Replace("-", "ƶ");
+
+
+                var datos = Cer + "ὣ" + Cod + "ὣ" + Dur + "ὣ" + Inv + "ὣ" +
+                    Mat + "ὣ" + Met + "ὣ" + Nom + "ὣ" + Obj;
+                BLL.Seguridad seg = new BLL.Seguridad();
+                string newDatos = seg.Encriptar(datos);
+
+                newDatos = newDatos.Replace("+", "Ɲ");
+
+                sb.Append("<button class='btn btn-info editar' value = '" + newDatos + "' type='button'>Ver</button>");
                 sb.Append("</TD>");
 
                 sb.Append("<TD>");
-                sb.Append(item.ObjetivoCurso);
-                sb.Append("</TD>");
 
-                sb.Append("<TD>");
+                sb.Append("<button class='btn btn-danger borrar' value = '" + item.CodigoCurso + "' type='button'>Eliminar</button>");
+
                 sb.Append("</TD>");
 
 
                 /*sb.Append("<TD>");
 
-                var datos = item.Certificacion + "ὣ" + item.CodigoCurso + "ὣ" + item.Duracion + "ὣ" + item.Inversion + "ὣ" +
-                    item.MaterialDidactico + "ὣ" + item.Metodologia + "ὣ" + item.NombreCurso + "ὣ" + item.ObjetivoCurso;
-                Seguridad seg = new Seguridad();
-                string newDatos = seg.Encriptar(datos);
                 sb.Append("<button class =' btn btn-warning btn-sm editar'  type='button valule '" + newDatos + "'>Ver/Editar</button> ");
                 sb.Append("</TD>");
                 sb.Append("<TD>");
@@ -95,5 +125,21 @@ namespace SDC
         {
             Response.Redirect("RegistroCurso.aspx");
         }
+
+
+
+        public void EliminarCurso(String Key)
+
+        {
+            DATA.Curso curso = new DATA.Curso
+            {
+                CodigoCurso = Key,
+                Estado = false
+            };
+
+            cur.EliminarCursp(curso);
+
+        }
+
     }
 }

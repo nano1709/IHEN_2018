@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Interfaces\ICurso.cs" />
     <Compile Include="Interfaces\IEstudiante.cs" />
+    <Compile Include="Interfaces\IEventosCale.cs" />
     <Compile Include="Interfaces\IModulo.cs" />
     <Compile Include="Interfaces\IProfesor.cs" />
     <Compile Include="Interfaces\ITecnico.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="Metotdos\MCurso.cs" />
     <Compile Include="Metotdos\MDB.cs" />
     <Compile Include="Metotdos\MEstudiante.cs" />
+    <Compile Include="Metotdos\MEventosCale.cs" />
     <Compile Include="Metotdos\MModulo.cs" />
     <Compile Include="Metotdos\MProfesor.cs" />
     <Compile Include="Metotdos\MTecnico.cs" />

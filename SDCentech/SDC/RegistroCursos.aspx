@@ -78,8 +78,6 @@
             <div class="col-lg-12 text-center">
                 <asp:Button ID="btnGuardar" runat="server" Text="Agregar" class="btn btn-form"
                     Width="130px" BorderStyle="None" Font-Bold="False" Font-Italic="False" OnClick="btnGuardar_Click" CssClass="btn-success" ForeColor="White" Height="38px" />
-                <asp:Button ID="btnBack" runat="server" Text="Regresar" class="btn btn-form"
-                    Width="130px" BorderStyle="None" Font-Bold="False" Font-Italic="False" OnClick="btnBack_Click" CssClass="btn-secondary" ForeColor="White" Height="38px" />
             </div>
 
         </div>

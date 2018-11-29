@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario.Master" AutoEventWireup="true" CodeBehind="Tecnico.aspx.cs" Inherits="SDC.Tecnico" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario.Master" AutoEventWireup="true" CodeBehind="Modulo.aspx.cs" Inherits="SDC.Modulo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -31,7 +31,6 @@
 
     <h1>
         <asp:Label ID="LbTipo" runat="server" Text=""></asp:Label></h1>
-
     <div class="alert alert-success" visible="false" id="mensaje" runat="server">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a>
         <strong id="textoMensaje" runat="server"></strong>
@@ -42,12 +41,12 @@
     </div>
 
     <div class="text-center article-title">
-        <h1 style="color: #308ED5">Técnicos
+        <h1 style="color: #308ED5">Módulos
         </h1>
     </div>
 
     <section style="padding-right: 20px; padding-left: 20px">
-        <asp:Button ID="btnNuevo" OnClick="btnNuevo_Click" runat="server" Style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;" Text="Agregar Nuevo" class="btn btn-form"
+        <asp:Button ID="btnNuevo" runat="server" Style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;" Text="Agregar Nuevo" OnClick="btnNuevo_Click" class="btn btn-form"
             Width="130px" BorderStyle="None" Font-Bold="False" Font-Italic="False" CssClass="btn btn-success" ForeColor="White" Height="38px" />
         <br />
         <div class="row">
@@ -63,10 +62,8 @@
                                 <tr>
                                     <th>Código</th>
                                     <th>Nombre</th>
-                                    <th>Perfil Ocupacional</th>
+                                    <th>Créditos</th>
                                     <th>Duración</th>
-                                    <th>Practica Profesional</th>
-                                    <th>Requisitos</th>
                                     <th></th>
                                     <th></th>
                                 </tr>
@@ -90,6 +87,7 @@
 
 
             $('.dataTables-example').dataTable({
+
                 dom: '<"html5buttons"B>lTfgitp',
                 buttons: [
                     { extend: 'copy' },
@@ -105,7 +103,7 @@
 
                             $(win.document.body).find('table')
                                 .addClass('compact')
-                                .css('font-size', 'inherit');
+                                .css('font-size', 'arial');
                         }
                     }
                 ]
@@ -118,11 +116,12 @@
                 var datos = $(this).attr('value');
                 //console.log(datos);
 
-                var valores = "ModificarTecnico.aspx?editid=" + datos;
+                var valores = "ModificarModulo.aspx?editid=" + datos;
 
                 window.location.href = valores;
                 console.log(valores);
             });
+
 
             $('.borrar').click(function () {
 
@@ -135,17 +134,19 @@
 
                 console.log(dato);
 
-                var codigo = dato[0];
-                var nombre = dato[1];
+                var codigoModulo = dato[0];
+                var nombreModulo = dato[1];
+                var creditos = dato[2];
 
 
                 console.log("This: " + this);
 
-                var valores = "" + codigo + "&Nombre=" + nombre;
+                var valores = "" + codigoModulo + "&Nombre=" + nombreModulo +
+                    "&Creditos=" + creditos;
 
                 console.log("Valores: " + valores);
                 swal({
-                    title: "Quieres eliminar el tecnico " + dato[0] + " " + dato[1] + " ?",
+                    title: "Quieres eliminar el modulo " + dato[1] + " " + dato[2] + " ?",
                     type: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#DD6B55",
@@ -159,20 +160,20 @@
 
                     $.ajax({
                         type: "POST",
-                        url: "Tecnico.aspx?deleteid=" + valores,
+                        url: "Modulo.aspx?deleteid=" + valores,
                         data: "",
                         contentType: "application/json; charset=utf-8",
                         dataType: "json",
                         success: function (msg) {
-                            swal("Error", "Un error a ocurrido mientras se trataba de eliminar el tecnico", "error");
+                            swal("Error", "Un error a ocurrido mientras se trataba de eliminar el modulo", "error");
 
                         },
                         error: function (e) {
                             swal("Eliminados!",
-                                "El tecnico se ha eliminado",
+                                "El módulo se ha eliminado",
                                 "success",
                                 setTimeout(function () {
-                                    window.location = "?exito=" + 3 + "&nombreTecEli=" + dato[0] + " " + dato[1];
+                                    window.location = "?exito=" + 3 + "&nombreModuEli=" + dato[1] + " " + dato[2];
                                 }, 2000));
                         },
                     });
@@ -180,8 +181,8 @@
 
             });
 
-
         });
     </script>
 
 </asp:Content>
+

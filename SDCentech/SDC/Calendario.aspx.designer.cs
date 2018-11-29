@@ -11,5 +11,23 @@ namespace SDC {
     
     
     public partial class Calendario {
+        
+        /// <summary>
+        /// eventosCalendario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button eventosCalendario;
+        
+        /// <summary>
+        /// agregarEvento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button agregarEvento;
     }
 }

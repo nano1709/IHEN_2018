@@ -4,9 +4,9 @@ namespace SDC.BLL.Metodos
 {
     public class MUsuarios : MDB, IUsuarios
     {
-        public void DeleteUser(int idUser)
+        public void DeleteUser(DATA.Usuarios usuarios)
         {
-            usu.DeleteUser(idUser);
+            usu.DeleteUser(usuarios);
         }
 
         public void InsertUser(DATA.Usuarios user)

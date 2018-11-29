@@ -13,6 +13,6 @@ namespace SDC.DAL.Interfaces
         void RegistroTecnico(DATA.Tecnico tecnico);
         void ActualizarTecnico(DATA.Tecnico tecnico);
         void EliminarTecnico(DATA.Tecnico tecnico);
-        DATA.Tecnico SeleccionarTecnicoPorCodigo(int codigo);
+        DATA.Tecnico SeleccionarTecnicoPorCodigo(string codigo);
     }
 }

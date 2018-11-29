@@ -36,5 +36,6 @@ namespace SDC.DAL
         public virtual DbSet<ModuloEstudiante> ModuloEstudiantes { get; set; }
         public virtual DbSet<TecnicoEstudiante> TecnicoEstudiantes { get; set; }
         public virtual DbSet<Sede> Sedes { get; set; }
+        public virtual DbSet<evento> eventos { get; set; }
     }
 }

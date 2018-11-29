@@ -138,13 +138,13 @@ namespace SDC.DAL.Metodos
 
 
 
-        public DATA.Tecnico SeleccionarTecnicoPorCodigo(int codigo)
+        public DATA.Tecnico SeleccionarTecnicoPorCodigo(string codigo)
         {
 
 
             try
             {
-                var tecnico = sc.Tecnicoes.Where(x => Convert.ToInt32(x.CodigoTecnico) == codigo).First();
+                var tecnico = sc.Tecnicoes.Where(x => x.CodigoTecnico == codigo.ToString()).First();
                 listaTecnicoCod.NombreTecnico = tecnico.NombreTecnico;
                 listaTecnicoCod.PerfilOcupacional = tecnico.PerfilOcupacional;
                 listaTecnicoCod.Duracion = tecnico.Duracion;

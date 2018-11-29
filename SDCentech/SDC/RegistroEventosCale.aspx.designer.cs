@@ -10,7 +10,7 @@
 namespace SDC {
     
     
-    public partial class RegistroModulo {
+    public partial class RegistroCurso {
         
         /// <summary>
         /// mensaje control.
@@ -19,7 +19,6 @@ namespace SDC {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mensaje;
         
         /// <summary>
         /// textoMensaje control.
@@ -28,7 +27,7 @@ namespace SDC {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl textoMensaje;
+
         
         /// <summary>
         /// mensajeError control.
@@ -37,7 +36,6 @@ namespace SDC {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mensajeError;
         
         /// <summary>
         /// textoMensajeError control.
@@ -46,8 +44,6 @@ namespace SDC {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl textoMensajeError;
-        
         /// <summary>
         /// divClientes control.
         /// </summary>
@@ -55,79 +51,78 @@ namespace SDC {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divClientes;
         
         /// <summary>
-        /// Label2 control.
+        /// lbltitulo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label lbltitulo;
         
         /// <summary>
-        /// txtCodigo control.
+        /// txtTitulo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodigo;
+        protected global::System.Web.UI.WebControls.TextBox txtTitulo;
         
         /// <summary>
-        /// lblNombreModulo control.
+        /// lblColor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombreModulo;
+        protected global::System.Web.UI.WebControls.Label lblColor;
         
         /// <summary>
-        /// txtNombreModulo control.
+        /// txtColor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombreModulo;
+        protected global::System.Web.UI.WebControls.DropDownList txtColor;
         
         /// <summary>
-        /// lblCreditos control.
+        /// lblfechaInicio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCreditos;
+        protected global::System.Web.UI.WebControls.Label lblfechaInicio;
         
         /// <summary>
-        /// txtCreditos control.
+        /// txtFechaInicio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCreditos;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtFechaInicio;
         
         /// <summary>
-        /// Label1 control.
+        /// lblfechaFinal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblfechaFinal;
         
         /// <summary>
-        /// txtDuracion control.
+        /// txtFechaFinal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDuracion;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtFechaFinal;
         
         /// <summary>
         /// btnGuardar control.
@@ -136,6 +131,5 @@ namespace SDC {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardar;
     }
 }

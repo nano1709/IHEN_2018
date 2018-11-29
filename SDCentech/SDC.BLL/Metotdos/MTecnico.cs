@@ -30,7 +30,7 @@ namespace SDC.BLL.Metodos
             tec.ActualizarTecnico(tecnico);
         }
 
-        public Tecnico SeleccionarTecnicoPorCodigo(int codigo)
+        public Tecnico SeleccionarTecnicoPorCodigo(string codigo)
         {
             return tec.SeleccionarTecnicoPorCodigo(codigo);
         }

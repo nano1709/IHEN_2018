@@ -9,14 +9,14 @@
           <Key>
             <PropertyRef Name="CodigoCurso" />
           </Key>
-          <Property Name="NombreCurso" Type="varchar" MaxLength="100" />
+          <Property Name="NombreCurso" Type="varchar" MaxLength="250" />
           <Property Name="CodigoCurso" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Duracion" Type="varchar" MaxLength="100" />
-          <Property Name="ObjetivoCurso" Type="varchar" MaxLength="150" />
-          <Property Name="Metodologia" Type="varchar" MaxLength="150" />
-          <Property Name="MaterialDidactico" Type="varchar" MaxLength="150" />
-          <Property Name="Certificacion" Type="varchar" MaxLength="100" />
-          <Property Name="Inversion" Type="varchar" MaxLength="100" />
+          <Property Name="Duracion" Type="varchar" MaxLength="250" />
+          <Property Name="ObjetivoCurso" Type="varchar" MaxLength="250" />
+          <Property Name="Metodologia" Type="varchar" MaxLength="250" />
+          <Property Name="MaterialDidactico" Type="varchar" MaxLength="250" />
+          <Property Name="Certificacion" Type="varchar" MaxLength="250" />
+          <Property Name="Inversion" Type="varchar" MaxLength="250" />
           <Property Name="Estado" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -54,6 +54,18 @@ warning 6002: The table/view 'Docencia.dbo.CursoEstudiante' does not have a prim
           <Property Name="DomicilioExacto" Type="varchar" MaxLength="200" />
           <Property Name="IdSede" Type="int" />
           <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="eventos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="100" />
+          <Property Name="start" Type="datetime" />
+          <Property Name="end" Type="datetime" />
+          <Property Name="url" Type="varchar" MaxLength="500" />
+          <Property Name="className" Type="varchar" MaxLength="100" />
+          <Property Name="editable" Type="bit" />
         </EntityType>
         <EntityType Name="Modulo">
           <Key>
@@ -258,6 +270,7 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
         <EntityContainer Name="DocenciaModelStoreContainer">
           <EntitySet Name="Curso" EntityType="Self.Curso" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Estudiante" EntityType="Self.Estudiante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="eventos" EntityType="Self.eventos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Modulo" EntityType="Self.Modulo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ModuloProfesor" EntityType="Self.ModuloProfesor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Profesor" EntityType="Self.Profesor" Schema="dbo" store:Type="Tables" />
@@ -330,14 +343,14 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <Key>
             <PropertyRef Name="CodigoCurso" />
           </Key>
-          <Property Name="NombreCurso" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NombreCurso" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="CodigoCurso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Duracion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="ObjetivoCurso" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="Metodologia" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="MaterialDidactico" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="Certificacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Inversion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Duracion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ObjetivoCurso" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Metodologia" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="MaterialDidactico" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Certificacion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Inversion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Boolean" />
           <NavigationProperty Name="CursoEstudiantes" Relationship="Self.FK_Curso" FromRole="Curso" ToRole="CursoEstudiante" />
         </EntityType>
@@ -628,6 +641,7 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
             <End Role="Sede" EntitySet="Sedes" />
             <End Role="Estudiante" EntitySet="Estudiantes" />
           </AssociationSet>
+          <EntitySet Name="eventos" EntityType="DocenciaModel.evento" />
         </EntityContainer>
         <EntityType Name="Sede">
           <Key>
@@ -649,6 +663,18 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="evento">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="start" Type="DateTime" Precision="3" />
+          <Property Name="end" Type="DateTime" Precision="3" />
+          <Property Name="url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="className" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="editable" Type="Boolean" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -808,6 +834,19 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
               <MappingFragment StoreEntitySet="Sede">
                 <ScalarProperty Name="NombreSede" ColumnName="NombreSede" />
                 <ScalarProperty Name="IdSede" ColumnName="IdSede" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="eventos">
+            <EntityTypeMapping TypeName="DocenciaModel.evento">
+              <MappingFragment StoreEntitySet="eventos">
+                <ScalarProperty Name="editable" ColumnName="editable" />
+                <ScalarProperty Name="className" ColumnName="className" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="end" ColumnName="end" />
+                <ScalarProperty Name="start" ColumnName="start" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

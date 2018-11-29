@@ -43,9 +43,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DayPilot, Version=5.0.308.0, Culture=neutral, PublicKeyToken=ce5d34538e20ef65, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\DayPilot.dll</HintPath>
+    <Reference Include="DayPilot, Version=5.0.303.0, Culture=neutral, PublicKeyToken=ce5d34538e20ef65, processorArchitecture=MSIL">
+      <HintPath>..\packages\DayPilot.5.0.303\lib\DayPilot.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -138,6 +137,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="css\bootstrap-year-calendar.min.css" />
     <Content Include="css\datatables.min.css" />
+    <Content Include="css\footable.core.css" />
+    <Content Include="css\fullcalendar.min.css" />
     <Content Include="css\fullcalendar\fullcalendar.css" />
     <Content Include="css\fullcalendar\fullcalendar.print.css" />
     <Content Include="css\glyphicons-halflings-regular.svg" />
@@ -151,6 +152,7 @@
     <Content Include="Curso.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Estudiante.aspx" />
+    <Content Include="EventosCalendario.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -208,11 +210,14 @@
     <Content Include="ModificarProfesor.aspx" />
     <Content Include="ModificarTecnico.aspx" />
     <Content Include="Error.aspx" />
+    <Content Include="Modulo.aspx" />
     <Content Include="Profesor.aspx" />
     <Content Include="RegistroCursos.aspx" />
     <Content Include="RegistroEstudiante.aspx" />
+    <Content Include="RegistroEventosCale.aspx" />
     <Content Include="RegistroModulo.aspx" />
     <Content Include="RegistroTecnicos.aspx" />
+    <Content Include="Scripts\fullcalendar.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="css\glyphicons-halflings-regular.eot" />
     <Content Include="css\glyphicons-halflings-regular.ttf" />
@@ -259,8 +264,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquerycalendar.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sweetalert.min.js" />
@@ -337,6 +344,13 @@
     </Compile>
     <Compile Include="Estudiante.aspx.designer.cs">
       <DependentUpon>Estudiante.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EventosCalendario.aspx.cs">
+      <DependentUpon>EventosCalendario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EventosCalendario.aspx.designer.cs">
+      <DependentUpon>EventosCalendario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formulario.Master.cs">
       <DependentUpon>Formulario.Master</DependentUpon>
@@ -425,6 +439,13 @@
     <Compile Include="ErrorMasterPage.Master.designer.cs">
       <DependentUpon>ErrorMasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="Modulo.aspx.cs">
+      <DependentUpon>Modulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulo.aspx.designer.cs">
+      <DependentUpon>Modulo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Profesor.aspx.cs">
       <DependentUpon>Profesor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -446,6 +467,13 @@
     </Compile>
     <Compile Include="RegistroEstudiante.aspx.designer.cs">
       <DependentUpon>RegistroEstudiante.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroEventosCale.aspx.cs">
+      <DependentUpon>RegistroEventosCale.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroEventosCale.aspx.designer.cs">
+      <DependentUpon>RegistroEventosCale.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistroModulo.aspx.cs">
       <DependentUpon>RegistroModulo.aspx</DependentUpon>

@@ -23,13 +23,14 @@
             <table class="table-condensed" style="border: thin solid #308ED5; margin-right: 0px; margin-left: 10px;">
 
                 <tr>
+
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
+                        <asp:Label ID="Label2" runat="server" Text="Código: " ForeColor="#308ED5"></asp:Label>
+                        <asp:TextBox ID="txtCodigo" runat="server" placeholder="Código" class="form-control" Width="450px"></asp:TextBox>
+
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                         <asp:Label ID="lblNombreModulo" runat="server" Text="Nombre: " ForeColor="#308ED5"></asp:Label>
                         <asp:TextBox ID="txtNombreModulo" runat="server" placeholder="Nombre" class="form-control" Width="450px"></asp:TextBox>
-
-                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
-                        <asp:Label ID="Label1" runat="server" Text="Duración: " ForeColor="#308ED5"></asp:Label>
-                        <asp:TextBox ID="txtDuracion" runat="server" placeholder="Duración" class="form-control" Width="450px"></asp:TextBox>
                 </tr>
             </table>
             <br />
@@ -40,17 +41,23 @@
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                         <asp:Label ID="lblCreditos" runat="server" Text="Créditos: " ForeColor="#308ED5"></asp:Label>
                         <asp:TextBox ID="txtCreditos" runat="server" placeholder="Créditos" class="form-control" Width="320px" TextMode="Number"></asp:TextBox>
+
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
+                        <asp:Label ID="Label1" runat="server" Text="Duración: " ForeColor="#308ED5"></asp:Label>
+                        <asp:TextBox ID="txtDuracion" runat="server" placeholder="Duración" class="form-control" Width="450px"></asp:TextBox>
                 </tr>
 
 
             </table>
 
             <br />
+
             <div class="col-lg-12 text-center">
                 <asp:Button ID="btnGuardar" runat="server" Text="Guardar" class="btn btn-form"
-                    Width="130px" BorderStyle="None" Font-Bold="False" Font-Italic="False" CssClass="btn-success" ForeColor="White" Height="38px" />
+                    Width="130px" BorderStyle="None" Font-Bold="False" Font-Italic="False" CssClass="btn-success" ForeColor="White" Height="38px" OnClick="btnGuardar_Click" />
             </div>
             <br />
         </div>
     </div>
 </asp:Content>
+

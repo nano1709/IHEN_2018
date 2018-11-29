@@ -8,6 +8,7 @@
         public DAL.Interfaces.IUsuarios usu;
         public DAL.Interfaces.ICurso cur;
         public DAL.Interfaces.IModulo mod;
+        public DAL.Interfaces.IEventosCale eve;
 
         public MDB()
         {
@@ -17,6 +18,7 @@
             usu = new DAL.Metodos.MUsuarios();
             cur = new DAL.Metodos.MCurso();
             mod = new DAL.Metodos.MModulo();
+            eve = new DAL.Metodos.MEventosCale();
         }
 
     }

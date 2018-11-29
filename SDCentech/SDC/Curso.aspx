@@ -4,6 +4,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css" />
+    <link href="css/datatables.min.css" rel="stylesheet">
+    <link href="css/footable.core.css" rel="stylesheet">
+
     <style>
         .modal-body {
             max-height: calc(100vh - 210px);
@@ -40,6 +44,10 @@
     </div>
 
     <section style="padding-right: 20px; padding-left: 20px">
+        <asp:Button CssClass="btn btn-success" ID="AddCurso" OnClick="AddCurso_Click" Text="Agregar Curso" runat="server"
+            Style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;" class="btn btn-success"
+            Width="130px" BorderStyle="None" Font-Bold="False" Font-Italic="False" ForeColor="White" Height="38px" />
+        <br />
         <div class="row">
             <div class="col-lg-12">
                 <div class="ibox float-e-margins">
@@ -60,6 +68,7 @@
                                     <th>Inversion</th>
                                     <th>Metodologia</th>
                                     <th></th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -71,23 +80,23 @@
             </div>
         </div>
 
-
-
-        <asp:Button CssClass="btn btn-primary" ID="AddCurso" OnClick="AddCurso_Click" Text="Agregar Curso" runat="server" />
-
     </section>
-
+    <br />
+    <br />
+    <br />
 
 
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css" />
     <script src="Scripts/jquery-3.3.1.slim.min.js"></script>
 
+
     <script>
         $(document).ready(function () {
 
 
             $('.dataTables-example').dataTable({
+
                 dom: '<"html5buttons"B>lTfgitp',
                 buttons: [
                     { extend: 'copy' },
@@ -103,7 +112,7 @@
 
                             $(win.document.body).find('table')
                                 .addClass('compact')
-                                .css('font-size', 'inherit');
+                                .css('font-size', 'arial');
                         }
                     }
                 ]
@@ -111,36 +120,29 @@
             });
 
 
-
-
-
-
-
-
-
-            $('.dataTables-example').on('click', 'editar', function () {
-
+            $('.dataTables-example').on('click', '.editar', function () {
 
 
                 var datos = $(this).attr('value');
 
-                var URL = "";
-                URL = "CursosForm.aspx?editarid=" + datos;
-
 
                 $.ajax({
-
-
                     type: "POST",
-                    url: URL,
+                    url: "ModificacionCurso.aspx?dat=" + datos,
                     data: "",
-                    datatype: "html"
+                    dataType: "html",
+                    success: function (msg) {
+
+                        window.location.href = "ModificacionCursos.aspx?dat=" + datos
 
 
 
-
-
+                    },
+                    error: function (e) {
+                        swal("Error", "Un error ha ocurrido", "error");
+                    }
                 });
+
 
 
 
@@ -150,7 +152,55 @@
 
 
 
+
+
+            $('.dataTables-example').on('click', '.borrar', function () {
+
+
+                var dtipd = $(this).attr('value');
+
+
+
+
+                swal({
+                    title: "Estás seguro?",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Sí",
+                    closeOnConfirm: false
+                }, function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "Curso.aspx?deleteid=" + dtipd,
+                        data: "",
+                        dataType: "html",
+                        success: function (msg) {
+                            swal({
+                                title: "Success",
+                                text: "El curso ha sido eliminado",
+                                type: "success",
+                                confirmButtonText: "Ok",
+                                closeOnConfirm: false
+                            }, function () {
+                                window.location.href = "Curso.aspx"
+                            });
+                        },
+                        error: function (e) {
+                            swal("Error", "An error has occured while disabling the Supplier", "error");
+                        }
+                    });
+                });
+
+            });
+
+
+
+
+
         });
+
+
     </script>
 
 

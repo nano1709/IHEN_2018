@@ -112,12 +112,12 @@ namespace SDC
                 sb.Append("</TD>");
                 sb.Append("<TD>");
 
-                var datos = item.CodigoTecnico + "§"
-                    + item.NombreTecnico + "§" +
+                var datos = item.CodigoTecnico + "§" +
+                    item.NombreTecnico + "§" +
                     item.PerfilOcupacional + "§" +
                     item.Duracion + "§" +
-                    item.PracticaProf + "§"
-                    + item.Requisitos;
+                    item.PracticaProf + "§" +
+                    item.Requisitos;
 
                 string newDatos = seg.Encriptar(datos);
                 sb.Append("<button class='btn btn-info editar' type='button' value='" + newDatos + "'>Ver</button>");
@@ -140,7 +140,7 @@ namespace SDC
                 DATA.Tecnico tecnico = new DATA.Tecnico
                 {
                     CodigoTecnico = Convert.ToString(codigo),
-                    NombreTecnico = nombre
+                    NombreTecnico = nombre,
                 };
                 tec.EliminarTecnico(tecnico);
             }

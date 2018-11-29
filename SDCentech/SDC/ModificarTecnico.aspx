@@ -2,8 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .auto-style2 {
-            width: 278px;
+        .auto-style3 {
+            width: 455px;
         }
     </style>
 </asp:Content>
@@ -23,13 +23,19 @@
             <table class="table-condensed" style="border: thin solid #308ED5; margin-right: 0px; margin-left: 10px;">
 
                 <tr>
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;" class="auto-style3">
+                        <asp:Label ID="Label1" runat="server" Text="Código Técnico: " ForeColor="#308ED5"></asp:Label>
+                        <asp:TextBox ID="txtCodigoTecnico" runat="server" placeholder="Código Técnico" class="form-control" Width="450px" ReadOnly="true"></asp:TextBox>
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                         <asp:Label ID="lblNombreTecnico" runat="server" Text="Nombre: " ForeColor="#308ED5"></asp:Label>
                         <asp:TextBox ID="txtNombreTecnico" runat="server" placeholder="Nombre" class="form-control" Width="450px"></asp:TextBox>
+                </tr>
+                <tr>
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;" class="auto-style3"></td>
 
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                         <asp:Label ID="lblPerfil" runat="server" Text="Perfil ocupacional: " ForeColor="#308ED5"></asp:Label>
-                        <asp:TextBox ID="txtPerfilOcupacional" runat="server" placeholder="Perfil ocupacional" class="form-control" Width="608px" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox ID="txtPerfilOcupacional" runat="server" placeholder="Perfil ocupacional" class="form-control" Width="450px" TextMode="MultiLine"></asp:TextBox>
                 </tr>
             </table>
             <br />
@@ -58,7 +64,6 @@
                 <asp:Button ID="btnModificar" runat="server" Text="Modificar" class="btn btn-form"
                     Width="130px" BorderStyle="None" Font-Bold="False" Font-Italic="False" CssClass="btn-success" ForeColor="White" Height="38px" OnClick="btnModificar_Click" />
             </div>
-            <br />
         </div>
     </div>
 </asp:Content>

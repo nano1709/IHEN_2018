@@ -32,7 +32,7 @@ namespace SDC
 
             GuardarTecnico(codigoTecnico, nombre, perfilOcupacional, duracion, practicasProfesionales,
                                      requisitos);
-            Response.Redirect("Tecnico.aspx?exito=" + 2 + "&nombreTecAgre=" + nombre + " ");
+            Response.Redirect("Tecnico.aspx?exito=" + 2 + "&nombreTecAgre=" + codigoTecnico + " " + nombre);
         }
 
 
@@ -56,7 +56,7 @@ namespace SDC
             }
             catch (Exception ex)
             {
-                Response.Redirect("Error.aspx?error=" + ex);
+                throw ex;
             }
 
         }

@@ -34,8 +34,25 @@ namespace SDC.DAL.Metodos
             }
         }
 
-        public void DeleteUser(int idUser)
+        public void DeleteUser(DATA.Usuarios usuario)
         {
+            try
+            {
+                //Usuario si se elimina
+                sc.Database.Connection.Open();
+
+                var elimiUsu = sc.Usuarios.Where(x => x.IDUser == usuario.IDUser).First();
+
+                sc.Usuarios.Remove(elimiUsu);
+
+                sc.SaveChanges();
+
+                sc.Database.Connection.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+            }
 
         }
 

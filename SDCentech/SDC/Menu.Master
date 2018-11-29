@@ -60,7 +60,7 @@
                         <li class=""><a href="Tecnico.aspx">Técnicos</a></li>
                         <li class=""><a href="Curso.aspx">Cursos</a></li>
                         <li class=""><a href="Modulo.aspx">Módulos</a></li>
-                        <li class=""><a href="Menu.aspx">Documentos</a></li>
+                        <li class=""><a href="Documentos.aspx">Documentos</a></li>
 
 
                     </ul>
@@ -74,6 +74,8 @@
         <br />
         <br />
         <br />
+
+
         <section>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
@@ -101,6 +103,16 @@
 
         <!-- Template Main Javascript File -->
         <script src="js/main.js"></script>
+        <script>
+            $(document).ready(function () {
+
+
+                document.body.style.zoom = "90%";
+
+
+            });
+        </script>
+
     </form>
 </body>
 </html>

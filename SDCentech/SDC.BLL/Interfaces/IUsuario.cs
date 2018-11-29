@@ -3,7 +3,7 @@
     public interface IUsuarios
     {
         void InsertUser(DATA.Usuarios user);
-        void DeleteUser(int idUser);
+        void DeleteUser(DATA.Usuarios usuarios);
         void UpdateUser(DATA.Usuarios user);
         DAL.Usuario LoginUser(string email, string pass);
     }
