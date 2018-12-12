@@ -130,13 +130,13 @@ namespace SDC.DAL.Metodos
 
 
 
-        public DATA.Modulo SeleccionarModuloPorCodigo(int codigo)
+        public DATA.Modulo SeleccionarModuloPorCodigo(string codigo)
         {
 
 
             try
             {
-                var modulo = sc.Moduloes.Where(x => Convert.ToInt32(x.CodigoModulo) == codigo).First();
+                var modulo = sc.Moduloes.Where(x => x.CodigoModulo == codigo).First();
                 listaModuloCod.NombreModulo = modulo.NombreModulo;
                 listaModuloCod.Creditos = Convert.ToInt16(modulo.Creditos);
                 listaModuloCod.Duracion = modulo.Duracion;

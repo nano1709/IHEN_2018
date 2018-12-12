@@ -18,7 +18,13 @@ namespace SDC
         protected void Page_Load(object sender, EventArgs e)
         {
             BLL.Seguridad seg = new BLL.Seguridad();
+            var sedes = cur.ListaSede();
 
+            foreach (var item in sedes)
+            {
+                ddlSede.Items.Insert(Convert.ToInt32(item.IdSede), item.NombreSede.ToString());
+            }
+            ddlSede.DataBind();
 
             String Datos = Request.QueryString["dat"];
             //Datos = Datos.Replace("۝", "+");
@@ -52,7 +58,7 @@ namespace SDC
                 txtInversion.Text = datD[3];
                 txtMetodologia.Text = datD[5];
                 //txtCodigoCurso.Enabled = false;
-
+                ddlSede.SelectedIndex = Convert.ToInt32(datD[8]);
 
             }
 
@@ -74,6 +80,8 @@ namespace SDC
             String CER = txtCertificacion.Text;
             String INV = txtInversion.Text;
             String MET = txtMetodologia.Text;
+            int idSede = Convert.ToInt32(ddlSede.SelectedIndex);
+
 
             if (COD == "" || NOM == "" || DUR == "" || OBJ == "" || MAT == "" || CER == "" || INV == "" || MET == "")
             {
@@ -93,6 +101,7 @@ namespace SDC
                     Metodologia = MET,
                     NombreCurso = NOM,
                     ObjetivoCurso = OBJ,
+                    IdSede = idSede,
                     Estado = true
 
                 };

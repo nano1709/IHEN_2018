@@ -63,7 +63,7 @@
                     <ul class="nav-menu">
                         <li class=""><a href="Estudiante.aspx">Estudiantes</a></li>
                         <li class=""><a href="Profesor.aspx">Profesores</a></li>
-                        <li class=""><a href="Menu.aspx">Calendario</a></li>
+                        <li class=""><a href="Calendario.aspx">Calendario</a></li>
                         <li class=""><a href="Tecnico.aspx">Técnicos</a></li>
                         <li class=""><a href="Curso.aspx">Cursos</a></li>
                         <li class=""><a href="Modulo.aspx">Módulos</a></li>

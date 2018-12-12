@@ -7,7 +7,7 @@ namespace SDC.BLL.Metodos
     {
         public List<DAL.Sede> ListaSede()
         {
-            return estu.ListaSede();
+            return sed.ListaSede();
         }
 
         public void ActualizarProfesor(DATA.Profesor profesor)

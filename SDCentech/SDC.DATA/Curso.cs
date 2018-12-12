@@ -17,5 +17,6 @@ namespace SDC.DATA
         public string Inversion { get; set; }
         public Boolean Estado { get; set; }
         public string Metodologia { get; set; }
+        public int IdSede { get; set; }
     }
 }

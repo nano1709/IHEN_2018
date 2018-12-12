@@ -63,13 +63,13 @@ namespace SDC.DAL.Metodos
                 sc.Database.Connection.Open();
 
 
-
                 us.IDUser = user.IDUser;
                 us.NombreUsuario = user.NombreUsuario;
                 us.Rol = Convert.ToString(user.Rol);
                 us.Code = user.code;
                 us.Email = user.Email;
                 us.Estado = user.Estado;
+                us.Password = user.Password;
 
                 sc.Usuarios.Add(us);
                 sc.SaveChanges();
@@ -87,9 +87,20 @@ namespace SDC.DAL.Metodos
 
         public List<DAL.Usuario> ListUser()
         {
-            // Inicializamos 
-            List<DAL.Usuario> lista = new List<DAL.Usuario>();
+            List<DAL.Usuario> lista = new List<Usuario>();
+            try
+            {
+                sc.Database.Connection.Open();
+                lista = sc.Usuarios.ToList();
 
+                sc.Database.Connection.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
 
             return lista;
         }

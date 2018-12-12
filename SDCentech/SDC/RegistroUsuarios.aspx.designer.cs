@@ -10,69 +10,96 @@
 namespace SDC {
     
     
-    public partial class EventosCalendario {
+    public partial class RegistroUsuarios {
         
         /// <summary>
-        /// LbTipo control.
+        /// lblNU control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LbTipo;
+        protected global::System.Web.UI.WebControls.Label lblNU;
         
         /// <summary>
-        /// mensaje control.
+        /// txtNU control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mensaje;
+        protected global::System.Web.UI.WebControls.TextBox txtNU;
         
         /// <summary>
-        /// textoMensaje control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl textoMensaje;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// mensajeError control.
+        /// txtCE control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mensajeError;
+        protected global::System.Web.UI.WebControls.TextBox txtCE;
         
         /// <summary>
-        /// textoMensajeError control.
+        /// lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl textoMensajeError;
+        protected global::System.Web.UI.WebControls.Label lbl;
         
         /// <summary>
-        /// AgregarEvento control.
+        /// txtContraseña control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AgregarEvento;
+        protected global::System.Web.UI.WebControls.TextBox txtContraseña;
         
         /// <summary>
-        /// btnDevolverCale control.
+        /// lblNombreCurso control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDevolverCale;
+        protected global::System.Web.UI.WebControls.Label lblNombreCurso;
+        
+        /// <summary>
+        /// txtNombreCurso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNombreCurso;
+        
+        /// <summary>
+        /// btnGuardar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGuardar;
+        
+        /// <summary>
+        /// btnBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBack;
     }
 }

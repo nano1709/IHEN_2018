@@ -1,11 +1,8 @@
-﻿using System;
+﻿using SDC.DAL.Interface;
+using SDC.DAL.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SDC.DAL.Interface;
-using SDC.DAL.Interfaces;
-using SDC.DATA;
 
 namespace SDC.DAL.Metodos
 {
@@ -70,6 +67,8 @@ namespace SDC.DAL.Metodos
                 registroTec.PracticaProf = tecnico.PracticaProf;
                 registroTec.Requisitos = tecnico.Requisitos;
                 registroTec.Estado = Convert.ToBoolean(tecnico.Estado);
+                registroTec.IdSede = tecnico.IdSede;
+
 
 
 
@@ -101,7 +100,7 @@ namespace SDC.DAL.Metodos
                 actuTec.Requisitos = tecnico.Requisitos;
                 actuTec.Estado = Convert.ToBoolean(tecnico.Estado);
                 actuTec.PracticaProf = tecnico.PracticaProf;
-
+                actuTec.IdSede = tecnico.IdSede;
 
 
                 sc.SaveChanges();
@@ -151,6 +150,7 @@ namespace SDC.DAL.Metodos
                 listaTecnicoCod.PracticaProf = tecnico.PracticaProf;
                 listaTecnicoCod.Requisitos = tecnico.Requisitos;
                 listaTecnicoCod.Estado = Convert.ToByte(tecnico.Estado);
+                listaTecnicoCod.IdSede = Convert.ToInt32(tecnico.IdSede);
 
             }
             catch (Exception ex)
@@ -159,6 +159,25 @@ namespace SDC.DAL.Metodos
             }
             return listaTecnicoCod;
 
+        }
+        public List<DAL.Sede> ListaSede()
+        {
+            List<DAL.Sede> lista = new List<DAL.Sede>();
+
+            try
+            {
+
+                _db.Open();
+                lista = conexion.Sedes.ToList();
+                _db.Close();
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.Write(ex);
+            }
+            return lista;
         }
 
     }

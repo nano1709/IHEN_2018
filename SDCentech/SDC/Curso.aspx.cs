@@ -85,10 +85,12 @@ namespace SDC
                 var Met = (item.Metodologia).Replace(" ", "Ơ").Replace("-", "ƶ");
                 var Nom = (item.NombreCurso).Replace(" ", "Ơ").Replace("-", "ƶ");
                 var Obj = (item.ObjetivoCurso).Replace(" ", "Ơ").Replace("-", "ƶ");
+                var Sed = item.IdSede;
+
 
 
                 var datos = Cer + "ὣ" + Cod + "ὣ" + Dur + "ὣ" + Inv + "ὣ" +
-                    Mat + "ὣ" + Met + "ὣ" + Nom + "ὣ" + Obj;
+                    Mat + "ὣ" + Met + "ὣ" + Nom + "ὣ" + Obj + "ὣ" + Sed;
                 BLL.Seguridad seg = new BLL.Seguridad();
                 string newDatos = seg.Encriptar(datos);
 
@@ -123,7 +125,7 @@ namespace SDC
 
         protected void AddCurso_Click(object sender, EventArgs e)
         {
-            Response.Redirect("RegistroCurso.aspx");
+            Response.Redirect("RegistroCursos.aspx");
         }
 
 

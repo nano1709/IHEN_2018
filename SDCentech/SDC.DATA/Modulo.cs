@@ -7,5 +7,7 @@
         public string Duracion { get; set; }
         public int Creditos { get; set; }
         public byte Estado { get; set; }
+        public int IdSede { get; set; }
+
     }
 }

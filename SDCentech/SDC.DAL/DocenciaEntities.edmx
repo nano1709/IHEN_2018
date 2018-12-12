@@ -18,6 +18,7 @@
           <Property Name="Certificacion" Type="varchar" MaxLength="250" />
           <Property Name="Inversion" Type="varchar" MaxLength="250" />
           <Property Name="Estado" Type="bit" />
+          <Property Name="IdSede" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Docencia.dbo.CursoEstudiante' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -53,6 +54,7 @@ warning 6002: The table/view 'Docencia.dbo.CursoEstudiante' does not have a prim
           <Property Name="Distrito" Type="varchar" MaxLength="50" />
           <Property Name="DomicilioExacto" Type="varchar" MaxLength="200" />
           <Property Name="IdSede" Type="int" />
+          <Property Name="ModalidadIngreso" Type="varchar" MaxLength="50" />
           <Property Name="Estado" Type="bit" />
         </EntityType>
         <EntityType Name="eventos">
@@ -75,6 +77,7 @@ warning 6002: The table/view 'Docencia.dbo.CursoEstudiante' does not have a prim
           <Property Name="NombreModulo" Type="varchar" MaxLength="100" />
           <Property Name="Duracion" Type="varchar" MaxLength="50" />
           <Property Name="Creditos" Type="int" />
+          <Property Name="IdSede" Type="int" />
           <Property Name="Estado" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -145,6 +148,7 @@ warning 6002: The table/view 'Docencia.dbo.ModuloEstudiante' does not have a pri
           <Property Name="PracticaProf" Type="varchar" MaxLength="50" />
           <Property Name="Requisitos" Type="varchar" MaxLength="150" />
           <Property Name="Estado" Type="bit" />
+          <Property Name="IdSede" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -353,6 +357,7 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <Property Name="Inversion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Boolean" />
           <NavigationProperty Name="CursoEstudiantes" Relationship="Self.FK_Curso" FromRole="Curso" ToRole="CursoEstudiante" />
+          <Property Name="IdSede" Type="Int32" />
         </EntityType>
         <EntityType Name="Estudiante">
           <Key>
@@ -381,6 +386,7 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IdSede" Type="Int32" />
           <NavigationProperty Name="Sede1" Relationship="DocenciaModel.FK_Estudiante_Sede" FromRole="Estudiante" ToRole="Sede" />
+          <Property Name="ModalidadIngreso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Modulo">
           <Key>
@@ -393,6 +399,7 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <Property Name="Estado" Type="Boolean" />
           <NavigationProperty Name="ModuloEstudiantes" Relationship="Self.FK_Modulo" FromRole="Modulo" ToRole="ModuloEstudiante" />
           <NavigationProperty Name="ModuloProfesor" Relationship="Self.FK_ModuloP" FromRole="Modulo" ToRole="ModuloProfesor" />
+          <Property Name="IdSede" Type="Int32" />
         </EntityType>
         <EntityType Name="ModuloProfesor">
           <Key>
@@ -447,6 +454,7 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <Property Name="Requisitos" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Boolean" />
           <NavigationProperty Name="TecnicoEstudiantes" Relationship="Self.FK_Tecnico" FromRole="Tecnico" ToRole="TecnicoEstudiante" />
+          <Property Name="IdSede" Type="Int32" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -684,6 +692,7 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <EntitySetMapping Name="Cursoes">
             <EntityTypeMapping TypeName="DocenciaModel.Curso">
               <MappingFragment StoreEntitySet="Curso">
+                <ScalarProperty Name="IdSede" ColumnName="IdSede" />
                 <ScalarProperty Name="NombreCurso" ColumnName="NombreCurso" />
                 <ScalarProperty Name="CodigoCurso" ColumnName="CodigoCurso" />
                 <ScalarProperty Name="Duracion" ColumnName="Duracion" />
@@ -699,6 +708,7 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <EntitySetMapping Name="Estudiantes">
             <EntityTypeMapping TypeName="DocenciaModel.Estudiante">
               <MappingFragment StoreEntitySet="Estudiante">
+                <ScalarProperty Name="ModalidadIngreso" ColumnName="ModalidadIngreso" />
                 <ScalarProperty Name="IdSede" ColumnName="IdSede" />
                 <ScalarProperty Name="Apellido" ColumnName="Apellido" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -724,6 +734,7 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <EntitySetMapping Name="Moduloes">
             <EntityTypeMapping TypeName="DocenciaModel.Modulo">
               <MappingFragment StoreEntitySet="Modulo">
+                <ScalarProperty Name="IdSede" ColumnName="IdSede" />
                 <ScalarProperty Name="CodigoModulo" ColumnName="CodigoModulo" />
                 <ScalarProperty Name="NombreModulo" ColumnName="NombreModulo" />
                 <ScalarProperty Name="Duracion" ColumnName="Duracion" />
@@ -775,6 +786,7 @@ warning 6002: The table/view 'Docencia.dbo.TecnicoEstudiante' does not have a pr
           <EntitySetMapping Name="Tecnicoes">
             <EntityTypeMapping TypeName="DocenciaModel.Tecnico">
               <MappingFragment StoreEntitySet="Tecnico">
+                <ScalarProperty Name="IdSede" ColumnName="IdSede" />
                 <ScalarProperty Name="CodigoTecnico" ColumnName="CodigoTecnico" />
                 <ScalarProperty Name="NombreTecnico" ColumnName="NombreTecnico" />
                 <ScalarProperty Name="PerfilOcupacional" ColumnName="PerfilOcupacional" />

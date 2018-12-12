@@ -10,7 +10,7 @@
 namespace SDC {
     
     
-    public partial class RegistroCurso {
+    public partial class RegistroEventosCale {
         
         /// <summary>
         /// mensaje control.
@@ -19,6 +19,7 @@ namespace SDC {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mensaje;
         
         /// <summary>
         /// textoMensaje control.
@@ -27,7 +28,7 @@ namespace SDC {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl textoMensaje;
         
         /// <summary>
         /// mensajeError control.
@@ -36,6 +37,7 @@ namespace SDC {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mensajeError;
         
         /// <summary>
         /// textoMensajeError control.
@@ -44,6 +46,8 @@ namespace SDC {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl textoMensajeError;
+        
         /// <summary>
         /// divClientes control.
         /// </summary>
@@ -51,6 +55,7 @@ namespace SDC {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divClientes;
         
         /// <summary>
         /// lbltitulo control.
@@ -80,13 +85,13 @@ namespace SDC {
         protected global::System.Web.UI.WebControls.Label lblColor;
         
         /// <summary>
-        /// txtColor control.
+        /// ddlColor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList txtColor;
+        protected global::System.Web.UI.WebControls.DropDownList ddlColor;
         
         /// <summary>
         /// lblfechaInicio control.
@@ -125,11 +130,30 @@ namespace SDC {
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtFechaFinal;
         
         /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
+        /// txtPagWeb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPagWeb;
+        
+        /// <summary>
         /// btnGuardar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGuardar;
     }
 }

@@ -27,6 +27,7 @@ namespace SDC.DAL
         public string PracticaProf { get; set; }
         public string Requisitos { get; set; }
         public Nullable<bool> Estado { get; set; }
+        public Nullable<int> IdSede { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TecnicoEstudiante> TecnicoEstudiantes { get; set; }

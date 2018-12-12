@@ -82,6 +82,7 @@
     <Compile Include="Interfaces\IEventosCale.cs" />
     <Compile Include="Interfaces\IModulo.cs" />
     <Compile Include="Interfaces\IProfesor.cs" />
+    <Compile Include="Interfaces\ISede.cs" />
     <Compile Include="Interfaces\ITecnico.cs" />
     <Compile Include="Interfaces\IUsuario.cs" />
     <Compile Include="Metodos\MCurso.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Metodos\MEventosCale.cs" />
     <Compile Include="Metodos\MModulo.cs" />
     <Compile Include="Metodos\MProfesor.cs" />
+    <Compile Include="Metodos\MSede.cs" />
     <Compile Include="Metodos\MTecnico.cs" />
     <Compile Include="Metodos\MUsuario.cs" />
     <Compile Include="Modulo.cs">

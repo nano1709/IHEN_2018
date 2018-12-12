@@ -67,6 +67,7 @@ namespace SDC.DAL.Metodos
                 registroEvento.start = evento.start;
                 registroEvento.end = evento.end;
                 registroEvento.className = evento.className;
+                registroEvento.url = evento.url;
 
 
                 sc.eventos.Add(registroEvento);
@@ -91,6 +92,7 @@ namespace SDC.DAL.Metodos
                 actuEve.title = evento.title;
                 actuEve.start = evento.start;
                 actuEve.end = evento.end;
+                actuEve.url = evento.url;
                 actuEve.className = evento.className;
 
                 sc.SaveChanges();
@@ -142,6 +144,7 @@ namespace SDC.DAL.Metodos
                 listaIDEventos.start = Convert.ToDateTime(evento.start);
                 listaIDEventos.end = Convert.ToDateTime(evento.end);
                 listaIDEventos.className = evento.className;
+                listaIDEventos.url = evento.url;
 
 
             }

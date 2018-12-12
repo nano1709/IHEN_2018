@@ -9,6 +9,8 @@ namespace SDC.BLL.Interfaces
         void RegistroModulo(Modulo modulo);
         void ActualizarModulo(DATA.Modulo modulo);
         void EliminarModulo(DATA.Modulo modulo);
-        DATA.Modulo SeleccionarModuloPorCodigo(int codigo);
+        DATA.Modulo SeleccionarModuloPorCodigo(string codigo);
+        List<DAL.Sede> ListaSede();
+
     }
 }

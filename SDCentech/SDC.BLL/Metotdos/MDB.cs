@@ -9,6 +9,7 @@
         public DAL.Interfaces.ICurso cur;
         public DAL.Interfaces.IModulo mod;
         public DAL.Interfaces.IEventosCale eve;
+        public DAL.Interfaces.ISede sed;
 
         public MDB()
         {
@@ -19,6 +20,7 @@
             cur = new DAL.Metodos.MCurso();
             mod = new DAL.Metodos.MModulo();
             eve = new DAL.Metodos.MEventosCale();
+            sed = new DAL.Metodos.MSede();
         }
 
     }

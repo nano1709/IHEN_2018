@@ -26,53 +26,71 @@
 
         <div id="divClientes" class="form-group" runat="server" visible="true">
             <h3 style="color: #308ED5; text-align: center">Registro de Cursos</h3>
-            <div style="text-align: center;">
-                <table class="table-condensed" style="margin: 0 auto; border: thin solid #308ED5;">
 
-                    <tr>
-                        <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
-                            <asp:Label ID="lblCodigoCurso" runat="server" Text="Codigo del Curso: " ForeColor="#308ED5"></asp:Label>
-                            <asp:TextBox ID="txtCodigoCurso" runat="server" class="form-control" Width="320px"></asp:TextBox>
+            <table class="table-condensed" style="border: thin solid #308ED5; margin-right: 0px; margin-left: 10px;">
 
-                        <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
-                            <asp:Label ID="lblNombreCurso" runat="server" Text="Nombre del curso:" ForeColor="#308ED5"></asp:Label>
-                            <asp:TextBox ID="txtNombreCurso" runat="server" placeholder="Nombre del curso" class="form-control" Width="320px"></asp:TextBox>
+                <tr>
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
+                        <asp:Label ID="lblCodigoCurso" runat="server" Text="Codigo del Curso: " ForeColor="#308ED5"></asp:Label>
+                        <asp:TextBox ID="txtCodigoCurso" runat="server" class="form-control" Width="320px"></asp:TextBox>
 
-                        <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
-                            <asp:Label ID="lblDuracion" runat="server" Text="Duración del curso:" ForeColor="#308ED5"></asp:Label>
-                            <asp:TextBox ID="txtDuracion" runat="server" placeholder="Duración del curso" class="form-control" Width="320px"></asp:TextBox>
-                    </tr>
-                    <tr>
-                        <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
-                            <asp:Label ID="lblObjetivoCurso" runat="server" Text="Objetivo del Curso: " ForeColor="#308ED5"></asp:Label>
-                            <asp:TextBox ID="txtObjetivoCurso" runat="server" placeholder="Objetivo del curso" class="form-control" Width="320px"></asp:TextBox>
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
+                        <asp:Label ID="lblNombreCurso" runat="server" Text="Nombre del curso:" ForeColor="#308ED5"></asp:Label>
+                        <asp:TextBox ID="txtNombreCurso" runat="server" placeholder="Nombre del curso" class="form-control" Width="320px"></asp:TextBox>
 
-                        <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
-                            <asp:Label ID="lblMaterial" runat="server" Text="Material Didactico: " ForeColor="#308ED5"></asp:Label>
-                            <asp:TextBox ID="txtMaterial" runat="server" placeholder="Material Didactico" class="form-control" Width="320px"></asp:TextBox>
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
+                        <asp:Label ID="lblDuracion" runat="server" Text="Duración del curso:" ForeColor="#308ED5"></asp:Label>
+                        <asp:TextBox ID="txtDuracion" runat="server" placeholder="Duración del curso" class="form-control" Width="320px"></asp:TextBox>
+                </tr>
+                <tr>
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
+                        <asp:Label ID="lblObjetivoCurso" runat="server" Text="Objetivo del Curso: " ForeColor="#308ED5"></asp:Label>
+                        <asp:TextBox ID="txtObjetivoCurso" runat="server" placeholder="Objetivo del curso" class="form-control" Width="320px"></asp:TextBox>
 
-
-                        <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
-                            <asp:Label ID="lblCertificacion" runat="server" Text="Certificación: " ForeColor="#308ED5"></asp:Label>
-                            <asp:TextBox ID="txtCertificacion" runat="server" placeholder="Certificación" class="form-control" Width="320px"></asp:TextBox>
-                    </tr>
-                    <tr>
-
-                        <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
-                            <asp:Label ID="lblInversion" runat="server" Text="Inversion: " ForeColor="#308ED5"></asp:Label>
-                            <asp:TextBox ID="txtInversion" runat="server" placeholder="Inversión" class="form-control" Width="320px"></asp:TextBox>
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
+                        <asp:Label ID="lblMaterial" runat="server" Text="Material Didactico: " ForeColor="#308ED5"></asp:Label>
+                        <asp:TextBox ID="txtMaterial" runat="server" placeholder="Material Didactico" class="form-control" Width="320px"></asp:TextBox>
 
 
-                        <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
-                            <asp:Label ID="lblMetodologia" runat="server" Text="Metodología: " ForeColor="#308ED5"></asp:Label>
-                            <asp:TextBox ID="txtMetodologia" runat="server" placeholder="Metodología" class="form-control" Width="320px"></asp:TextBox>
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
+                        <asp:Label ID="lblCertificacion" runat="server" Text="Certificación: " ForeColor="#308ED5"></asp:Label>
+                        <asp:TextBox ID="txtCertificacion" runat="server" placeholder="Certificación" class="form-control" Width="320px"></asp:TextBox>
+                </tr>
+                <tr>
 
-                        <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
-                    </tr>
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
+                        <asp:Label ID="lblInversion" runat="server" Text="Inversion: " ForeColor="#308ED5"></asp:Label>
+                        <asp:TextBox ID="txtInversion" runat="server" placeholder="Inversión" class="form-control" Width="320px"></asp:TextBox>
 
-                </table>
 
-            </div>
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
+                        <asp:Label ID="lblMetodologia" runat="server" Text="Metodología: " ForeColor="#308ED5"></asp:Label>
+                        <asp:TextBox ID="txtMetodologia" runat="server" placeholder="Metodología" class="form-control" Width="320px"></asp:TextBox>
+
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
+                </tr>
+
+            </table>
+
+            <br />
+            <h5 style="color: #308ED5">Datos Sede</h5>
+            <table class="table-condensed" style="border: thin solid #308ED5; margin-right: 0px; margin-left: 10px;">
+
+                <tr>
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
+                        <asp:Label ID="Label9" runat="server" Text="Id Sede: " ForeColor="#308ED5"></asp:Label>
+                        <asp:DropDownList ID="ddlSede" runat="server" placeholder="Sede" class="form-control" Width="320px"></asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
+                            ControlToValidate="ddlSede"
+                            ErrorMessage="Verificar"
+                            ForeColor="Red">
+                        </asp:RequiredFieldValidator>
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;"></td>
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;"></td>
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;"></td>
+                </tr>
+            </table>
+
             <br />
             <br />
             <div class="col-lg-12 text-center">

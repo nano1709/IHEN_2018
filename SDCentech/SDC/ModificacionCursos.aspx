@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario.Master" AutoEventWireup="true" CodeBehind="ModificacionCurso.aspx.cs" Inherits="SDC.ModificacionCurso" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario.Master" AutoEventWireup="true" CodeBehind="ModificacionCursos.aspx.cs" Inherits="SDC.ModificacionCurso" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
@@ -70,6 +70,25 @@
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                 </tr>
 
+            </table>
+
+            <br />
+            <h5 style="color: #308ED5">Datos Sede</h5>
+            <table class="table-condensed" style="border: thin solid #308ED5; margin-right: 0px; margin-left: 10px;">
+
+                <tr>
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
+                        <asp:Label ID="Label9" runat="server" Text="Id Sede: " ForeColor="#308ED5"></asp:Label>
+                        <asp:DropDownList ID="ddlSede" runat="server" placeholder="Sede" class="form-control" Width="320px"></asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
+                            ControlToValidate="ddlSede"
+                            ErrorMessage="Verificar"
+                            ForeColor="Red">
+                        </asp:RequiredFieldValidator>
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;"></td>
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;"></td>
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;"></td>
+                </tr>
             </table>
 
             <br />

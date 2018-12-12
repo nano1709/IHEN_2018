@@ -55,17 +55,18 @@ namespace SDC
             string distrito = txtDistrito.Text;
             string domexacto = txtDomicilio.Text;
             int idSede = Convert.ToInt32(ddlSede.SelectedIndex);
+            string ModIngreso = txtModIngreso.Text;
 
 
             GuardarEstudiante(cedula, nombre, apellido, fechaIngreso, carrera, fechaNacimiento, edad, genero, telMovil, telDomicilio, correo,
-                            refPersonal, telReferencia, provincia, canton, distrito, domexacto, idSede);
+                            refPersonal, telReferencia, provincia, canton, distrito, domexacto, idSede, ModIngreso);
             Response.Redirect("Estudiante.aspx?exito=" + 2 + "&nombreEstuAgre=" + nombre + " " + apellido);
         }
 
         protected void GuardarEstudiante(int cedula, string nombre, string apellido, string fechaIngreso, string carreraTecnica,
                         string fechaNacimiento, int edad, string genero, string telMovil, string teleDomicilio,
                         string correoElectronico, string refePersonal, string teleReferencia, string provincia,
-                        string canton, string distrito, string domiExacto, int idSede)
+                        string canton, string distrito, string domiExacto, int idSede, string modIngreso)
         {
             try
             {
@@ -89,7 +90,9 @@ namespace SDC
                     Distrito = distrito,
                     DomicilioExacto = domiExacto,
                     IdSede = idSede,
-                    Estado = 1
+                    ModalidadIngreso = modIngreso,
+                    Estado = 1,
+
                 };
 
                 estu.RegistroEstudiante(estudiante);

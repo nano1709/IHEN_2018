@@ -20,12 +20,18 @@ namespace SDC
         {
 
             string er = Convert.ToString(Session["ErrorRC"]);
-
+            var sedes = cur.ListaSede();
 
             if (er != "")
             {
                 error = "RC";
             }
+
+            foreach (var item in sedes)
+            {
+                ddlSede.Items.Insert(Convert.ToInt32(item.IdSede), item.NombreSede.ToString());
+            }
+            ddlSede.DataBind();
 
         }
 
@@ -41,6 +47,8 @@ namespace SDC
             var metodologia = txtMetodologia.Text;
             var NombreCurso = txtNombreCurso.Text;
             var ObjetivoCurso = txtObjetivoCurso.Text;
+            int idSede = Convert.ToInt32(ddlSede.SelectedIndex);
+
 
 
 
@@ -65,10 +73,8 @@ namespace SDC
                         MaterialDidactico = material,
                         Metodologia = metodologia,
                         NombreCurso = NombreCurso,
-                        ObjetivoCurso = ObjetivoCurso
-
-
-
+                        ObjetivoCurso = ObjetivoCurso,
+                        IdSede = idSede
 
                     };
 

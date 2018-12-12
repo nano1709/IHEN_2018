@@ -39,6 +39,8 @@ namespace SDC
             string canton = Request.QueryString["Canton"];
             string distrito = Request.QueryString["distrito"];
             string domicilioExacto = Request.QueryString["DomicilioExacto"];
+            string ModIngreso = Request.QueryString["ModIngreso"];
+
 
             string deleteid = Request.QueryString["deleteid"];
             string editid = Request.QueryString["editid"];
@@ -103,7 +105,8 @@ namespace SDC
                 x.Canton,
                 x.Distrito,
                 x.DomicilioExacto,
-                x.IdSede
+                x.IdSede,
+                x.ModalidadIngreso
             }).ToList();
 
             var listaSedes = estu.ListaSede();
@@ -136,7 +139,7 @@ namespace SDC
                 sb.Append(item.TelefonoMovil);
                 sb.Append("</TD>");
                 sb.Append("<TD>");
-                sb.Append(item.CorreoElectronico);
+                sb.Append(item.ModalidadIngreso);
                 sb.Append("</TD>");
                 sb.Append("<TD>");
                 foreach (var item2 in listaS)
@@ -158,7 +161,7 @@ namespace SDC
                     + item.FechaNacimiento + "§" + item.Genero + "§" + item.TelefonoMovil + "§"
                     + item.TelefonoDomicilio + "§" + item.CorreoElectronico + "§" + item.ReferenciaPersonal + "§"
                     + item.TelefonoReferencia + "§" + item.Provincia + "§" + item.Canton + "§" + item.Distrito + "§"
-                    + item.DomicilioExacto + "§" + item.Edad + "§" + item.IdSede;
+                    + item.DomicilioExacto + "§" + item.Edad + "§" + item.IdSede + "§" + item.ModalidadIngreso;
 
                 string newDatos = seg.Encriptar(datos);
                 sb.Append("<button class='btn btn-info editar' type='button' value='" + newDatos + "'>Ver</button>");

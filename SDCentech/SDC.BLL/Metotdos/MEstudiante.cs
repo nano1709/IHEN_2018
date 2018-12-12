@@ -13,7 +13,7 @@ namespace SDC.BLL.Metodos
     {
         public List<DAL.Sede> ListaSede()
         {
-            return estu.ListaSede();
+            return sed.ListaSede();
         }
 
         public List<DAL.Estudiante> ListaEstudiante()

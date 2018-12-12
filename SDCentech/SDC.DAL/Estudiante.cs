@@ -41,6 +41,7 @@ namespace SDC.DAL
         public Nullable<bool> Estado { get; set; }
         public string Apellido { get; set; }
         public Nullable<int> IdSede { get; set; }
+        public string ModalidadIngreso { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CursoEstudiante> CursoEstudiantes { get; set; }

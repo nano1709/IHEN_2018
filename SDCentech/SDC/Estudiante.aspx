@@ -69,7 +69,7 @@
                                     <th>Carrera</th>
                                     <th>Fecha Ingreso</th>
                                     <th>Telefono</th>
-                                    <th>Correo Electronico</th>
+                                    <th>Modalidad Ingreso</th>
                                     <th>Sede</th>
                                     <th></th>
                                     <th></th>

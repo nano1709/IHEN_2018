@@ -6,6 +6,12 @@ namespace SDC.BLL.Metodos
 {
     public class MModulo : MDB, IModulo
     {
+
+        public List<DAL.Sede> ListaSede()
+        {
+            return sed.ListaSede();
+        }
+
         public List<DAL.Modulo> ListaModulo()
         {
             return mod.ListaModulo();
@@ -25,7 +31,7 @@ namespace SDC.BLL.Metodos
             mod.ActualizarModulo(modulo);
         }
 
-        public Modulo SeleccionarModuloPorCodigo(int codigo)
+        public Modulo SeleccionarModuloPorCodigo(string codigo)
         {
             return mod.SeleccionarModuloPorCodigo(codigo);
         }

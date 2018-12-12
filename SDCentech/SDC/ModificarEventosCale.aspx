@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario.Master" AutoEventWireup="true" CodeBehind="RegistroEventosCale.aspx.cs" Inherits="SDC.RegistroEventosCale" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario.Master" AutoEventWireup="true" CodeBehind="ModificarEventosCale.aspx.cs" Inherits="SDC.ModificarEventosCale" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
@@ -33,6 +33,10 @@
 
                     <tr>
                         <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
+                            <asp:Label ID="Label1" runat="server" Text="Id: " ForeColor="#308ED5"></asp:Label>
+                            <asp:TextBox ID="txtId" runat="server" class="form-control" Width="300px" Height="42px" ReadOnly="true"></asp:TextBox>
+
+                        <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
                             <asp:Label ID="lbltitulo" runat="server" Text="Titulo: " ForeColor="#308ED5"></asp:Label>
                             <asp:TextBox ID="txtTitulo" runat="server" class="form-control" Width="300px" Height="42px"></asp:TextBox>
 
@@ -43,7 +47,6 @@
                                 <asp:ListItem>Anaranjado</asp:ListItem>
                                 <asp:ListItem>Verde</asp:ListItem>
                             </asp:DropDownList>
-                        <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;"></td>
                     </tr>
                     <tr>
                         <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
@@ -65,8 +68,8 @@
             <br />
             <br />
             <div class="col-lg-12 text-center">
-                <asp:Button ID="btnGuardar" runat="server" Text="Agregar" class="btn btn-form"
-                    Width="130px" BorderStyle="None" Font-Bold="False" Font-Italic="False" CssClass="btn-success" ForeColor="White" Height="38px" OnClick="btnGuardar_Click" />
+                <asp:Button ID="btnGuardar" runat="server" Text="Modificar" class="btn btn-form"
+                    Width="130px" BorderStyle="None" Font-Bold="False" Font-Italic="False" CssClass="btn-success" ForeColor="White" Height="38px" OnClick="btnModificar_Click" />
             </div>
 
         </div>
@@ -79,3 +82,4 @@
     <script src="Scripts/sweetalert.min.js"></script>
 
 </asp:Content>
+

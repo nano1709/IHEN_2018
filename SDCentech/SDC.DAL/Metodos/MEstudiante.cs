@@ -34,25 +34,6 @@ namespace SDC.DAL.Metodos
             }
         }
 
-        public List<DAL.Sede> ListaSede()
-        {
-            List<DAL.Sede> lista = new List<DAL.Sede>();
-
-            try
-            {
-
-                _db.Open();
-                lista = conexion.Sedes.ToList();
-                _db.Close();
-
-            }
-            catch (Exception ex)
-            {
-
-                Console.Write(ex);
-            }
-            return lista;
-        }
 
 
         public List<DAL.Estudiante> ListaEstudiante()
@@ -99,6 +80,7 @@ namespace SDC.DAL.Metodos
                 registroEstu.Canton = estudiante.Canton;
                 registroEstu.Distrito = estudiante.Distrito;
                 registroEstu.DomicilioExacto = estudiante.DomicilioExacto;
+                registroEstu.ModalidadIngreso = estudiante.ModalidadIngreso;
                 registroEstu.IdSede = estudiante.IdSede;
 
                 registroEstu.Estado = Convert.ToBoolean(estudiante.Estado);
@@ -139,6 +121,7 @@ namespace SDC.DAL.Metodos
                 actuEstu.Canton = estudiante.Canton;
                 actuEstu.Distrito = estudiante.Distrito;
                 actuEstu.DomicilioExacto = estudiante.DomicilioExacto;
+                actuEstu.ModalidadIngreso = estudiante.ModalidadIngreso;
                 actuEstu.IdSede = estudiante.IdSede;
 
                 actuEstu.Estado = actuEstu.Estado;
@@ -203,6 +186,7 @@ namespace SDC.DAL.Metodos
                 listaCedulaEstu.Distrito = estudiante.Distrito;
                 listaCedulaEstu.DomicilioExacto = estudiante.DomicilioExacto;
                 listaCedulaEstu.IdSede = Convert.ToInt32(estudiante.IdSede);
+                listaCedulaEstu.ModalidadIngreso = estudiante.ModalidadIngreso;
                 listaCedulaEstu.Estado = Convert.ToByte(estudiante.Estado);
             }
             catch (Exception ex)

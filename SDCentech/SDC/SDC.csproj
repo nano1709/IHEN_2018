@@ -206,7 +206,9 @@
     <Content Include="Login.aspx" />
     <Content Include="Menu.aspx" />
     <Content Include="ModificacionCursos.aspx" />
+    <Content Include="ModificacionModulo.aspx" />
     <Content Include="ModificarEstudiante.aspx" />
+    <Content Include="ModificarEventosCale.aspx" />
     <Content Include="ModificarProfesor.aspx" />
     <Content Include="ModificarTecnico.aspx" />
     <Content Include="Error.aspx" />
@@ -217,6 +219,7 @@
     <Content Include="RegistroEventosCale.aspx" />
     <Content Include="RegistroModulo.aspx" />
     <Content Include="RegistroTecnicos.aspx" />
+    <Content Include="RegistroUsuarios.aspx" />
     <Content Include="Scripts\fullcalendar.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="css\glyphicons-halflings-regular.eot" />
@@ -295,6 +298,7 @@
     <None Include="Scripts\_references.js" />
     <Content Include="Site.Master" />
     <Content Include="Tecnico.aspx" />
+    <Content Include="Usuarios.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -397,12 +401,26 @@
     <Compile Include="ModificacionCursos.aspx.designer.cs">
       <DependentUpon>ModificacionCursos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ModificacionModulo.aspx.cs">
+      <DependentUpon>ModificacionModulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificacionModulo.aspx.designer.cs">
+      <DependentUpon>ModificacionModulo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ModificarEstudiante.aspx.cs">
       <DependentUpon>ModificarEstudiante.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ModificarEstudiante.aspx.designer.cs">
       <DependentUpon>ModificarEstudiante.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarEventosCale.aspx.cs">
+      <DependentUpon>ModificarEventosCale.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarEventosCale.aspx.designer.cs">
+      <DependentUpon>ModificarEventosCale.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModificarProfesor.aspx.cs">
       <DependentUpon>ModificarProfesor.aspx</DependentUpon>
@@ -496,6 +514,13 @@
     <Compile Include="RegistroTecnicos.aspx.designer.cs">
       <DependentUpon>RegistroTecnicos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RegistroUsuarios.aspx.cs">
+      <DependentUpon>RegistroUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroUsuarios.aspx.designer.cs">
+      <DependentUpon>RegistroUsuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -517,6 +542,13 @@
     <Compile Include="Tecnico.aspx.designer.cs">
       <DependentUpon>Tecnico.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Usuarios.aspx.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuarios.aspx.designer.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -527,6 +559,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="BLL\Metodos\" />
     <Folder Include="PaginaError\" />
   </ItemGroup>
   <ItemGroup>

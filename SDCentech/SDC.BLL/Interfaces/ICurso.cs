@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SDC.BLL.Interfaces
 {
@@ -13,5 +10,6 @@ namespace SDC.BLL.Interfaces
         void ActualizarCurso(DATA.Curso curso);
         void EliminarCursp(DATA.Curso curso);
         DATA.Curso SeleccionarCursoId(String Id);
+        List<DAL.Sede> ListaSede();
     }
 }

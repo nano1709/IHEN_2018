@@ -418,6 +418,24 @@ namespace SDC {
         protected global::System.Web.UI.WebControls.TextBox txtTelReferencia;
         
         /// <summary>
+        /// lblModIngreso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblModIngreso;
+        
+        /// <summary>
+        /// txtModIngreso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtModIngreso;
+        
+        /// <summary>
         /// Label12 control.
         /// </summary>
         /// <remarks>

@@ -8,6 +8,6 @@ namespace SDC.DAL.Interfaces
         void RegistroModulo(DATA.Modulo modulo);
         void ActualizarModulo(DATA.Modulo modulo);
         void EliminarModulo(DATA.Modulo modulo);
-        DATA.Modulo SeleccionarModuloPorCodigo(int codigo);
+        DATA.Modulo SeleccionarModuloPorCodigo(string codigo);
     }
 }

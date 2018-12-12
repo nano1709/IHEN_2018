@@ -1,4 +1,6 @@
-﻿using SDC.BLL.Interfaces;
+﻿using SDC.BLL.Interface;
+using SDC.DAL;
+using System.Collections.Generic;
 
 namespace SDC.BLL.Metodos
 {
@@ -22,6 +24,11 @@ namespace SDC.BLL.Metodos
         public void UpdateUser(DATA.Usuarios user)
         {
             usu.UpdateUser(user);
+        }
+
+        public List<Usuario> ListUser()
+        {
+            return usu.ListUser();
         }
     }
 }

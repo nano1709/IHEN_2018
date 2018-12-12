@@ -46,7 +46,7 @@ namespace SDC
 
             foreach (var item in lista)
             {
-                sb.Append("{title: '" + item.title + "', start: '" + item.start + "', url: '" + item.url + "', className: '" + item.className + "'},");
+                sb.Append("{title: '" + item.title + "', start: '" + item.start + "', end: '" + item.end + "', url: '" + item.url + "', className: '" + item.className + "'},");
                 Eventos = sb.ToString();
             }
 

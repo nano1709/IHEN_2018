@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SDC.BLL.Interfaces;
+﻿using SDC.BLL.Interfaces;
 using SDC.BLL.Metodos;
-using SDC.DAL;
-using SDC.DATA;
+using System.Collections.Generic;
 
 namespace SDC.BLL.Metotdos
 {
     public class MCurso : MDB, ICurso
     {
+        public List<DAL.Sede> ListaSede()
+        {
+            return sed.ListaSede();
+        }
+
         public void ActualizarCurso(DATA.Curso curso)
         {
             cur.ActualizarCurso(curso);

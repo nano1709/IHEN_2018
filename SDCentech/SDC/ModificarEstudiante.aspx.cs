@@ -47,6 +47,7 @@ namespace SDC
                 string canton = lista[14];
                 string domicilioExacto = lista[15];
                 string idSede = lista[17];
+                string ModIngreso = lista[18];
 
                 var tecnicos = tec.ListaTecnico();
                 var sedes = estu.ListaSede();
@@ -82,6 +83,7 @@ namespace SDC
                     txtCanton.Text = canton;
                     txtDistrito.Text = distrito;
                     txtDomicilio.Text = domicilioExacto;
+                    txtModIngreso.Text = ModIngreso;
 
                     foreach (var item in estu.ListaEstudiante().Where(x => x.Cedula == Convert.ToInt32(cedula)))
                     {
@@ -123,16 +125,17 @@ namespace SDC
             string distrito = txtDistrito.Text;
             string domexacto = txtDomicilio.Text;
             int idSede = Convert.ToInt32(ddlSede.SelectedIndex);
+            string modIngreso = txtModIngreso.Text;
 
             EditarEstudiante(cedula, nombre, apellido, fechaIngreso, carrera, fechaNacimiento, edad, genero, telMovil, telDomicilio, correo,
-                            refPersonal, telReferencia, provincia, canton, distrito, domexacto, idSede);
+                            refPersonal, telReferencia, provincia, canton, distrito, domexacto, idSede, modIngreso);
             Response.Redirect("Estudiante.aspx?exito=" + 1 + "&nombreEstuModi=" + nombre + " " + apellido);
         }
 
         protected void EditarEstudiante(int cedula, string nombre, string apellido, string fechaIngreso, string carreraTecnica,
                         string fechaNacimiento, int edad, string genero, string telMovil, string teleDomicilio,
                         string correoElectronico, string refePersonal, string teleReferencia, string provincia,
-                        string canton, string distrito, string domiExacto, int idSede)
+                        string canton, string distrito, string domiExacto, int idSede, string modIngreso)
         {
             try
             {
@@ -156,6 +159,7 @@ namespace SDC
                 select.Distrito = distrito;
                 select.DomicilioExacto = domiExacto;
                 select.IdSede = idSede;
+                select.ModalidadIngreso = modIngreso;
 
                 estu.ActualizarEstudiante(select);
             }

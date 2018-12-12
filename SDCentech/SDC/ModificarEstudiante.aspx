@@ -154,6 +154,8 @@
                         <asp:TextBox ID="txtTelReferencia" runat="server" TextMode="Number" placeholder="Teléfono Referencia" class="form-control" Width="320px"></asp:TextBox>
 
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
+                        <asp:Label ID="lblModIngreso" runat="server" Text="Modalida Ingreso del Estudiante: " ForeColor="#308ED5"></asp:Label>
+                        <asp:TextBox ID="txtModIngreso" runat="server" placeholder="Modalidad Ingreso" class="form-control" Width="320px"></asp:TextBox>
                 </tr>
             </table>
             <br />
@@ -170,7 +172,7 @@
                             ForeColor="Red">
                         </asp:RequiredFieldValidator>
 
-                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;"></td>
+                    <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;">
 
                     <td style="margin: 10px 9px 7px 9px; padding: 10px 9px 7px 9px;"></td>
 

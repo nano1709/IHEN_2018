@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SDC.DATA
+﻿namespace SDC.DATA
 {
     public class Tecnico
     {
@@ -15,6 +9,8 @@ namespace SDC.DATA
         public string PracticaProf { get; set; }
         public string Requisitos { get; set; }
         public byte Estado { get; set; }
+        public int IdSede { get; set; }
+
     }
 }
 

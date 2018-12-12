@@ -4,19 +4,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
-        .azul {
+        .Azul {
             background-color: steelblue;
             color: white;
             font-size: large;
         }
 
-        .verde {
+        .Verde {
             background-color: greenyellow;
             color: white;
             font-size: large;
         }
 
-        .naranja {
+        .Anaranjado {
             background-color: coral;
             color: white;
             font-size: large;
@@ -38,20 +38,11 @@
 
     <script>
 
-        //alert(myName);
         $(document).ready(function () {
 
             $('#calendar').fullCalendar({
                 events: [
-                    //{
-                    //    title: "Primer Evento",
-                    //    start: "2018-11-24",
-                    //    end: "2018-11-17 24:00:00",
-                    //    url: "http://google.com",
-                    //    className: "Disponible",
-                    //    editable: true
 
-                    //},
 
                     <%= Eventos %>
 

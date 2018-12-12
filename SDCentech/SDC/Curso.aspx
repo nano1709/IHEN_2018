@@ -128,7 +128,7 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "ModificacionCurso.aspx?dat=" + datos,
+                    url: "ModificacionCursos.aspx?dat=" + datos,
                     data: "",
                     dataType: "html",
                     success: function (msg) {

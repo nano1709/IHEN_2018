@@ -13,13 +13,13 @@ namespace SDC {
     public partial class Login1 {
         
         /// <summary>
-        /// h1id control.
+        /// lblUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl h1id;
+        protected global::System.Web.UI.WebControls.Label lblUser;
         
         /// <summary>
         /// txtUser control.
@@ -29,6 +29,15 @@ namespace SDC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUser;
+        
+        /// <summary>
+        /// lblContra control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblContra;
         
         /// <summary>
         /// txtPass control.

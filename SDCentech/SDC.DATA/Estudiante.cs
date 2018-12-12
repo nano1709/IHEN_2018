@@ -21,5 +21,6 @@
         public string DomicilioExacto { get; set; }
         public int IdSede { get; set; }
         public byte Estado { get; set; }
+        public string ModalidadIngreso { get; set; }
     }
 }

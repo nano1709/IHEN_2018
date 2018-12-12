@@ -1,6 +1,5 @@
 ﻿using SDC.DAL.Interface;
 using SDC.DAL.Interfaces;
-using SDC.DATA;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,6 +53,7 @@ namespace SDC.DAL.Metodos
                 actCur.CodigoCurso = curso.CodigoCurso;
                 actCur.NombreCurso = curso.NombreCurso;
                 actCur.ObjetivoCurso = curso.ObjetivoCurso;
+                actCur.IdSede = curso.IdSede;
 
 
                 sc.SaveChanges();
@@ -127,6 +127,7 @@ namespace SDC.DAL.Metodos
                 registroCur.Metodologia = curso.Metodologia;
                 registroCur.ObjetivoCurso = curso.ObjetivoCurso;
                 registroCur.NombreCurso = curso.NombreCurso;
+                registroCur.IdSede = curso.IdSede;
 
                 sc.Cursoes.Add(registroCur);
                 sc.SaveChanges();
@@ -161,6 +162,7 @@ namespace SDC.DAL.Metodos
                 DatCurso.Metodologia = curso.Metodologia;
                 DatCurso.NombreCurso = curso.NombreCurso;
                 DatCurso.ObjetivoCurso = curso.ObjetivoCurso;
+                DatCurso.IdSede = Convert.ToInt32(curso.IdSede);
 
                 sc.Database.Connection.Close();
 
